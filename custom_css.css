@@ -1,0 +1,58 @@
+tw-story {
+  /* The following changes the text */
+  color: rgb(67, 67, 67); /* Set text to green or other color */
+  font-size: 20px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  background: rgb(222, 222, 222); /* For old browsers */
+  margin-top: 0 auto;
+  padding: 0% 1%;
+
+}
+
+
+/* This is a Button */
+tw-link.enchantment-button,
+.enchantment-button:not(.link) tw-link,
+.enchantment-button:not(.link) .link,
+.link.enchantment-button {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  transition: color 0.5s ease-in-out;
+  display: block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+/* this is a link */
+tw-link :hover,
+.enchantment-link :hover{
+  color: black;
+}
+
+img {
+  /* Images won't get wider than tw-passage container */
+  max-width: 100%;
+}
+
+tw-hook{
+  padding: 0.1em
+}
+
+tw-hook:hover{
+
+  color: black;
+
+}
