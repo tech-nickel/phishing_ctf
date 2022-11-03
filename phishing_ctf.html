@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="font-family: sans-serif;">
 
 <head>
   <meta charset="utf-8" />
@@ -18,38 +18,65 @@
     ifid="EB6013FC-F6F4-4C65-9787-7F598FE0A7BC" options="" tags="" zoom="1" hidden>
     <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style>
     <script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-    <tw-passagedata pid="1" name="Email Postfach" tags="">
-      #Du kriegst eine Email vom Mykrosoft support
+    <tw-passagedata pid="1" name="Welcome" tags="">
+      # Willkommen
       <hr>
+      Es ist ein lauer Sommermorgen und du sitzt vor deinem PC im Büro. 
+      Die Vögel zwitschern und es weht ein laues Lüftchen durch das offene Fenster neben dir.
+      Dein Arbeitstag beginnt entspannt mit ein paar Emails.
+
+
+      (button:"=X=")[[Email Postfach]]
+      (set: $unread to 3)
+
+    </tw-passagedata>
+    <tw-passagedata pid="2" name="Email Postfach" tags="">
+      <!-- (enchant: ?1's chars, via (t8n-delay:pos * 30) + (t8n:'instant')) -->
+      #Your Emails
+      <hr>
+      Unread: $unread
+      (click: "Urgent")[(set: $unread to it - 1)]
       ==>
       [[<span class="material-symbols-outlined">delete</span>->Delete]] 
       <==
-      (change:?passage, (text-size:0.6))
       |==
-      <div style="border-style: solid; background-color: grey;">''Urgent''</div>
-      <div style="border-style: solid; background-color: black;">''Project1''</div>
-      <div style="border-style: solid; background-color: black;">''Project2''</div>
+      (box:"X")[''[(link-rerun:"Urgent")[(show:?1)(hide:?2)(hide:?3)]]'']\
+      (box:"X")[''[(link-rerun:"Project2")[(hide:?1)(show:?2)(hide:?3)]]'']\
+      (box:"X")[''[(link-rerun:"Project1")[(hide:?1)(hide:?2)(show:?3)]]'']
+      [[...->Link]] 
+      [[More Infos]]
+      
       ==|||
+      (change:?passage, (text-size:0.6))
+
+      |1)[
       ### Urgent action required!!! Virus attack!!
       From: Mycrosoft (microsoft-virus-support@[[mykrosoft.ru->Quellcode]])
       To: You
-      If you dont answer this, your Computer will be encrypted in 10..9..8..
+      If you dont answer this, your Computer will be encrypted in 10..9..8..]
+      |2)[
+      ### Simple Email from your colleague
+      From: Colleague1
+      To: You
+      I dont like you!]
+      |3)[
+      ### Second simple Email from your colleague
+      From: Colleague1
+      To: You
+      That wasnt to you, sorry!]
       |==|
-
-      [[...->Link]] 
-      [[More Infos]]
-
+      
     </tw-passagedata>
-    <tw-passagedata pid="2" name="Delete" tags="">Du löscht die Email
+    <tw-passagedata pid="200" name="Delete" tags="">Du löscht die Email
       (set: $name to (prompt: [Your name, please:], "Frances Spayne", "Don't care", "Confirm"))
       (print: $name + "s")
       [[Email Postfach]]
     </tw-passagedata>
-    <tw-passagedata pid="3" name="Quellcode" tags="">Du schaust den Quellcode an
+    <tw-passagedata pid="201" name="Quellcode" tags="">Du schaust den Quellcode an
       (print: $name + "s")
     </tw-passagedata>
-    <tw-passagedata pid="4" name="Link" tags="">Du klickst den Link an</tw-passagedata>
-    <tw-passagedata pid="5" name="More Infos" tags="">Du klickst auf &quot;mehr Infos..&quot; in der Email</tw-passagedata>
+    <tw-passagedata pid="202" name="Link" tags="">Du klickst den Link an</tw-passagedata>
+    <tw-passagedata pid="203" name="More Infos" tags="">Du klickst auf &quot;mehr Infos..&quot; in der Email</tw-passagedata>
   </tw-storydata>
   <script title="Twine engine code" data-main="harlowe" src="script.js"></script>
 </body>
