@@ -1,12 +1,11 @@
 tw-story {
-  /* The following changes the text */
   color: rgb(67, 67, 67); /* Set text to green or other color */
   font-size: 20px;
   font-family: "Helvetica", "Arial", sans-serif;
   background: rgb(222, 222, 222); /* For old browsers */
   margin-top: 0 auto;
-  padding: 0% 1%;
-
+  padding: 0% 0%;
+  overflow: hidden !important;
 }
 
 
@@ -34,11 +33,20 @@ tw-link.enchantment-button,
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125);
+  cursor:pointer;
 }
 
 /* this is a link */
 tw-link :hover,
 .enchantment-link :hover{
+  color: black;
+}
+
+tw-link , .enchantment-link{
+  color: black
+}
+
+tw-link.visited{
   color: black;
 }
 
@@ -48,11 +56,22 @@ img {
 }
 
 tw-hook{
-  padding: 0.1em
+  padding: 0em !important;
+  background-attachment: scroll !important;
 }
 
 tw-hook:hover{
-
   color: black;
+}
 
+tw-column {
+  margin: 0 auto !important;
+}
+
+tw-align{
+  max-width: 100% !important;
+}
+
+tw-expression{
+  cursor: auto
 }
