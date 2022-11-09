@@ -1,18 +1,115 @@
 
 :: Email Postfach
 \
-        (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))\
-        (set: $emailbodies to (a:"Inbox", "Starred", "Important", "Sent", "Draft"))\
-        (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))\
-        (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))\
-        (set: $emailbodies to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
-        "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
-        "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
-        "Pellentesque habitant morbi tristique senectus et.", 
-        "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))\
-        (set: $unread_mails to 1)\
-        (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))\
-        (set: $spamheader to "This is an email")\
-        (set: $spambody to "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean sed adipiscing diam donec adipiscing. Netus et malesuada fames ac turpis. Nulla malesuada pellentesque elit eget gravida cum. Nisl pretium fusce id velit ut tortor. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Id diam vel quam elementum pulvinar etiam non quam lacus. Sit amet venenatis urna cursus. Quam quisque id diam vel. Urna duis convallis convallis tellus id interdum velit laoreet. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Leo urna molestie at elementum eu facilisis. Sit amet porttitor eget dolor morbi. Tellus orci ac auctor augue mauris augue neque gravida in. Nullam eget felis eget nunc lobortis. Dignissim enim sit amet venenatis urna cursus eget. In ornare quam viverra orci sagittis eu volutpat. Purus non enim praesent elementum facilisis leo. Dui accumsan sit amet nulla facilisi. Mattis nunc sed blandit libero volutpat.")\
-        =|
+       (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))\
+      (set: $emailbodies to (a:"Inbox", "Starred", "Important", "Sent", "Draft"))\
+      (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))\
+      (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))\
+      (set: $emailbodies to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
+      "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
+      "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
+      "Pellentesque habitant morbi tristique senectus et.", 
+      "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))\
+      (set: $unread_mails to 1)\
+      (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))\
+      (set: $spamheader to "This is an email")\
+      (set: $spambody to "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean sed adipiscing diam donec adipiscing. Netus et malesuada fames ac turpis. Nulla malesuada pellentesque elit eget gravida cum. Nisl pretium fusce id velit ut tortor. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Id diam vel quam elementum pulvinar etiam non quam lacus. Sit amet venenatis urna cursus. Quam quisque id diam vel. Urna duis convallis convallis tellus id interdum velit laoreet. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Leo urna molestie at elementum eu facilisis. Sit amet porttitor eget dolor morbi. Tellus orci ac auctor augue mauris augue neque gravida in. Nullam eget felis eget nunc lobortis. Dignissim enim sit amet venenatis urna cursus eget. In ornare quam viverra orci sagittis eu volutpat. Purus non enim praesent elementum facilisis leo. Dui accumsan sit amet nulla facilisi. Mattis nunc sed blandit libero volutpat.")\
+      =|
+      <!-- =START= LEFT --> \
+      (bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
+            <!-- ===START= The box with NEW MES --> (bg: $red)+(box:"X", $col1_height)[\
+                =><=
+                
+                (colour: white)[<span class="material-symbols-outlined">edit</span> New Message ]\
+            <!-- ===END= The box with NEW MES --> ]\
+            <!-- ===START= The box with the ITEMS --> (box:"X", 20)[\
+            <!-- ===START= LEFT  -->
+              ==|||
+              <!-- ====START= FOR LOOP --> (for: each _item, ...$menuitems)[\
+                (text-indent: 40)+(hover-style:(text-style: "bold"))[_item]
+              
+              ]\
+            <!-- ===END= LEFT  -->
+            <!-- ===START= RIGHT  -->
+              =|
+              {(live: 0.5s)[
+                ''0$unread_mails''
+              ]}\
+            ]\
+          ]\
+          <!-- ===END= RIGHT  -->
+      <!-- =END= LEFT  --> \
+      =|| 
+      <!-- =START= CENTER --> \
+        <!-- ==START= BOX CENTER --> (bg: $bluegrey2)+(box:"X", $col0_height)[\
+        <!-- ===START= The box with search Icon  --> (bg: $bluegrey2)+(box:"X", $col1_height)[
+        <!-- =====START= LEFT --> \
+        ==|||||
+        <!--======END= LEFT --> (text-indent: 40)[Search]\
+        |= 
+        <!-- =====START= CENTER --> \
+        <span class="material-symbols-outlined">search</span> \
+        <!-- ===END= The box with search Icon  -->]\
+               <!-- =START= Box for first Email --> (bg: white)+(box:"X", 10)[\
+              |=
+              =><=
+              =|||||||=
+              
+              (text-style: "bold")(print: $emailfroms's (1))
+              (text-size: 0.7)(print: $emailheads's (1))
+              (text-size: 0.6)(print: $emailbodies's (1))
+              =|
+              
+              <!-- =END= CENTER -->\
+              <!-- =END= Box for first Email -->]\
+            <!-- =START= The FOR Loop --> (for: each _i, ...(range:2,5))[\
+              <!-- ==START= The Boxes for other Email -->(box:"X", 10)[\
+              |=
+              =><=
+              =|||||||=
+
+                (print: $emailfroms's (_i))
+                (text-size: 0.7)(print: $emailheads's (_i))
+                (text-size: 0.6)(print: $emailbodies's (_i))
+              =|
+              <!-- ==END= The Boxes for other Email -->]\
+            <!-- =END= The FOR Loop -->]\
+          <!-- ==END= BOX CENTER -->]\
+        <!-- =END= CENTER --> \
+          =||||
+        <!-- =START= RIGHT --> \
+        <!-- =START= BOX RIGHT --> (bg: white)+(box:"X", $col0_height)[\
+            <!-- ==START= The box with the ICONS --> (bg: white)+(box:"X", $col1_height)[
+                =|
+                =|
+                <span class="material-symbols-outlined">reply</span> \
+                |=
+                [[<span class="material-symbols-outlined">delete</span>->Delete]]  \
+                |=
+                [[<span class="material-symbols-outlined">info</span>->More Infos]]\
+                |=
+                <span class="material-symbols-outlined">forward</span> \
+                |=
+                <span class="material-symbols-outlined">``mark_email_read``</span> \
+            <!-- ==END= The box with the ICONS -->]\
+            <!-- ==START= LEFT --> \
+            |=
+            <!-- ==END= LEFT --> \
+            =|||||=
+            <!-- ==START= CENTER --> \
+            ## (print: $spamheader)
+            <!-- ===START= Box with HEADER AND INFO --> (box: "X", 3)[\
+                //From// (text-style: "bold")+(color: "grey")[[Dave->Quellcode]] //to// (color: grey)[Me, Steve, Aaron]
+             <!-- ===END= Box with HEADER AND INFO -->]\
+            <hr>
+            (print: $spambody)
+            (box: "X", 5)[]\
+            <hr>
+            <!-- ==END= CENTER --> \
+            =|
+            <!-- ==START= RIGHT --> \
+            <!-- ==END= RIGHT --> \
+          <!-- =END= BOX RIGHT --> ]\
+          <!-- =END= RIGHT --> \
+      (change:?passage, (text-size:0.7))\
 
