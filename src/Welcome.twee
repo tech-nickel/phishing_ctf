@@ -1,4 +1,33 @@
 :: Welcome
 # Willkommen
+## Storyline
+[[Email Postfach]]
 
+|- [[HTMLQuellcode]]
+____|- [[GameInGame]]
+
+|- [[PhishingLink]]
+____|- [[Virus]]
+
+|- [[Delete]]
+____|- [[NextEmail]]
+________|- [[PhishingLink2]]
+____________|- [[Delete2]]
+________________|- [[End]]
+____________|- [[Virus]]
+
+|- [[MoreInfos]]
+____|- [[SourceCode]]
+________|- [[MailServerAdress]]
+____________|- [[IP1]]
+________________|- [[Telnet]]
+____________________|- [[SSH]]
+____________|- [[IP2]]
+________________|- [[PasswordGuess]]
+____________________|- [[SSH]]
+____________|- [[IP3]]
+________________|- [[Google]]
+
+|- [[Reply]]
+=><=
 [[Email Postfach]]
