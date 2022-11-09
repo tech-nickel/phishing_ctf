@@ -27,7 +27,7 @@
       Die Vögel zwitschern und es weht ein laues Lüftchen durch das offene Fenster neben dir.
       Dein Arbeitstag beginnt entspannt mit ein paar Emails.
       (button:"=X=")[[[Email Postfach]](set: $unread to 2)]
-      (set: $col0_height to 60)
+      (set: $col0_height to 55)
       (set: $col1_height to 5)
       (set: $bluegrey to (rgb: 248, 250, 255))
       (set: $bluegrey2 to (rgb: 239, 245, 254))
@@ -48,53 +48,56 @@
       (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))\
       (set: $spamheader to "This is an email")\
       (set: $spambody to "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean sed adipiscing diam donec adipiscing. Netus et malesuada fames ac turpis. Nulla malesuada pellentesque elit eget gravida cum. Nisl pretium fusce id velit ut tortor. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Id diam vel quam elementum pulvinar etiam non quam lacus. Sit amet venenatis urna cursus. Quam quisque id diam vel. Urna duis convallis convallis tellus id interdum velit laoreet. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Leo urna molestie at elementum eu facilisis. Sit amet porttitor eget dolor morbi. Tellus orci ac auctor augue mauris augue neque gravida in. Nullam eget felis eget nunc lobortis. Dignissim enim sit amet venenatis urna cursus eget. In ornare quam viverra orci sagittis eu volutpat. Purus non enim praesent elementum facilisis leo. Dui accumsan sit amet nulla facilisi. Mattis nunc sed blandit libero volutpat.")\
-      <!-- Column 1 --> \
       =|
-        (bg: (rgb: 248, 250, 255))[\
-          <!-- Row 1  --> \
-          (box:"X", $col0_height)[\
-            <!-- Row 1.1 --> \
-            (bg: $red)+(box:"X", $col1_height)[\
+      <!-- =START= LEFT --> \
+      (bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
+            <!-- ===START= The box with NEW MES --> (bg: $red)+(box:"X", $col1_height)[\
                 =><=
                 
                 (colour: white)[<span class="material-symbols-outlined">edit</span> New Message ]\
-            ]\
-            <!-- Row 1.2 --> 
-            (box:"X", 20)[\
+            <!-- ===END= The box with NEW MES --> ]\
+            <!-- ===START= The box with the ITEMS --> (box:"X", 20)[\
+            <!-- ===START= LEFT  -->
               ==|||
-              (for: each _item, ...$menuitems)[\
-              (text-indent: 40)+(hover-style:(text-style: "bold"))[_item]
+              <!-- ====START= FOR LOOP --> (for: each _item, ...$menuitems)[\
+                (text-indent: 40)+(hover-style:(text-style: "bold"))[_item]
               
               ]\
+            <!-- ===END= LEFT  -->
+            <!-- ===START= RIGHT  -->
               =|
               {(live: 0.5s)[
                 ''0$unread_mails''
               ]}\
             ]\
           ]\
-        ]\
-      <!-- Column 2 --> \
-      =||
-        <!-- Row 1 --> \
-        (bg: $bluegrey2)+(box:"X", $col0_height)[\
-            (bg: $bluegrey2)+(box:"X", $col1_height)[
-                ==|||||
-                (text-indent: 40)[Search]
-                |=
-                <span class="material-symbols-outlined">search</span> \
-            ]\
-            (bg: white)+(box:"X", 10)[\
-                |=
-                  =><=
-                =|||||||=
-
-                  (text-style: "bold")(print: $emailfroms's (1))
-                  (text-size: 0.7)(print: $emailheads's (1))
-                  (text-size: 0.6)(print: $emailbodies's (1))
-                =|
-            ]\
-            (for: each _i, ...(range:2,5))[\
-              (box:"X", 10)[\
+          <!-- ===END= RIGHT  -->
+      <!-- =END= LEFT  --> \
+      =|| 
+      <!-- =START= CENTER --> \
+        <!-- ==START= BOX CENTER --> (bg: $bluegrey2)+(box:"X", $col0_height)[\
+        <!-- ===START= The box with search Icon  --> (bg: $bluegrey2)+(box:"X", $col1_height)[
+        <!-- =====START= Column 1.1 --> \
+        ==|||||
+        <!--======END= Column 1.1 --> (text-indent: 40)[Search]\
+        |= 
+        <!-- =====START= Column 1.2 --> \
+        <span class="material-symbols-outlined">search</span> \
+        <!-- ===END= The box with search Icon  -->]\
+               <!-- =START= Box for first Email --> (bg: white)+(box:"X", 10)[\
+              |=
+              =><=
+              =|||||||=
+              
+              (text-style: "bold")(print: $emailfroms's (1))
+              (text-size: 0.7)(print: $emailheads's (1))
+              (text-size: 0.6)(print: $emailbodies's (1))
+              =|
+              
+              <!-- =END= Column 1.2 -->\
+              <!-- =END= Box for first Email -->]\
+            <!-- =START= The FOR Loop --> (for: each _i, ...(range:2,5))[\
+              <!-- ==START= The Boxes for other Email -->(box:"X", 10)[\
               |=
               =><=
               =|||||||=
@@ -103,15 +106,14 @@
                 (text-size: 0.7)(print: $emailheads's (_i))
                 (text-size: 0.6)(print: $emailbodies's (_i))
               =|
-              ]\
-            ]\
-          ]\
-      <!-- Column 3 --> \
-      =||||
-        (bg: white)[\
-        <!-- Row 1 --> \
-          (box:"X", $col0_height)[\
-            (bg: white)+(box:"X", $col1_height)[
+              <!-- ==END= The Boxes for other Email -->]\
+            <!-- =END= The FOR Loop -->]\
+          <!-- ==END= BOX CENTER -->]\
+        <!-- =END= CENTER --> \
+          =||||
+        <!-- =START= RIGHT --> \
+        <!-- =START= BOX RIGHT --> (bg: white)+(box:"X", $col0_height)[\
+            <!-- ==START= The box with the ICONS --> (bg: white)+(box:"X", $col1_height)[
                 =|
                 =|
                 <span class="material-symbols-outlined">reply</span> \
@@ -123,21 +125,27 @@
                 <span class="material-symbols-outlined">forward</span> \
                 |=
                 <span class="material-symbols-outlined">``mark_email_read``</span> \
-            ]\
+            <!-- ==END= The box with the ICONS -->]\
+            <!-- ==START LEFT --> \
             |=
+            <!-- ==END LEFT --> \
             =|||||=
+            <!-- ==START CENTER --> \
             ## (print: $spamheader)
-            (box: "X", 3)[\
+            <!-- ===START Box with HEADER AND INFO --> (box: "X", 3)[\
                 //From// (text-style: "bold")+(color: "grey")[[Dave->Quellcode]] //to// (color: grey)[Me, Steve, Aaron]
-            ]\
+             <!-- ===END Box with HEADER AND INFO -->]\
             <hr>
             (print: $spambody)
             (box: "X", 5)[]\
             <hr>
+            <!-- ==END CENTER --> \
             =|
+            <!-- ==START RIGHT --> \
+            <!-- ==END RIGHT --> \
           ]\
-        ]\
-      (change:?passage, (text-size:0.7))
+          <!-- =END= RIGHT --> \
+      (change:?passage, (text-size:0.7))\
     </tw-passagedata>
     <tw-passagedata pid="200" name="Delete" tags="">
       Du löscht die Email [[Email Postfach]]
