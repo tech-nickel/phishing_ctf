@@ -9,150 +9,230 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play phishing_ctf.</tw-noscript></noscript></tw-story>
-<tw-storydata name="phishing_ctf" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="EB6013FC-F6F4-4C65-9787-7F598FE0A7BC" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script>
-    <tw-passagedata pid="1" name="Welcome" tags="">
-        # Willkommen
-        <hr>
-        Es ist ein lauer Sommermorgen und du sitzt vor deinem PC im Büro. 
-        Die Vögel zwitschern und es weht ein laues Lüftchen durch das offene Fenster neben dir.
-        Dein Arbeitstag beginnt entspannt mit ein paar Emails.
-        (button:"=X=")[[[Email Postfach]](set: $unread to 2)]
-        (set: $col0_height to 55)
-        (set: $col1_height to 5)
-        (set: $bluegrey to (rgb: 248, 250, 255))
-        (set: $bluegrey2 to (rgb: 239, 245, 254))
-        (set: $red to (rgb: 236, 101, 100))
-        
-      </tw-passagedata>
-      <tw-passagedata pid="2" name="Email Postfach" tags="">\
-        (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))\
-        (set: $emailbodies to (a:"Inbox", "Starred", "Important", "Sent", "Draft"))\
-        (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))\
-        (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))\
-        (set: $emailbodies to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
-        "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
-        "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
-        "Pellentesque habitant morbi tristique senectus et.", 
-        "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))\
-        (set: $unread_mails to 1)\
-        (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))\
-        (set: $spamheader to "This is an email")\
-        (set: $spambody to "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean sed adipiscing diam donec adipiscing. Netus et malesuada fames ac turpis. Nulla malesuada pellentesque elit eget gravida cum. Nisl pretium fusce id velit ut tortor. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Id diam vel quam elementum pulvinar etiam non quam lacus. Sit amet venenatis urna cursus. Quam quisque id diam vel. Urna duis convallis convallis tellus id interdum velit laoreet. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Leo urna molestie at elementum eu facilisis. Sit amet porttitor eget dolor morbi. Tellus orci ac auctor augue mauris augue neque gravida in. Nullam eget felis eget nunc lobortis. Dignissim enim sit amet venenatis urna cursus eget. In ornare quam viverra orci sagittis eu volutpat. Purus non enim praesent elementum facilisis leo. Dui accumsan sit amet nulla facilisi. Mattis nunc sed blandit libero volutpat.")\
-        =|
-        <!-- =START= LEFT --> \
-        (bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
-              <!-- ===START= The box with NEW MES --> (bg: $red)+(box:"X", $col1_height)[\
-                  =><=
-                  
-                  (colour: white)[<span class="material-symbols-outlined">edit</span> New Message ]\
-              <!-- ===END= The box with NEW MES --> ]\
-              <!-- ===START= The box with the ITEMS --> (box:"X", 20)[\
-              <!-- ===START= LEFT  -->
-                ==|||
-                <!-- ====START= FOR LOOP --> (for: each _item, ...$menuitems)[\
-                  (text-indent: 40)+(hover-style:(text-style: "bold"))[_item]
+<!-- UUID://EB6013FC-F6F4-4C65-9787-7F598FE0A7BC// --><tw-storydata name="phishing_ctf" startnode="2" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="EB6013FC-F6F4-4C65-9787-7F598FE0A7BC" zoom="1" format="Harlowe" format-version="3.3.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* fallback */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v68/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsLjBuVY.woff2) format('woff2');
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+tw-story {
+  color: rgb(67, 67, 67); /* Set text to green or other color */
+  font-size: 20px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  background: rgb(222, 222, 222); /* For old browsers */
+  margin-top: 0 auto;
+  padding: 0% 0%;
+  overflow: hidden !important;
+}
+
+
+/* This is a Button */
+tw-link.enchantment-button,
+.enchantment-button:not(.link) tw-link,
+.enchantment-button:not(.link) .link,
+.link.enchantment-button {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  transition: color 0.5s ease-in-out;
+  display: block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125);
+  cursor:pointer;
+}
+
+/* this is a link */
+tw-link :hover,
+.enchantment-link :hover{
+  color: black;
+}
+
+tw-link , .enchantment-link{
+  color: black
+}
+
+tw-link.visited{
+  color: black;
+}
+
+img {
+  /* Images won't get wider than tw-passage container */
+  max-width: 100%;
+}
+
+tw-hook{
+  padding: 0em !important;
+  background-attachment: scroll !important;
+}
+
+tw-hook:hover{
+  color: black;
+}
+
+tw-column {
+  margin: 0 auto !important;
+}
+
+tw-align{
+  max-width: 100% !important;
+}
+
+tw-expression{
+  cursor: auto
+}
+
+.inbox-c2-r1{
+  box-shadow: 5px 10px 20px 5px Green inset
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Email Postfach" tags="" position="100,100" size="100,100">\
+      (set: $col0_height to 55)\
+      (set: $col1_height to 5)\
+      (set: $bluegrey to (rgb: 248, 250, 255))\
+      (set: $bluegrey2 to (rgb: 239, 245, 254))\
+      (set: $red to (rgb: 236, 101, 100))\
+      (set: $menuitems to (a:&quot;Inbox&quot;, &quot;Starred&quot;, &quot;Important&quot;, &quot;Sent&quot;, &quot;Draft&quot;, &quot;Trash&quot;))\
+      (set: $emailbodies to (a:&quot;Inbox&quot;, &quot;Starred&quot;, &quot;Important&quot;, &quot;Sent&quot;, &quot;Draft&quot;))\
+      (set: $emailfroms to (a:&quot;[[Jerome Linder-&gt;Welcome]]&quot;, &quot;DroitLab&quot;, &quot;Slobodan Palkdj&quot;, &quot;Tim Greene&quot;, &quot;UENO&quot;))\
+      (set: $emailheads to (a:&quot;Dashboard Design&quot;, &quot;Appointment&quot;, &quot;Work Inquiry&quot;, &quot;Upwork Homepage&quot;, &quot;Work Inquiry&quot;))\
+      (set: $emailbodies to (a:&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt&quot;, 
+      &quot;Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.&quot;, 
+      &quot;Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna &quot;, 
+      &quot;Pellentesque habitant morbi tristique senectus et.&quot;, 
+      &quot;Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque.&quot;))\
+      (set: $unread_mails to 1)\
+      (set: $bgt1 to (bg: &quot;https://thispersondoesnotexist.com/image&quot;))\
+      (set: $spamheader to &quot;This is an email&quot;)\
+      (set: $spambody to &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean sed adipiscing diam donec adipiscing. Netus et malesuada fames ac turpis. Nulla malesuada pellentesque elit eget gravida cum. Nisl pretium fusce id velit ut tortor. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Id diam vel quam elementum pulvinar etiam non quam lacus. Sit amet venenatis urna cursus. Quam quisque id diam vel. Urna duis convallis convallis tellus id interdum velit laoreet. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Leo urna molestie at elementum eu facilisis. Sit amet porttitor eget dolor morbi. Tellus orci ac auctor augue mauris augue neque gravida in. Nullam eget felis eget nunc lobortis. Dignissim enim sit amet venenatis urna cursus eget. In ornare quam viverra orci sagittis eu volutpat. Purus non enim praesent elementum facilisis leo. Dui accumsan sit amet nulla facilisi. Mattis nunc sed blandit libero volutpat.&quot;)\
+      =|
+      &lt;!-- =START= LEFT --&gt; \
+      (bg: (rgb: 248, 250, 255))+(box:&quot;X&quot;, $col0_height)[\
+            &lt;!-- ===START= The box with NEW MES --&gt; (bg: $red)+(box:&quot;X&quot;, $col1_height)[\
+                =&gt;&lt;=
                 
-                ]\
-              <!-- ===END= LEFT  -->
-              <!-- ===START= RIGHT  -->
-                =|
-                {(live: 0.5s)[
-                  ''0$unread_mails''
-                ]}\
+                (colour: white)[&lt;span class=&quot;material-symbols-outlined&quot;&gt;edit&lt;/span&gt; New Message ]\
+            &lt;!-- ===END= The box with NEW MES --&gt; ]\
+            &lt;!-- ===START= The box with the ITEMS --&gt; (box:&quot;X&quot;, 20)[\
+            &lt;!-- ===START= LEFT  --&gt;
+              ==|||
+              &lt;!-- ====START= FOR LOOP --&gt; (for: each _item, ...$menuitems)[\
+                (text-indent: 40)+(hover-style:(text-style: &quot;bold&quot;))[_item]
+              
               ]\
-            ]\
-            <!-- ===END= RIGHT  -->
-        <!-- =END= LEFT  --> \
-        =|| 
-        <!-- =START= CENTER --> \
-          <!-- ==START= BOX CENTER --> (bg: $bluegrey2)+(box:"X", $col0_height)[\
-          <!-- ===START= The box with search Icon  --> (bg: $bluegrey2)+(box:"X", $col1_height)[
-          <!-- =====START= LEFT --> \
-          ==|||||
-          <!--======END= LEFT --> (text-indent: 40)[Search]\
-          |= 
-          <!-- =====START= CENTER --> \
-          <span class="material-symbols-outlined">search</span> \
-          <!-- ===END= The box with search Icon  -->]\
-                 <!-- =START= Box for first Email --> (bg: white)+(box:"X", 10)[\
-                |=
-                =><=
-                =|||||||=
-                
-                (text-style: "bold")(print: $emailfroms's (1))
-                (text-size: 0.7)(print: $emailheads's (1))
-                (text-size: 0.6)(print: $emailbodies's (1))
-                =|
-                
-                <!-- =END= CENTER -->\
-                <!-- =END= Box for first Email -->]\
-              <!-- =START= The FOR Loop --> (for: each _i, ...(range:2,5))[\
-                <!-- ==START= The Boxes for other Email -->(box:"X", 10)[\
-                |=
-                =><=
-                =|||||||=
-  
-                  (print: $emailfroms's (_i))
-                  (text-size: 0.7)(print: $emailheads's (_i))
-                  (text-size: 0.6)(print: $emailbodies's (_i))
-                =|
-                <!-- ==END= The Boxes for other Email -->]\
-              <!-- =END= The FOR Loop -->]\
-            <!-- ==END= BOX CENTER -->]\
-          <!-- =END= CENTER --> \
-            =||||
-          <!-- =START= RIGHT --> \
-          <!-- =START= BOX RIGHT --> (bg: white)+(box:"X", $col0_height)[\
-              <!-- ==START= The box with the ICONS --> (bg: white)+(box:"X", $col1_height)[
-                  =|
-                  =|
-                  <span class="material-symbols-outlined">reply</span> \
-                  |=
-                  [[<span class="material-symbols-outlined">delete</span>->Delete]]  \
-                  |=
-                  [[<span class="material-symbols-outlined">info</span>->More Infos]]\
-                  |=
-                  <span class="material-symbols-outlined">forward</span> \
-                  |=
-                  <span class="material-symbols-outlined">``mark_email_read``</span> \
-              <!-- ==END= The box with the ICONS -->]\
-              <!-- ==START= LEFT --> \
-              |=
-              <!-- ==END= LEFT --> \
-              =|||||=
-              <!-- ==START= CENTER --> \
-              ## (print: $spamheader)
-              <!-- ===START= Box with HEADER AND INFO --> (box: "X", 3)[\
-                  //From// (text-style: "bold")+(color: "grey")[[Dave->Quellcode]] //to// (color: grey)[Me, Steve, Aaron]
-               <!-- ===END= Box with HEADER AND INFO -->]\
-              <hr>
-              (print: $spambody)
-              (box: "X", 5)[]\
-              <hr>
-              <!-- ==END= CENTER --> \
+            &lt;!-- ===END= LEFT  --&gt;
+            &lt;!-- ===START= RIGHT  --&gt;
               =|
-              <!-- ==START= RIGHT --> \
-              <!-- ==END= RIGHT --> \
-            <!-- =END= BOX RIGHT --> ]\
-            <!-- =END= RIGHT --> \
-        (change:?passage, (text-size:0.7))\
-      </tw-passagedata>
-      <tw-passagedata pid="200" name="Delete" tags="">
-        Du löscht die Email [[Email Postfach]]
-      </tw-passagedata>
-      <tw-passagedata pid="201" name="Quellcode" tags="">
-        Du schaust den Quellcode an [[Email Postfach]]
-      </tw-passagedata>
-      <tw-passagedata pid="202" name="Link" tags="">
-        Du klickst den Link an [[Email Postfach]]
-      </tw-passagedata>
-      <tw-passagedata pid="203" name="More Infos" tags="">
-        Du klickst auf &quot;mehr Infos..&quot; in der Email [[Email Postfach]]
-      </tw-passagedata>
+              {(live: 0.5s)[
+                &#39;&#39;0$unread_mails&#39;&#39;
+              ]}\
+            ]\
+          ]\
+          &lt;!-- ===END= RIGHT  --&gt;
+      &lt;!-- =END= LEFT  --&gt; \
+      =|| 
+      &lt;!-- =START= CENTER --&gt; \
+        &lt;!-- ==START= BOX CENTER --&gt; (bg: $bluegrey2)+(box:&quot;X&quot;, $col0_height)[\
+        &lt;!-- ===START= The box with search Icon  --&gt; (bg: $bluegrey2)+(box:&quot;X&quot;, $col1_height)[
+        &lt;!-- =====START= LEFT --&gt; \
+        ==|||||
+        &lt;!--======END= LEFT --&gt; (text-indent: 40)[Search]\
+        |= 
+        &lt;!-- =====START= CENTER --&gt; \
+        &lt;span class=&quot;material-symbols-outlined&quot;&gt;search&lt;/span&gt; \
+        &lt;!-- ===END= The box with search Icon  --&gt;]\
+               &lt;!-- =START= Box for first Email --&gt; (bg: white)+(box:&quot;X&quot;, 10)[\
+              |=
+              =&gt;&lt;=
+              =|||||||=
+              
+              (text-style: &quot;bold&quot;)(print: $emailfroms&#39;s (1))
+              (text-size: 0.7)(print: $emailheads&#39;s (1))
+              (text-size: 0.6)(print: $emailbodies&#39;s (1))
+              =|
+              
+              &lt;!-- =END= CENTER --&gt;\
+              &lt;!-- =END= Box for first Email --&gt;]\
+            &lt;!-- =START= The FOR Loop --&gt; (for: each _i, ...(range:2,5))[\
+              &lt;!-- ==START= The Boxes for other Email --&gt;(box:&quot;X&quot;, 10)[\
+              |=
+              =&gt;&lt;=
+              =|||||||=
 
+                (print: $emailfroms&#39;s (_i))
+                (text-size: 0.7)(print: $emailheads&#39;s (_i))
+                (text-size: 0.6)(print: $emailbodies&#39;s (_i))
+              =|
+              &lt;!-- ==END= The Boxes for other Email --&gt;]\
+            &lt;!-- =END= The FOR Loop --&gt;]\
+          &lt;!-- ==END= BOX CENTER --&gt;]\
+        &lt;!-- =END= CENTER --&gt; \
+          =||||
+        &lt;!-- =START= RIGHT --&gt; \
+        &lt;!-- =START= BOX RIGHT --&gt; (bg: white)+(box:&quot;X&quot;, $col0_height)[\
+            &lt;!-- ==START= The box with the ICONS --&gt; (bg: white)+(box:&quot;X&quot;, $col1_height)[
+                =|
+                =|
+                &lt;span class=&quot;material-symbols-outlined&quot;&gt;reply&lt;/span&gt; \
+                |=
+                [[&lt;span class=&quot;material-symbols-outlined&quot;&gt;delete&lt;/span&gt;-&gt;Delete]]  \
+                |=
+                [[&lt;span class=&quot;material-symbols-outlined&quot;&gt;info&lt;/span&gt;-&gt;More Infos]]\
+                |=
+                &lt;span class=&quot;material-symbols-outlined&quot;&gt;forward&lt;/span&gt; \
+                |=
+                &lt;span class=&quot;material-symbols-outlined&quot;&gt;``mark_email_read``&lt;/span&gt; \
+            &lt;!-- ==END= The box with the ICONS --&gt;]\
+            &lt;!-- ==START= LEFT --&gt; \
+            |=
+            &lt;!-- ==END= LEFT --&gt; \
+            =|||||=
+            &lt;!-- ==START= CENTER --&gt; \
+            ## (print: $spamheader)
+            &lt;!-- ===START= Box with HEADER AND INFO --&gt; (box: &quot;X&quot;, 3)[\
+                //From// (text-style: &quot;bold&quot;)+(color: &quot;grey&quot;)[[Dave-&gt;Quellcode]] //to// (color: grey)[Me, Steve, Aaron]
+             &lt;!-- ===END= Box with HEADER AND INFO --&gt;]\
+            &lt;hr&gt;
+            (print: $spambody)
+            (box: &quot;X&quot;, 5)[]\
+            &lt;hr&gt;
+            &lt;!-- ==END= CENTER --&gt; \
+            =|
+            &lt;!-- ==START= RIGHT --&gt; \
+            &lt;!-- ==END= RIGHT --&gt; \
+          &lt;!-- =END= BOX RIGHT --&gt; ]\
+          &lt;!-- =END= RIGHT --&gt; \
+      (change:?passage, (text-size:0.7))\</tw-passagedata><tw-passagedata pid="2" name="Welcome" tags="" position="225,100" size="100,100"># Willkommen
 
-</tw-storydata>
-
+[[Email Postfach]]</tw-passagedata><tw-passagedata pid="3" name="Delete" tags="" position="350,100" size="100,100">Du löscht die Email [[Email Postfach]]</tw-passagedata><tw-passagedata pid="4" name="Quellcode" tags="" position="475,100" size="100,100">Du schaust den Quellcode an [[Email Postfach]]</tw-passagedata><tw-passagedata pid="5" name="Link" tags="" position="600,100" size="100,100">Du klickst den Link an [[Email Postfach]]</tw-passagedata><tw-passagedata pid="6" name="More Infos" tags="" position="725,100" size="100,100">Du klickst auf &quot;mehr Infos..&quot; in der Email [[Email Postfach]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

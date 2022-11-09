@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "configurations": [
+    {
+      "preLaunchTask": "Build Twine Story",
+      "type": "msedge",
+      "request": "launch",
+      "name": "Start Twine Story",
+      "file": "${workspaceFolder}/out/story.html"
+    },
+    {
+      "preLaunchTask": "Build Twine Story in debug mode",
+      "type": "msedge",
+      "request": "launch",
+      "name": "Debug Twine Story",
+      "file": "${workspaceFolder}/out/story-d.html"
+    }
+  ]
+}

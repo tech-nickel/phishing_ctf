@@ -1,7 +1,12 @@
 
 :: Email Postfach
 \
-       (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))\
+      (set: $col0_height to 55)\
+      (set: $col1_height to 5)\
+      (set: $bluegrey to (rgb: 248, 250, 255))\
+      (set: $bluegrey2 to (rgb: 239, 245, 254))\
+      (set: $red to (rgb: 236, 101, 100))\
+      (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))\
       (set: $emailbodies to (a:"Inbox", "Starred", "Important", "Sent", "Draft"))\
       (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))\
       (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))\
