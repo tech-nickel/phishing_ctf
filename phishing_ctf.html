@@ -77,11 +77,11 @@
       <!-- =START= CENTER --> \
         <!-- ==START= BOX CENTER --> (bg: $bluegrey2)+(box:"X", $col0_height)[\
         <!-- ===START= The box with search Icon  --> (bg: $bluegrey2)+(box:"X", $col1_height)[
-        <!-- =====START= Column 1.1 --> \
+        <!-- =====START= LEFT --> \
         ==|||||
-        <!--======END= Column 1.1 --> (text-indent: 40)[Search]\
+        <!--======END= LEFT --> (text-indent: 40)[Search]\
         |= 
-        <!-- =====START= Column 1.2 --> \
+        <!-- =====START= CENTER --> \
         <span class="material-symbols-outlined">search</span> \
         <!-- ===END= The box with search Icon  -->]\
                <!-- =START= Box for first Email --> (bg: white)+(box:"X", 10)[\
@@ -94,7 +94,7 @@
               (text-size: 0.6)(print: $emailbodies's (1))
               =|
               
-              <!-- =END= Column 1.2 -->\
+              <!-- =END= CENTER -->\
               <!-- =END= Box for first Email -->]\
             <!-- =START= The FOR Loop --> (for: each _i, ...(range:2,5))[\
               <!-- ==START= The Boxes for other Email -->(box:"X", 10)[\
@@ -126,24 +126,24 @@
                 |=
                 <span class="material-symbols-outlined">``mark_email_read``</span> \
             <!-- ==END= The box with the ICONS -->]\
-            <!-- ==START LEFT --> \
+            <!-- ==START= LEFT --> \
             |=
-            <!-- ==END LEFT --> \
+            <!-- ==END= LEFT --> \
             =|||||=
-            <!-- ==START CENTER --> \
+            <!-- ==START= CENTER --> \
             ## (print: $spamheader)
-            <!-- ===START Box with HEADER AND INFO --> (box: "X", 3)[\
+            <!-- ===START= Box with HEADER AND INFO --> (box: "X", 3)[\
                 //From// (text-style: "bold")+(color: "grey")[[Dave->Quellcode]] //to// (color: grey)[Me, Steve, Aaron]
-             <!-- ===END Box with HEADER AND INFO -->]\
+             <!-- ===END= Box with HEADER AND INFO -->]\
             <hr>
             (print: $spambody)
             (box: "X", 5)[]\
             <hr>
-            <!-- ==END CENTER --> \
+            <!-- ==END= CENTER --> \
             =|
-            <!-- ==START RIGHT --> \
-            <!-- ==END RIGHT --> \
-          ]\
+            <!-- ==START= RIGHT --> \
+            <!-- ==END= RIGHT --> \
+          <!-- =END= BOX RIGHT --> ]\
           <!-- =END= RIGHT --> \
       (change:?passage, (text-size:0.7))\
     </tw-passagedata>
