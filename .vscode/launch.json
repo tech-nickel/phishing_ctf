@@ -3,7 +3,7 @@
   "configurations": [
     {
       "preLaunchTask": "Build Twine Story",
-      "type": "vscode-edge-devtools.debug",
+      "type": "chrome",
       "request": "launch",
       "name": "Start Twine Story",
       "file": "${workspaceFolder}/out/story.html"
