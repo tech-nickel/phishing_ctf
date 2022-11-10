@@ -23,8 +23,7 @@
       =><=
       =|||||||=
 
-        (print: $emailfroms's (_i))
-        (text-size: 0.7)(print: $emailheads's (_i))
+        (text-size: 0.7) + (link_repeat: (str: $emailheads's (_i)))[(set: $clicktracker to _i) (replace: ?emailbody)[(print: $spambody's ($clicktracker))]]
         (text-size: 0.6)(print: $emailbodies's (_i))
       =|
     ]\

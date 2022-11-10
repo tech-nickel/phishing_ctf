@@ -70,7 +70,7 @@
             charset=utf-8
         ]\
         <hr>
-        (print: $spambody)
+        [(print: $spambody's ($clicktracker))]<emailbody|
         (box: "X", 5)[]\
         <hr>
     =|
