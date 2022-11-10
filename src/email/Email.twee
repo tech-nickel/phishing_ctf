@@ -31,7 +31,11 @@
   (set: $IP2 to "10.152.12.195")\
   (set: $IP3 to "outlook.com")\
   (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))\
-  (set: $terminalwindow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1000")+(corner-radius:8)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))\
+  (set: $terminalwindowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:8)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))\
+  (set: $tac to false)\
+  (click: ?from)[(show: ?emailsource)]\
+  (set: $closebox to (bg: white)+(color: black)+(align: "==>")+(box: "X", 2))\
+  (set: $closeicon to [<span class="material-symbols-outlined">close</span>])\
   =|
   (display: "Emailleft")
   =|| 

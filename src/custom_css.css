@@ -86,9 +86,6 @@ tw-hook{
   background-attachment: scroll !important;
 }
 
-tw-hook:hover{
-  color: black;
-}
 
 tw-column {
   margin: 0 auto !important;

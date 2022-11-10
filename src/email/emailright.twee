@@ -1,13 +1,6 @@
 :: Emailright
 \
-(set: $tac to false)\
-(click: ?from)[(show: ?emailsource)]\
 (display: "Terminal")\
-(click: $IP1)[(set: $terminalactive to true)(show: ?terminal1)]\
-(click: $IP3)[(set: $terminalactive to true)(show: ?terminal3)]\
-(click-rerun: ?close1)[(set: $terminalactive to false)(hide: ?terminal1)]\
-(click-rerun: ?close2)[(set: $terminalactive to false)(hide: ?terminal2)]\
-(click-rerun: ?close3)[(set: $terminalactive to false)(hide: ?terminal3)]\
 (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height)[\
     $headershadow+(bg: white)+(box:"X", $col1_height)[
         =|
@@ -68,10 +61,16 @@
             MIME-Version: 1.0
             Content-Type: text/plain;
             charset=utf-8
+            (click: $IP1)[(show: ?terminalwindow)]\
+            (click: $IP2)[(show: ?terminalwindow)]\
+            (click: $IP3)[(show: ?terminalwindow)]\
         ]\
         <hr>
         [(print: $spambody's ($clicktracker))]<emailbody|
         (box: "X", 5)[]\
         <hr>
     =|
-]
+]\
+<!-- (link: $IP1)[(set: $tac to true)(set: $IP to $IP1)(show: ?terminalwindow)]\
+(link: $IP2)[(set: $tac to true)(set: $IP to $IP2)(show: ?terminalwindow)]\
+(link: $IP3)[(set: $tac to true)(set: $IP to $IP3)(show: ?terminalwindow)] -->

@@ -1,29 +1,22 @@
 :: Terminal
-(set: $closebox to (bg: white)+(color: black)+(align: "==>")+(box: "X", 2))\
-(set: $closeicon to [<span class="material-symbols-outlined">close</span>])\
-|terminal1)[\
-(set: $tac to true)\
-$terminalwindow[$closebox[[$closeicon]<close1|]
-> nmap -sp (print: $IP1)
+(set: $test to "
+")\
+|terminalwindow)[\
+$terminalwindowbox[$closebox[$closeicon]
+{(live: )[
+> nmap -sp (print: $IP)
 > (css: "border: none")(input: bind $input)
-]]\
-|terminal2)[\
-(set: $tac to true)\
-$terminalwindow[$closebox[[$closeicon]<close2|]
-> nmap -sp (print: $IP2)
-> (css: "border: none")(input: bind $input)
-]]\
-|terminal3)[\
-(set: $tac to true)\
-$terminalwindow[$closebox[[$closeicon]<close3|]
-> nmap -sp (print: $IP3)
-(css: "border: none")(input: bind $input, "X==", ">")
-]]\
+(print: $test)]}
+aaaaa
+]]
 <script>
 document.onkeypress = function (e) {
     e = e || window.event;
         if($tac == true & e.keyCode == 13){
             alert(e.keyCode);
+        };
+        if($tac == true & e.keyCode != 13){
+            $test += "a\n";
         };
     }
 </script>
