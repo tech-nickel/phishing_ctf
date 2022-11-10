@@ -1,0 +1,77 @@
+:: Emailright
+\
+(click: ?from)[(show: ?emailsource)]\
+(display: "Terminal")\
+(set: $terminalactive to false)\
+(click: $IP1)[(set: $terminalactive to true)(show: ?terminal1)]\
+(click: $IP3)[(set: $terminalactive to true)(show: ?terminal3)]\
+(click-rerun: ?close1)[(set: $terminalactive to false)(hide: ?terminal1)]\
+(click-rerun: ?close2)[(set: $terminalactive to false)(hide: ?terminal2)]\
+(click-rerun: ?close3)[(set: $terminalactive to false)(hide: ?terminal3)]\
+(css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height)[\
+    $headershadow+(bg: white)+(box:"X", $col1_height)[
+        =|
+        =|
+            <span class="material-symbols-outlined">reply</span> \
+        |=
+            [[<span class="material-symbols-outlined">delete</span>->Delete]]  \
+        |=
+            [[<span class="material-symbols-outlined">info</span>->More Infos]]\
+        |=
+            <span class="material-symbols-outlined">forward</span> \
+        |=
+            <span class="material-symbols-outlined">``mark_email_read``</span> \
+        ]\
+    |=
+    =|||||=
+        ## (print: $spamheader)
+        $moreinfoscolumnheight[\
+            //From// (text-style: "bold")+(color: "grey")[Dave]<from| //to// (color: grey)[Me, Steve, Aaron]
+            ]\
+        |emailsource)[\
+            Received: from VE1EUR02HT128.eop-EUR02.prod.protection.$IP3
+            ```(2603:10b6:610:50::14)``` by CH2PR20MB2917.namprd20.prod.$IP3 with HTTPS via CH2PR16CA0004.NAMPRD16.PROD.$IP3;
+            (current-date:) (current-time:);
+            Received: from VE1EUR02FT037.eop-EUR02.prod.protection.$IP3 
+            ```(2a01:111:e400:7e1e::4b)``` byVE1EUR02HT128.eop-EUR02.prod.protection.$IP3 
+            ```(2a01:111:e400:7e1e::409)```with Microsoft SMTP Server ```(version=TLS1_2,cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)```
+            id 15.20.3174.21
+            (current-date:) (current-time:);
+            Received-SPF: Pass (protection.$IP3: domain of s10.acems1.comdesignates $IP1 as permitted sender)receiver=protection.$IP3; 
+            client-ip=$IP1;
+            helo=s15.avl3.acemsrvc.com;
+            Received: from s15.avl3.acemsrvc.com 
+            ($IP1) byVE1EUR02FT037.mail.protection.$IP3 
+            ($IP2) with Microsoft SMTPServer ```(version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)```
+            id15.20.3174.21 via Frontend Transport;
+            (current-date:) (current-time:);
+            Received: by s15.avl3.acemsrvc.com id h1n5ek2lshkm for <hfray@$IP3>;
+            (current-date:) (current-time:);
+            (envelope-from <bounce-511294-166-59-hfray=$IP3@s10.acems1.com>)
+            Authentication-Results: spf=pass (sender IP is $IP1)
+            smtp.mailfrom=s10.acems1.com; 
+            $IP3; 
+            dkim=pass (signature was verified) header.d=lillysloft.co;
+            $IP3;
+            dmarc=bestguesspass action=none
+            header.from=lillysloft.co;
+            compauth=pass reason=109
+            DKIM-Signature: v=1; 
+            a=rsa-sha256; 
+            c=relaxed/relaxed; 
+            s=dk; 
+            d=lillysloft.co;
+            To: $emailfrom
+            From: $emailto
+            Message-ID: <20200714151034.599.579440210.swift@lillysloft.activehosted.com>
+            Return-Path: bounce-511294-166-59-example=$IP3@s10.acems1.com
+            MIME-Version: 1.0
+            Content-Type: text/plain;
+            charset=utf-8
+        ]\
+        <hr>
+        (print: $spambody)
+        (box: "X", 5)[]\
+        <hr>
+    =|
+]

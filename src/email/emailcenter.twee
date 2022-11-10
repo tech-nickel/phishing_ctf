@@ -1,0 +1,32 @@
+:: Emailcenter
+\
+(bg: $bluegrey2)+(box:"X", $col0_height)[\
+  (box:"X", $col1_height)+$headershadow+(bg: $bluegrey2)[
+    ==|||||
+      (text-indent: 40)[Search]\
+    |=
+      <span class="material-symbols-outlined">search</span> \
+  ]\
+  (box:"X", 10)+(css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)[\
+      |=
+      =><=
+      =|||||||=
+
+        (text-style: "bold")(print: $emailfroms's (1))
+        (text-size: 0.7)(print: $emailheads's (1))
+        (text-size: 0.6)(print: $emailbodies's (1))
+      =|
+  ]\
+  (for: each _i, ...(range:2,5))[\
+    (box:"X", 10)[\
+      |=
+      =><=
+      =|||||||=
+
+        (print: $emailfroms's (_i))
+        (text-size: 0.7)(print: $emailheads's (_i))
+        (text-size: 0.6)(print: $emailbodies's (_i))
+      =|
+    ]\
+  ]\
+]

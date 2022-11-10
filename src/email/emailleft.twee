@@ -1,0 +1,22 @@
+:: Emailleft
+\
+(bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
+  $headershadow+(bg: $red)+(box:"X", $col1_height)[\
+    =><=
+
+    (colour: white)[<span class="material-symbols-outlined">edit</span> New Message ]\
+  ]\
+  (box:"X", 30)[\
+  
+    ==|||
+      (for: each _item, ...$menuitems)[\
+
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[_item]
+      ]\
+    =|
+
+      {(live: 0.5s)[''0$unread_mails'']}\
+  ]\
+<!-- {(live: 0.5s)[(print: $terminalactive)]} -->
+
+]

@@ -32,6 +32,9 @@ tw-story {
   overflow: hidden !important;
 }
 
+body{
+  overflow: hidden !important;
+}
 
 /* This is a Button */
 tw-link.enchantment-button,

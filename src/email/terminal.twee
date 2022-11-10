@@ -1,0 +1,31 @@
+:: Terminal
+(set: $closebox to (bg: white)+(color: black)+(align: "==>")+(box: "X", 2))\
+(set: $closeicon to [<span class="material-symbols-outlined">close</span>])\
+|terminal1)[\
+$terminalwindow[$closebox[[$closeicon]<close1|]
+> nmap -sp (print: $IP1)
+> (css: "border: none")(input: bind $input)
+]]\
+|terminal2)[\
+$terminalwindow[$closebox[[$closeicon]<close2|]
+> nmap -sp (print: $IP2)
+> (css: "border: none")(input: bind $input)
+]]\
+|terminal3)[\
+$terminalwindow[$closebox[[$closeicon]<close3|]
+> nmap -sp (print: $IP3)
+(css: "border: none")(input: bind $input, "X==", ">")
+]]\
+<script>
+document.onkeypress = function (e) {
+    e = e || window.event;
+    try{
+        if($terminalactive){
+            alert(e.keyCode);
+            };
+    }
+    catch(err){
+        console.log("nono");
+    }
+    }
+</script>
