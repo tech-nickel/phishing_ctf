@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play phishing_ctf.</tw-noscript></noscript></tw-story>
-<!-- UUID://EB6013FC-F6F4-4C65-9787-7F598FE0A7BC// --><tw-storydata name="phishing_ctf" startnode="2" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="EB6013FC-F6F4-4C65-9787-7F598FE0A7BC" zoom="1" format="Harlowe" format-version="3.3.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* fallback */
+<!-- UUID://EB6013FC-F6F4-4C65-9787-7F598FE0A7BC// --><tw-storydata name="phishing_ctf" startnode="2" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="EB6013FC-F6F4-4C65-9787-7F598FE0A7BC" zoom="1" format="Harlowe" format-version="3.3.3" options="debug" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* fallback */
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
@@ -265,7 +265,7 @@ tw-expression{
           ]\
         |fbox)[(text-color: white)+(bg: black)+(float-box: &quot;=XX=&quot;,&quot;=YY=&quot;)[\
         (box: &quot;===========X&quot;, 2)[[&lt;span class=&quot;material-symbols-outlined&quot;&gt;close&lt;/span&gt;]&lt;close|]
-        &gt; nmap (print: $IP)
+        &gt; nmap {(live: )[(print: $IP)]}
         ]]
         (click: ?code1)[(show:?emailsource)]
         (click: $IP1)[(set: $IP to $IP1)(show: ?fbox)]\

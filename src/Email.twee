@@ -26,10 +26,11 @@
   (set: $IP1 to "192.92.97.209")\
   (set: $IP2 to "10.152.12.195")\
   (set: $IP3 to "outlook.com")\
+  (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))\
   =|
   <!-- =START= LEFT --> \
   (bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
-        <!-- ===START= The box with NEW MES --> (bg: $red)+(box:"X", $col1_height)[\
+        <!-- ===START= The box with NEW MES --> $headershadow+(bg: $red)+(box:"X", $col1_height)[\
             =><=
             
             (colour: white)[<span class="material-symbols-outlined">edit</span> New Message ]\
@@ -54,7 +55,7 @@
   =|| 
   <!-- =START= CENTER --> \
     <!-- ==START= BOX CENTER --> (bg: $bluegrey2)+(box:"X", $col0_height)[\
-    <!-- ===START= The box with search Icon  --> (bg: $bluegrey2)+(box:"X", $col1_height)[
+    <!-- ===START= The box with search Icon  --> $headershadow+(bg: $bluegrey2)+(box:"X", $col1_height)[
     <!-- =====START= LEFT --> \
     ==|||||
     <!--======END= LEFT --> (text-indent: 40)[Search]\
@@ -62,7 +63,7 @@
     <!-- =====START= CENTER --> \
     <span class="material-symbols-outlined">search</span> \
     <!-- ===END= The box with search Icon  -->]\
-            <!-- =START= Box for first Email --> (bg: white)+(box:"X", 10)[\
+            <!-- =START= Box for first Email --> (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(box:"X", 10)[\
           |=
           =><=
           =|||||||=
@@ -75,7 +76,7 @@
           <!-- =END= CENTER -->\
           <!-- =END= Box for first Email -->]\
         <!-- =START= The FOR Loop --> (for: each _i, ...(range:2,5))[\
-          <!-- ==START= The Boxes for other Email -->(box:"X", 10)[\
+          <!-- ==START= The Boxes for other Email --> (box:"X", 10)[\
           |=
           =><=
           =|||||||=
@@ -90,8 +91,8 @@
     <!-- =END= CENTER --> \
       =||||
     <!-- =START= RIGHT --> \
-    <!-- =START= BOX RIGHT --> (bg: white)+(box:"X", $col0_height)[\
-        <!-- ==START= The box with the ICONS --> (bg: white)+(box:"X", $col1_height)[
+    <!-- =START= BOX RIGHT --> (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height)[\
+        <!-- ==START= The box with the ICONS --> $headershadow+(bg: white)+(box:"X", $col1_height)[
             =|
             =|
             <span class="material-symbols-outlined">reply</span> \
@@ -154,9 +155,15 @@
               Content-Type: text/plain;
               charset=utf-8
           ]\
-        |fbox)[(text-color: white)+(bg: black)+(float-box: "=X=","=Y=")[]]
+        |fbox)[(text-color: white)+(bg: black)+(float-box: "=XX=","=YY=")[\
+        (box: "===========X", 2)[[<span class="material-symbols-outlined">close</span>]<close|]
+        > nmap {(live: )[(print: $IP)]}
+        ]]
         (click: ?code1)[(show:?emailsource)]
-        (click: $IP3)[(show: ?fbox)]\
+        (click: $IP1)[(set: $IP to $IP1)(show: ?fbox)]\
+        (click: $IP2)[(set: $IP to $IP2)(show: ?fbox)]\
+        (click: $IP3)[(set: $IP to $IP3)(show: ?fbox)]\
+        (click-rerun: ?close)[(set: $IP to 0)(hide: ?fbox)]\
         <hr>
         (print: $spambody)
         (box: "X", 5)[]\
