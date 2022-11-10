@@ -1,4 +1,4 @@
-:: Email2 Postfach
+:: Email Postfach
 \
   (change:?passage, (text-size:0.7))\
   (set: $col0_height to 60)\

@@ -17,6 +17,4 @@
 
       {(live: 0.5s)[''0$unread_mails'']}\
   ]\
-<!-- {(live: 0.5s)[(print: $terminalactive)]} -->
-
 ]

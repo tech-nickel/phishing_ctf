@@ -1,8 +1,8 @@
 :: Emailright
 \
+(set: $tac to false)\
 (click: ?from)[(show: ?emailsource)]\
 (display: "Terminal")\
-(set: $terminalactive to false)\
 (click: $IP1)[(set: $terminalactive to true)(show: ?terminal1)]\
 (click: $IP3)[(set: $terminalactive to true)(show: ?terminal3)]\
 (click-rerun: ?close1)[(set: $terminalactive to false)(hide: ?terminal1)]\
