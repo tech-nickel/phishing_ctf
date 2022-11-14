@@ -1,3 +1,5 @@
 :: Delete
-    (move: $emailbodies's ($emailbodies's length) into _a)
-<!-- Du löscht die Email [[Email Postfach]] -->
+    (set: $emailbodies's ($emailbodies's length) to "")
+    (move: $emailbodies's ($clicktracker) into _a)
+    <!-- (goto: "Email Postfach") -->
+    <!-- Du löscht die Email [[Email Postfach]] -->

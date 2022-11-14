@@ -1,9 +1,9 @@
 :: Emailright
 |emailright)[
 (display: "Terminal")\
-## (print: $spamheader)
+## [(print: $emaildata's (str: $clicktracker)'s ("subject"))]<emailhead|
 $moreinfoscolumnheight[\
-    //From// (text-style: "bold")+(color: "grey")[(link-repeat: "Dave")[(show: ?emailsource)]] //to// (color: grey)[Me, Steve, Aaron]
+    //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's (str: $clicktracker)'s ("from")))[(show: ?emailsource)]]<emailfrom| //to// (color: grey)[(str: $emaildata's (str: $clicktracker)'s ("to"))]<emailto|
     ]\
 |emailsource)[\
     Received: from VE1EUR02HT128.eop-EUR02.prod.protection.outlook.com
@@ -47,7 +47,7 @@ $moreinfoscolumnheight[\
 
 ]\
 <hr>
-[(print: $spambody's ($clicktracker))]<emailbody|
+[(str: $emaildata's (str: $clicktracker)'s ("body"))]<emailbody|
 (box: "X", 5)[]\
 <hr>]\
 |sendemail)[\
