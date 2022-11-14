@@ -10,7 +10,8 @@
 (set: $user to "user@linux: ~$")}\
 |terminalwindow)[\
 $terminalwindowbox[\
-$closebox[(link: "<span class='material-symbols-outlined'>close</span>")[(set: $twshow to false)]]\
+$closebox[(link: "<span class='material-symbols-outlined'>close</span>")[(set: $twshow to false)]]
+
 $monospace[type `"help`" to see all your command options]
 (box: "X", 1)[\
 =|
