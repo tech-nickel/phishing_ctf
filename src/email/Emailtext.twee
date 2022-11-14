@@ -1,0 +1,60 @@
+:: Emailtext
+{  
+    <!-- Email 1 --> 
+    (set: $title1 to "Liebe Freund")
+    (set: $text1 to "Ich bin aufrichtig braucht Ihre Aufmerksamkeit,
+
+    Mein Name ist Sgt. Claude, ein Soldat in Libyen, ich und zwei Kollegen heimlich verschoben irgendeinem verlassenen Bargeld aus dem spдten Libyens Prдsident Oberst Muammar Gaddafi Versteck in der Stadt von Sirte. im Einklang mit unseren Dienstleistungen, Wir sind nicht in der Lage, die Mittel in unseren jeweiligen Bank-Konto einzahlen, wir aufrichtig benцtigt Ihre Hilfe, um uns entgegenzukommen das Geld fьr uns.
+
+    Senden Sie mir Ihre Daten (Vollstдndiger Name) (Ihre Adresse) (Telefonnummer) fьr umfassende Informationen.
+
+    Danke fuer Ihr Verstдndnis.
+
+    Sgt. Claude
+    Soldier In Libyen")
+
+    <!-- Email 2 --> 
+    (set: $title2 to "MoneyMatrixClub")
+    (set: $text2 to "+++
+    Du bist doch auch Mitglied in der Gruppe „MoneyMatrixClub“ und wolltest doch auch das 1.247,- Euro Geheimnis entdecken!
+
+    Es ist noch wenige Stunden online.
+
+    Vielleicht ist es auch morgen noch online – das bezweifle ich allerdings… der Widerstand wird zu groß und die Konkurrenz kämpft mit allen Mitteln.
+    Ich selber hab schon angefangen und verdiene sogar deutlich mehr damit.
+    Wir sehen uns dann auf der Seite und demnächst wieder imClub!
+    Schöne Grüße
+    David B
+    Deshalb ist das folgende Video NUR noch HEUTE online! <http:…
+    PS: Dieses Video wird Ihnen die Augen öffnen und endlich den Weg in die finanzielle Freiheit aufzeigen!
+    +++")
+
+
+    <!-- Email 3 --> 
+    (set: $title3 to "Herzlichen Glueckwunsch")
+    (set: $text3 to "Ihre E-Mail-ID hat gewonnen (450.000,00 Euro), die spanische El Gordo International E-mail Lotteriegewinn in Lucky Numbers, und 9/11/13/24/43 Ref.: ES/9420X2/68. Um das Verfahren für die Kontaktaufnahme:
+    Hengst MEGA Anspruch AGENTUR
+    Herr, David Moolman.
+    E-mail; infosgasl0@aim.com
+    Tel.: +34-602-425-580 (spricht Englisch)
+    Ihr vollständiger Name, Adresse, Alter, Beruf, Telefonnummern, Herzlichen Glückwunsch. Hinweis: Dies ist eine internationale Lotterie-Programm, Diese Meldung wird automatisch aus dem Englischen ins Deutschland übersetzt.")
+
+    <!-- Email 4 --> 
+    (set: $title4 to "!!! Gesperrtes Konto!!!")
+    (set: $text4 to "Sehr geehrter Kunde, sehr geehrte Kundin,
+    Unser Sicherheitssystem hat einen Fremdzugriff oder eine Adressänderung in Ihrem Account festgestellt, Da unser System stets auf die Kundensicherheit bedacht ist, wurde Ihr Account zeitweise deaktiviert.
+    Dies sind Sicherheitsmaßnahmen um Fremde Bestellungen oder Ähnlichem vorzubeugen.
+    Sie können Ihren Account wieder Aktivieren dazu ist eine kurze Verifizierung Ihrer Daten erforderlich. Hierfür ist lediglich eine Verifizierung unter:
+    http:/ /entsperrung.biz")
+
+    <!-- Email 5 --> 
+    (set: $title5 to "Freundschaft Inbetriebnahme ")
+    (set: $text5 to "Hallo Guten Tag,
+    Wie geht es dir heute hoffe, du bist ok, Bitte keine Überraschung sein, wie ich dich kontaktiert, Ja, Ich sah Ihre E-Mail-ID an (***)  und nachdem sie durch sie habe ich beschlossen, in Kontakt zu tretenmit Ihnen, wenn wir ein geworden gute Freunde durch das Senden einer Nachricht für das wissen unsere selbst gut.
+    Ich werde dankbar sein, um Ihre Antwort zu erhalten sobald Sie lesen mein Post mit, damit unsere Freundschaft Inbetriebnahme durch die Kommunikation durch einander mehr wissen über Sie und auch ich schicke Ihnen mein Foto für Sie zu wissen, wer ich bin ok.
+    Ich warte, um Ihre Antwort bald gute Nachrichten wie ein guter Freund.
+
+    Ihr neuer Freund,
+    Raziya.")
+
+}

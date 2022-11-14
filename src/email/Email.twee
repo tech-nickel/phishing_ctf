@@ -17,15 +17,13 @@
   (set: $monospace to (font:"Courier"))
   (set: $clicktracker to 1)
   
-  <!-- Emailcenter --> 
+  <!-- Emailcenter -->
+  (display: "Emailtext")
   (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
   (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))
-  (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))
-  (set: $emailbodies to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
-  "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
-  "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
-  "Pellentesque habitant morbi tristique senectus et.", 
-  "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))
+  (set: $emailheads to (a:))
+  (set: $emailbodies to (a:))
+
   
   <!-- Emailright --> 
   (set: $unread_mails to 1)
@@ -58,6 +56,37 @@
   (set: $lastterminalinput to ":initial:")
   {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]
   (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}
+
+<script>
+//Email Content
+  emailbodies = [];
+  for (let i = 1; i < 10; i++) {
+    try {
+      var text = "$text" + i.toString();
+      var content = eval(text);
+      emailbodies.push(content);
+    } catch (e) {
+      console.log(text + "not defined");
+    }
+  }
+  $emailbodies = emailbodies;
+
+//Email title
+  emailtitle = [];
+  for (let i = 1; i < 10; i++) {
+    try {
+      var text = "$title" + i.toString();
+      var content = eval(text);
+      emailtitle.push(content);
+    } catch (e) {
+      console.log(text + "not defined");
+    }
+  }
+  $emailheads = emailtitle;
+
+</script>
+
+
 }\
   =|
   (display: "Emailleft")
