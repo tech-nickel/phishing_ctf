@@ -8,9 +8,9 @@
       <span class="material-symbols-outlined">search</span> \
   ]\
   (for: each _i, ...(range: 1, (dm-values: $emaildata)'s length - 1))[\
-    {(if: $emaildata's (str: _i)'s active is true)[(set: $boxstyling to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(box:"X", 10))]
-    (else:)[(set: $boxstyling to (box:"X", 10))]}\
-    $boxstyling[\
+    {(if: $emaildata's (str: _i)'s active is true)[(set: $boxstyling to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white))]
+    (else:)[(set: $boxstyling to (css: ""))]}\
+    $boxstyling+(box:"X", 10)[\
       |=
       =><=
       =|||||||=

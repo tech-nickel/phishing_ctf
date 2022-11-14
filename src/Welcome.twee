@@ -6,7 +6,7 @@
     (set: $red to (rgb: 236, 101, 100))
     
     <!-- styling --> 
-    (set: $col0_height to 60)
+    (set: $col0_height to 54)
     (set: $col1_height to 5)
     (set: $moreinfoscolumnheight to (box: "X", 3))
     
@@ -25,7 +25,7 @@
         "subject", "Dashboard Design",
         "body", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
         "bodyshort", "Lorem ipsum dolor sit amet",
-        "active", false),
+        "active", true),
 	"2", (dm: 
         "from", "DroitLab", 
         "to",  "You, Me",
@@ -54,7 +54,7 @@
         "body", "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque.",
         "bodyshort", "Et malesuada fames ac turpis",
         "active", false),
-	6, (dm: 
+	"6", (dm: 
         "from", "", 
         "to",  "",
         "subject", "",
@@ -67,8 +67,7 @@
     (set: $unread_mails to 5)
     (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))
     (set: $activerightpage to 0)
-    (set: $boxstyling to (box:"X", 10)) \
-    }
+    (set: $boxstyling to (box:"X", 10))
+    }\
     # Willkommen
     (goto: "Email Postfach")
-    <!-- [[Email Postfach]] -->

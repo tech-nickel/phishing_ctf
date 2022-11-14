@@ -8,6 +8,10 @@ Du klickst den Link an [[Email Postfach]]
 
 
 :: More Infos
-Du klickst auf "mehr Infos.." in der Email [[Email Postfach]]
+Du klickst auf 'mehr Infos..' in der Email [[Email Postfach]]
 
 
+:: Footer[footer]
+\
+{[(link-repeat: "<span class='material-symbols-outlined'>terminal</span>")[(set: $twshow to not it)]
+(link-repeat: "<span class='material-symbols-outlined'>mail</span>")[]]}

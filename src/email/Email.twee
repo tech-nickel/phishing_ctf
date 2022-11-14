@@ -1,25 +1,37 @@
 :: Email Postfach
 {
-  (change:?passage, (text-size:0.7))
+    (change:?passage, (text-size:0.7))
 
-  <!-- Email source --> 
-  (set: $IP1 to "192.92.97.209")
-  (set: $IP2 to "10.152.12.195")
-  (set: $IP3 to "outlook.com")
-  
-  <!-- COMMANDS --> 
-  (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))
-  (set: $terminalwindowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:3)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))
-  (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
-  (set: $closebox to (css: "position: fixed; width: inherit")+(bg: white)+(color: black)+(align: "==>")+(box: "X", 2))
-  (set: $closeicon to [<span class="material-symbols-outlined">close</span>])
-  
-  <!-- Terminal --> 
-  (set: $twshow to false)
-  (set: $terminalinput to ":initial:")
-  (set: $lastterminalinput to ":initial:")
-  {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]
-  (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}
+    <!-- Email source --> 
+    (set: $IP1 to "192.92.97.209")
+    (set: $IP2 to "10.152.12.195")
+    (set: $IP3 to "outlook.com")
+
+    <!-- COMMANDS --> 
+    (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))
+    (set: $terminalwindowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:3)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))
+    (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
+    (set: $closebox to (css: "position: fixed; width: inherit")+(bg: white)+(color: black)+(align: "==>")+(box: "X", 2))
+    (set: $closeicon to [<span class="material-symbols-outlined">close</span>])
+
+    <!-- Terminal --> 
+    (set: $twshow to false)
+    (set: $terminalinput to ":initial:")
+    (set: $lastterminalinput to ":initial:")
+    (set: $accmds to (dm:
+                    "help", "",
+                    "nmap", "You can use the options -sp [IP]/[domain]",
+                    "clear", "screen cleared",
+                    "exit", "exit window",
+                    "sudo", "now root",
+                    ))
+    (set: $accmds's help to "Your possible commands include: "+ (str: (dm-names: $accmds)))
+    (set: $cmdstore to "")
+    (set: $user to "user")
+    (set: $host to "host")
+    (set: $root to false)
+    {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]
+    (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}
 }\
   =|
   (display: "Emailleft")
@@ -46,4 +58,4 @@
     (event: when $activerightpage is 0)[(show: ?emailright)(hide: ?sendemail)]\
     (event: when $activerightpage is 1)[(hide: ?emailright)(show: ?sendemail)]\
     =|
-]
+    ]
