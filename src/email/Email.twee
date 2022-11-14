@@ -1,50 +1,87 @@
 :: Email Postfach
-\
-  (change:?passage, (text-size:0.7))\
-  (set: $col0_height to 60)\
-  (set: $col1_height to 5)\
-  (set: $bluegrey to (rgb: 248, 250, 255))\
-  (set: $bluegrey2 to (rgb: 239, 245, 254))\
-  (set: $red to (rgb: 236, 101, 100))\
-  (set: $moreinfoscolumnheight to (box: "X", 3))\
-  (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))\
-  (set: $emailbodies to (a:"Inbox", "Starred", "Important", "Sent", "Draft"))\
-  (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))\
-  (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))\
+{
+  <!-- colors --> 
+  (set: $bluegrey to (rgb: 248, 250, 255))
+  (set: $bluegrey2 to (rgb: 239, 245, 254))
+  (set: $red to (rgb: 236, 101, 100))
+  
+  <!-- styling --> 
+  (change:?passage, (text-size:0.7))
+  (set: $col0_height to 60)
+  (set: $col1_height to 5)
+  (set: $moreinfoscolumnheight to (box: "X", 3))
+  
+  <!-- statics --> 
+  (set: $blank to "n")
+  (set: $nofblanks to 1)
+  (set: $monospace to (font:"Courier"))
+  (set: $clicktracker to 1)
+  
+  <!-- Emailcenter --> 
+  (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
+  (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))
+  (set: $emailheads to (a:"Dashboard Design", "Appointment", "Work Inquiry", "Upwork Homepage", "Work Inquiry"))
   (set: $emailbodies to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
   "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
   "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
   "Pellentesque habitant morbi tristique senectus et.", 
-  "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))\
-  (set: $unread_mails to 1)\
-  (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))\
-  (set: $emailfrom to "sender@spammail.com")\
-  (set: $emailto to "receiver@honestymail.com")\
-  (set: $spamheader to "This is an email")\
+  "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))
+  
+  <!-- Emailright --> 
+  (set: $unread_mails to 1)
+  (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))
+  (set: $emailfrom to "sender@spammail.com")
+  (set: $emailto to "receiver@honestymail.com")
+  (set: $spamheader to "This is an email")
   (set: $spambody to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
   "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
   "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
   "Pellentesque habitant morbi tristique senectus et.", 
-  "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))\
-  (set: $clicktracker to 1)\
-  (set: $IP1 to "192.92.97.209")\
-  (set: $IP2 to "10.152.12.195")\
-  (set: $IP3 to "outlook.com")\
-  (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))\
-  (set: $terminalwindowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:8)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))\
-  (set: $closebox to (bg: white)+(color: black)+(align: "==>")+(box: "X", 2))\
-  (set: $closeicon to [<span class="material-symbols-outlined">close</span>])\
-  (set: $twshow to false)\
-  (set: $terminalinput to ":initial:")\
-  (set: $lastterminalinput to ":initial:")\
-  {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]\
-  (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}\
-  (set: $blank to "\n")\
-  (set: $nofblanks to 1)\
-  (set: $monospace to (font:"Courier"))\
+  "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))
+  (set: $activerightpage to 0)
+  
+  <!-- Email source --> 
+  (set: $IP1 to "192.92.97.209")
+  (set: $IP2 to "10.152.12.195")
+  (set: $IP3 to "outlook.com")
+  
+  <!-- COMMANDS --> 
+  (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))
+  (set: $terminalwindowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:8)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))
+  (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
+  (set: $closebox to (bg: white)+(color: black)+(align: "==>")+(box: "X", 2))
+  (set: $closeicon to [<span class="material-symbols-outlined">close</span>])
+  
+  <!-- Terminal --> 
+  (set: $twshow to false)
+  (set: $terminalinput to ":initial:")
+  (set: $lastterminalinput to ":initial:")
+  {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]
+  (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}
+}\
   =|
   (display: "Emailleft")
   =|| 
   (display: "Emailcenter")
   =||||
-  (display: "Emailright")
+  $rightemailbox[\
+    $headershadow+(bg: white)+(box:"X", $col1_height)[
+        =|
+        =|
+            (link-repeat: "<span class='material-symbols-outlined'>reply</span>")[(set: $activerightpage to 1)] \
+        |=
+            (link-repeat: "<span class='material-symbols-outlined'>delete</span>")[(display: "Delete")]  \
+        |=
+            [[<span class="material-symbols-outlined">info</span>->More Infos]]\
+        |=
+            <span class="material-symbols-outlined">forward</span> \
+        |=
+            <span class="material-symbols-outlined">``mark_email_read``</span> \
+        ]\
+    |=
+    =|||||=
+    (display: "Emailright")\
+    (event: when $activerightpage is 0)[(show: ?emailright)(hide: ?sendemail)]\
+    (event: when $activerightpage is 1)[(hide: ?emailright)(show: ?sendemail)]\
+    =|
+]

@@ -1,16 +1,16 @@
 :: Terminal
-\
+{
 (set: $accmds to (dm:
-                 "help", "help: Your possible commands include: help, nmap, clear",
+                 "help", "help: Your possible commands include: help, nmap, clear, exit",
                  "nmap", "nmap: You can use the options -sp [IP]/[domain]",
                  "clear", "screen cleared",
                  "exit", "exit window",
-                 ))\
-(set: $cmdstore to "")\
-(set: $user to "user@linux: ~$")\
+                 ))
+(set: $cmdstore to "")
+(set: $user to "user@linux: ~$")}\
 |terminalwindow)[\
 $terminalwindowbox[\
-$closebox[(link: "X")[(set: $twshow to false)]]\
+$closebox[(link: "<span class='material-symbols-outlined'>close</span>")[(set: $twshow to false)]]\
 $monospace[type `"help`" to see all your command options]
 (box: "X", 1)[\
 =|
@@ -30,6 +30,7 @@ document.onkeypress = function (e) {
                     break;
                 case "exit":
                     $twshow = false;
+                    $activerightpage = 1;
                     break;
                 default:
                     break;

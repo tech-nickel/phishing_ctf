@@ -1,0 +1,3 @@
+:: Delete
+    (move: $emailbodies's ($emailbodies's length) into _a)
+<!-- Du löscht die Email [[Email Postfach]] -->

@@ -1,4 +1,8 @@
 :: Welcome
 # Willkommen
 ## Storyline
+(set: $tar to (a: "eins", "zwei"))
+$tar
+(move: $tar's (2) into _a)
+$tar
 [[Email Postfach]]
