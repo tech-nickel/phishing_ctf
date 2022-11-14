@@ -1,22 +1,45 @@
 :: Terminal
-(set: $test to "
-")\
+\
+(set: $accmds to (dm:
+                 "help", "help: Your possible commands include: help, nmap, clear",
+                 "nmap", "nmap: You can use the options -sp [IP]/[domain]",
+                 "clear", "screen cleared",
+                 "exit", "exit window",
+                 ))\
+(set: $cmdstore to "")\
+(set: $user to "user@linux: ~$")\
 |terminalwindow)[\
-$terminalwindowbox[$closebox[$closeicon]
-{(live: )[
-> nmap -sp (print: $IP)
-> (css: "border: none")(input: bind $input)
-(print: $test)]}
-aaaaa
-]]
-<script>
+$terminalwindowbox[\
+$closebox[(link: "X")[(set: $twshow to false)]]\
+$monospace[type `"help`" to see all your command options]
+(box: "X", 1)[\
+=|
+$user
+|||||=
+(input: bind $terminalinput)]\
+{(live: )[$monospace[(print: $cmdstore)]]}
+]]\
+<script> 
 document.onkeypress = function (e) {
     e = e || window.event;
-        if($tac == true & e.keyCode == 13){
-            alert(e.keyCode);
-        };
-        if($tac == true & e.keyCode != 13){
-            $test += "a\n";
+        if($twshow == true & e.keyCode == 13 & $terminalinput != ""){
+            var out = $accmds.get($terminalinput);
+            switch ($terminalinput) {
+                case "clear":
+                    $cmdstore = "";
+                    break;
+                case "exit":
+                    $twshow = false;
+                    break;
+                default:
+                    break;
+            }
+            if (!out){
+                $cmdstore += "command not found: " + $terminalinput + "\n";}
+            else{
+                $cmdstore += out + "\n";
+                $nofblanks += 1;
+                $terminalinput = "";}
         };
     }
 </script>

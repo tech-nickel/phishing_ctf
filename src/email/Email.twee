@@ -32,10 +32,16 @@
   (set: $IP3 to "outlook.com")\
   (set: $headershadow to (css: "box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.2) inset"))\
   (set: $terminalwindowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:8)+(text-color: white)+(bg: black)+(float-box: "=XX=","=YY="))\
-  (set: $tac to false)\
-  (click: ?from)[(show: ?emailsource)]\
   (set: $closebox to (bg: white)+(color: black)+(align: "==>")+(box: "X", 2))\
   (set: $closeicon to [<span class="material-symbols-outlined">close</span>])\
+  (set: $twshow to false)\
+  (set: $terminalinput to ":initial:")\
+  (set: $lastterminalinput to ":initial:")\
+  {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]\
+  (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}\
+  (set: $blank to "\n")\
+  (set: $nofblanks to 1)\
+  (set: $monospace to (font:"Courier"))\
   =|
   (display: "Emailleft")
   =|| 
