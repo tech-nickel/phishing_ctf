@@ -7,27 +7,23 @@
     |=
       <span class="material-symbols-outlined">search</span> \
   ]\
-  (for: each _i, ...(range: 1, (dm-values: $emaildata)'s length - 1))[\
-    {(if: $emaildata's (str: _i)'s active is true)[(set: $boxstyling to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white))]
+  (for: each _i, ...(range: 1, $emaildata's length + 1))[\
+    {(if: $clicktracker is _i)[(set: $boxstyling to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white))]
     (else:)[(set: $boxstyling to (css: ""))]}\
     $boxstyling+(box:"X", 10)[\
       |=
       =><=
       =|||||||=
-
-        (text-size: 0.7) + (link-repeat: (str: $emaildata's (str: _i)'s subject))[\
-        (set: ($emaildata's (str: $clicktracker))'s active to false)\
-        (set: ($emaildata's (str: _i))'s active to true)\
-        (hide: ?emailsource)\
-        (replace: ?emailto)[(print: $emaildata's (str: _i)'s to)]\
-        (replace: ?emailfrom)[(link-repeat: $emaildata's (str: _i)'s from)[(show: ?emailsource)]]\
-        (replace: ?emailbody)[(print: $emaildata's (str: _i)'s body)]\
-        (replace: ?emailhead)[(print: $emaildata's (str: _i)'s subject)]\
-        (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]\
+        (text-size: 0.7) + (link-repeat: (str: $emaildata's (_i)'s sender))[\
         (set: $clicktracker to _i)\
-        (goto: "Email Postfach")]
-        (text-size: 0.7)(print: $emaildata's (str: _i)'s from)
-        (text-size: 0.6)(print: $emaildata's (str: _i)'s bodyshort)
+        (hide: ?emailsource)\
+        (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]\
+        (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]\
+        (replace: ?emailfrom)[(link-repeat: $emaildata's ($clicktracker)'s sender)[(show: ?emailsource)]]\
+        (replace: ?emailhead)[(print: $emaildata's ($clicktracker)'s subject)]\
+        (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]
+        (text-size: 0.6)(print: $emaildata's (_i)'s subject)
+        (text-size: 0.6)(print: $emaildata's (_i)'s bodyshort)
       =|
     ]\
   ]\

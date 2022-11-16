@@ -1,9 +1,11 @@
 :: Emailright
 |emailright)[
 (display: "Terminal")\
-## [(print: $emaildata's (str: $clicktracker)'s ("subject"))]<emailhead|
+  <!-- Fixes weird BUg --> 
+(set: $clicktracker to 1)\
+## [(print: $emaildata's ($clicktracker)'s subject)]<emailhead|
 $moreinfoscolumnheight[\
-    //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's (str: $clicktracker)'s ("from")))[(show: ?emailsource)]]<emailfrom| //to// (color: grey)[(str: $emaildata's (str: $clicktracker)'s ("to"))]<emailto|
+    //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's ($clicktracker)'s sender))[(show: ?emailsource)]]<emailfrom| //to// (color: grey)[(str: $emaildata's ($clicktracker)'s receiver)]<emailto|
     ]\
 |emailsource)[\
     Received: from VE1EUR02HT128.eop-EUR02.prod.protection.outlook.com
@@ -47,7 +49,7 @@ $moreinfoscolumnheight[\
 
 ]\
 <hr>
-[(str: $emaildata's (str: $clicktracker)'s ("body"))]<emailbody|
+[(str: $emaildata's (1)'s body)]<emailbody|
 (box: "X", 5)[]\
 <hr>]\
 |sendemail)[\

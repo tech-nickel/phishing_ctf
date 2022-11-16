@@ -52,22 +52,43 @@
   <!-- Emailcenter -->
   (display: "Emailtext")
   (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
-  (set: $emailfroms to (a:"[[Jerome Linder->Welcome]]", "DroitLab", "Slobodan Palkdj", "Tim Greene", "UENO"))
-  (set: $emailheads to (a:))
-  (set: $emailbodies to (a:))
 
+ <!-- Emaildata --> 
+
+  (set: $emaildata to (a:))
+  (set: $emailcontent to (dm:))
+
+  (for: each _i, ...(range: 1, $maxtexts)) [
+    (set: $success to false)
+    <script>
+      try {
+          eval("$title" + _i);
+          var emailcontent = new Map();
+          emailcontent.set("subject","$title" + _i);
+          emailcontent.set("sender","$sender" + _i);
+          emailcontent.set("receiver","$receiver" + _i);
+          emailcontent.set("body","$text" + _i);
+          $emailcontent = emailcontent;
+          $success = true;
+      } catch (e) {
+        $success = false;
+        console.log("rejected " + _i)
+      } 
+    </script>
+    <script>
+    if ($success) {
+        var emailcontent = $emailcontent;
+        emailcontent.set("bodyshort",bodies_short(eval($emailcontent.get("body"))));
+        $emailcontent = emailcontent;
+    }
+    </script>
+    (if: $success is true)[(set: $emaildata's (_i) to $emailcontent)]
+  ]
   
+
   <!-- Emailright --> 
   (set: $unread_mails to 1)
   (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))
-  (set: $emailfrom to "sender@spammail.com")
-  (set: $emailto to "receiver@honestymail.com")
-  (set: $spamheader to "This is an email")
-  (set: $spambody to (a:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt", 
-  "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.", 
-  "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna ", 
-  "Pellentesque habitant morbi tristique senectus et.", 
-  "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque."))
   (set: $activerightpage to 0)
   
   <!-- Email source --> 
@@ -89,37 +110,6 @@
   {(live: )[(if: $twshow is true)[(show: ?terminalwindow)]
   (else:)[(hide: ?terminalwindow)(set: $cmdstore to "")]]}
 
-<script>
-//Email Content
-  emailbodies = [];
-  for (let i = 1; i < 10; i++) {
-    try {
-      var text = "$text" + i.toString();
-      var content = eval(text);
-      emailbodies.push(content);
-    } catch (e) {
-      console.log(text + "not defined");
-    }
-  }
-  $emailbodies = emailbodies;
-
-//Email title
-  emailtitle = [];
-  for (let i = 1; i < 10; i++) {
-    try {
-      var text = "$title" + i.toString();
-      var content = eval(text);
-      emailtitle.push(content);
-    } catch (e) {
-      console.log(text + "not defined");
-    }
-  }
-  $emailheads = emailtitle;
-
-</script>
-
-
-}\
   =|
   (display: "Emailleft")
   =|| 
@@ -145,5 +135,6 @@
     (event: when $activerightpage is 0)[(show: ?emailright)(hide: ?sendemail)]\
     (event: when $activerightpage is 1)[(hide: ?emailright)(show: ?sendemail)]\
     =|
-    ]
-]
+    ]    
+}\
+
