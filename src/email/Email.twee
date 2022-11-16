@@ -16,16 +16,19 @@
 
     <!-- Terminal --> 
     (set: $twshow to false)
-    (set: $terminalinput to ":initial:")
-    (set: $lastterminalinput to ":initial:")
+    (set: $terminalinput to "")
+    (set: $lastterminalinput to "")
     (set: $accmds to (dm:
                     "help", "",
                     "nmap", "You can use the options -sp [IP]/[domain]",
+                    "nmap -sp " + $IP1, "Starting Nmap ( https://nmap.org )\ Nmap scan report for" + $IP1 + "\nNot shown: 994 filtered ports\nPORT    STATE  SERVICE\n22/tcp  open   ssh\n25/tcp  closed smtp\n53/tcp  open   domain\n70/tcp  closed gopher\n80/tcp  open   http\n113/tcp closed auth",
+                    "nmap -sp " + $IP2, "You can use the options -sp [IP]/[domain]",
+                    "nmap -sp " + $IP3, "You can use the options -sp [IP]/[domain]",
                     "clear", "screen cleared",
                     "exit", "exit window",
                     "sudo", "now root",
                     ))
-    (set: $accmds's help to "Your possible commands include: "+ (str: (dm-names: $accmds)))
+    (set: $accmds's help to "Your possible commands include: " + (str: (dm-names: $accmds)))
     (set: $cmdstore to "")
     (set: $user to "user")
     (set: $host to "host")
