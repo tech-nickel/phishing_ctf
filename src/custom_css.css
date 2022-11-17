@@ -29,11 +29,11 @@ tw-story {
   background: rgb(222, 222, 222); /* For old browsers */
   margin-top: 0 auto;
   padding: 0% 0%;
-  overflow: hidden !important;
 }
 
 body{
   overflow: hidden !important;
+  margin-bottom:50px !important;
 }
 
 /* This is a Button */
@@ -97,4 +97,13 @@ tw-align{
 
 tw-expression{
   cursor: auto
+}
+
+tw-include[name="Footer"]{
+    position: fixed;
+    background-color: lightblue;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 }

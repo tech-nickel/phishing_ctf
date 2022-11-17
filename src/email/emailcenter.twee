@@ -25,7 +25,8 @@
         (replace: ?emailhead)[(print: $emaildata's (str: _i)'s subject)]\
         (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]\
         (set: $clicktracker to _i)\
-        (goto: "Email Postfach")]
+        <!-- (goto: "Email Postfach") --> \
+        ]
         (text-size: 0.7)(print: $emaildata's (str: _i)'s from)
         (text-size: 0.6)(print: $emaildata's (str: _i)'s bodyshort)
       =|

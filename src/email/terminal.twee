@@ -1,7 +1,9 @@
 :: Terminal
-|terminalwindow)[\
+(change: ?Page, (text-size: 0.7))\
+(set: $twshow to true)\
+|terminalwindow>[\
 $terminalwindowbox[\
-$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(set: $twshow to false)]]
+$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
 
 $monospace[type `"help`" to see all your command options]
 (box: "X", 2)[\
@@ -20,6 +22,7 @@ document.onkeypress = function (e) {
     e = e || window.event;
         if($twshow == true & e.keyCode == 13 & $terminalinput != ""){
             var out = $accmds.get($terminalinput);
+            console.log("input: " + $terminalinput + "; output: " + out);
             switch ($terminalinput) {
                 case "clear":
                     $cmdstore = "";

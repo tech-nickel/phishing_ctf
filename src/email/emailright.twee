@@ -1,6 +1,5 @@
 :: Emailright
-|emailright)[
-(display: "Terminal")\
+|emailright)[\
 ## [(print: $emaildata's (str: $clicktracker)'s ("subject"))]<emailhead|
 $moreinfoscolumnheight[\
     //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's (str: $clicktracker)'s ("from")))[(show: ?emailsource)]]<emailfrom| //to// (color: grey)[(str: $emaildata's (str: $clicktracker)'s ("to"))]<emailto|
@@ -52,4 +51,4 @@ $moreinfoscolumnheight[\
 <hr>]\
 |sendemail)[\
 ## Send out an Email
-(css: "padding-bottom: 10em")[(input: bind $inputtest)]]
+(css: "padding-bottom: 10em")[(input: bind $inputtest)]\]
