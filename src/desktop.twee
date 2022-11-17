@@ -1,7 +1,7 @@
 :: Desktop
 \
 {
-  (change: ?passage, (text-size: 0.7)+(bg: "wallpaper.jpg"))
+  (change: ?passage, (text-size: 0.7))
 <!-- Emailcenter -->
   (display: "Emailtext")
   (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
