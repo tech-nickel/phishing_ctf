@@ -1,55 +1,43 @@
 :: Desktop
 \
 {
-    (change: ?passage, (text-size: 0.7)+(bg: "wallpaper.jpg"))
+  (change: ?passage, (text-size: 0.7)+(bg: "wallpaper.jpg"))
+<!-- Emailcenter -->
+  (display: "Emailtext")
+  (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
 
-    <!-- Emaildata --> 
+ <!-- Emaildata --> 
 
-    (set: $emaildata to (dm: 
-	"1", (dm: 
-        "from", "Jerome Linder", 
-        "to",  "You, Yourself",
-        "subject", "Dashboard Design",
-        "body", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
-        "bodyshort", "Lorem ipsum dolor sit amet",
-        "active", true),
-	"2", (dm: 
-        "from", "DroitLab", 
-        "to",  "You, Me",
-        "subject", "Appointment",
-        "body", "Hendrerit gravida rutrum quisque non tellus. Cursus in hac habitasse platea dictumst quisque.",
-        "bodyshort", "Hendrerit gravida rutrum quisque",
-        "active", false),
-	"3", (dm: 
-        "from", "Slobodan Palkdj", 
-        "to",  "You, Yosef",
-        "subject", "Work Inquiry",
-        "body", "Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Semper eget duis at tellus at urna",
-        "bodyshort", "Feugiat nibh sed pulvinar",
-        "active", false),
-	"4", (dm: 
-        "from", "Tim Greene", 
-        "to",  "You, Selfyou",
-        "subject", "Upwork Homepage",
-        "body", "Pellentesque habitant morbi tristique senectus et.",
-        "bodyshort", "Pellentesque habitant morbi",
-        "active", false),
-	"5", (dm: 
-        "from", "UENO", 
-        "to",  "You, Horst",
-        "subject", "Love you",
-        "body", "Et malesuada fames ac turpis egestas. Consequat ac felis donec et odio pellentesque.",
-        "bodyshort", "Et malesuada fames ac turpis",
-        "active", false),
-	"6", (dm: 
-        "from", "", 
-        "to",  "",
-        "subject", "",
-        "body", "",
-        "bodyshort", "",
-        "active", false),
-   ))
-    (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
+  (set: $emaildata to (a:))
+  (set: $emailcontent to (dm:))
+
+  (for: each _i, ...(range: 1, $maxtexts)) [
+    (set: $success to false)
+    <script>
+      try {
+          eval("$title" + _i);
+          var emailcontent = new Map();
+          emailcontent.set("subject","$title" + _i);
+          emailcontent.set("sender","$sender" + _i);
+          emailcontent.set("receiver","$receiver" + _i);
+          emailcontent.set("body","$text" + _i);
+          $emailcontent = emailcontent;
+          $success = true;
+      } catch (e) {
+        $success = false;
+        console.log("rejected " + _i)
+      } 
+    </script>
+    <script>
+    if ($success) {
+        var emailcontent = $emailcontent;
+        emailcontent.set("bodyshort",bodies_short(eval($emailcontent.get("body"))));
+        $emailcontent = emailcontent;
+    }
+    </script>
+    (if: $success is true)[(set: $emaildata's (_i) to $emailcontent)]
+  ]
+  
 
 
     <!-- Email source --> 

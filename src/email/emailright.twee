@@ -1,8 +1,10 @@
 :: Emailright
-|emailright)[\
-## [(print: $emaildata's (str: $clicktracker)'s ("subject"))]<emailhead|
+|emailright)[
+  <!-- Fixes weird BUg --> 
+(set: $clicktracker to 1)\
+## [(print: $emaildata's ($clicktracker)'s subject)]<emailhead|
 $moreinfoscolumnheight[\
-    //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's (str: $clicktracker)'s ("from")))[(show: ?emailsource)]]<emailfrom| //to// (color: grey)[(str: $emaildata's (str: $clicktracker)'s ("to"))]<emailto|
+    //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's ($clicktracker)'s sender))[(goto: "Email Postfach")]]<emailfrom| //to// (color: grey)[(str: $emaildata's ($clicktracker)'s receiver)]<emailto|
     ]\
 |emailsource)[\
     Received: from VE1EUR02HT128.eop-EUR02.prod.protection.outlook.com
@@ -17,8 +19,8 @@ $moreinfoscolumnheight[\
     client-ip=192.92.97.209;
     helo=s15.avl3.acemsrvc.com;
     Received: from s15.avl3.acemsrvc.com 
-    ((link-repeat: $IP1)[(set: $IP to $IP1)(set: $twshow to true)]) byVE1EUR02FT037.mail.protection.outlook.com 
-    ((link-repeat: $IP2)[(set: $IP to $IP2)(set: $twshow to true)]) with Microsoft SMTPServer ```(version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)```
+    ($IP1) byVE1EUR02FT037.mail.protection.outlook.com 
+    ($IP2) with Microsoft SMTPServer ```(version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)```
     id15.20.3174.21 via Frontend Transport;
     (current-date:) (current-time:);
     Received: by s15.avl3.acemsrvc.com id h1n5ek2lshkm for <hfray@outlook.com>;
@@ -26,7 +28,7 @@ $moreinfoscolumnheight[\
     (envelope-from <bounce-511294-166-59-hfray=outlook.com@s10.acems1.com>)
     Authentication-Results: spf=pass (sender IP is 192.92.97.209)
     smtp.mailfrom=s10.acems1.com; 
-    domain=((link-repeat: $IP3)[(set: $IP to $IP3)(set: $twshow to true)]); 
+    domain=($IP3); 
     dkim=pass (signature was verified) header.d=lillysloft.co;
     dmarc=bestguesspass action=none
     header.from=lillysloft.co;
@@ -46,9 +48,9 @@ $moreinfoscolumnheight[\
 
 ]\
 <hr>
-[(str: $emaildata's (str: $clicktracker)'s ("body"))]<emailbody|
+[(str: $emaildata's (1)'s body)]<emailbody|
 (box: "X", 5)[]\
 <hr>]\
 |sendemail)[\
 ## Send out an Email
-(css: "padding-bottom: 10em")[(input: bind $inputtest)]\]
+(css: "padding-bottom: 10em")[(input: bind $inputtest)]]

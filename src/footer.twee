@@ -1,16 +1,3 @@
-
-:: Quellcode
-Du schaust den Quellcode an [[Email Postfach]]
-
-
-:: PhishingLink
-Du klickst den Link an [[Email Postfach]]
-
-
-:: More Infos
-Du klickst auf 'mehr Infos..' in der Email [[Email Postfach]]
-
-
 :: Footer[footer]
 \
 (link-repeat: "<span class='material-symbols-outlined'>terminal</span>")[(goto: "Terminal")]\
