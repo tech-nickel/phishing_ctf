@@ -1,0 +1,10 @@
+:: Browser
+{
+(change: ?Page, (text-size: 0.7))
+}\
+$windowbox[\
+$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+    (display: "Page1")\
+    (show: ?examplepage)\
+
+]

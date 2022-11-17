@@ -1,4 +1,6 @@
 :: Footer[footer]
 \
+=><=
 (link-repeat: "<span class='material-symbols-outlined'>terminal</span>")[(goto: "Terminal")]\
-(link-repeat: "<span class='material-symbols-outlined'>mail</span>")[(goto: "Email Postfach")]
+(link-repeat: "<span class='material-symbols-outlined'>mail</span>")[(goto: "Email Postfach")]\
+(link-repeat: "<span class='material-symbols-outlined'>language</span>")[(goto: "Browser")]

@@ -1,5 +1,4 @@
 :: Emailleft
-\
 (bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
   $headershadow+(bg: $red)+(box:"X", $col1_height)[\
     =><=

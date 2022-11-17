@@ -4,10 +4,11 @@
         <!-- colors --> 
     (set: $bluegrey to (rgb: 248, 250, 255))
     (set: $bluegrey2 to (rgb: 239, 245, 254))
+    (set: $bluegreydark to (rgb: 29, 41, 58))
     (set: $red to (rgb: 236, 101, 100))
     
     <!-- styling --> 
-    (set: $col0_height to 50)
+    (set: $col0_height to 53)
     (set: $col1_height to 5)
     (set: $moreinfoscolumnheight to (box: "X", 3))
     

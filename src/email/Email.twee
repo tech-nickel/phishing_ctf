@@ -1,12 +1,11 @@
 :: Email Postfach
 (change: ?Page, (text-size: 0.7))\
-|emailwindow>[\
 $windowbox[\
-$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")(set: $cmdstore to "")]]
+$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
     =|
-  (display: "Emailleft")
+  (display: "Emailleft") \
   =|| 
-  (display: "Emailcenter")
+  (display: "Emailcenter") \
   =||||
   $rightemailbox[\
     $headershadow+(bg: white)+(box:"X", $col1_height)[
@@ -28,4 +27,4 @@ $closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[
     (event: when $activerightpage is 0)[(show: ?emailright)(hide: ?sendemail)]\
     (event: when $activerightpage is 1)[(hide: ?emailright)(show: ?sendemail)]\
     =|
-    ]]]
+    ]]

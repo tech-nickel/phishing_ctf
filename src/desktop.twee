@@ -47,13 +47,15 @@
 
     <!-- COMMANDS --> 
     (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
-    (set: $windowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:100")+(corner-radius:3)+(float-box: "X","YYYYYYYYYYYYYYYY="))
+    (set: $windowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1; overflow: hidden")+(corner-radius:3)+(float-box: "X","YYYYYYYYYYYYYYYYYYYYYYYYYYY="))
     (set: $terminalwindowbox to $windowbox+(text-color: white)+(bg: black)+(float-box: "=XXXXXXXXXXXX=","=YYYYYYYYYYYY="))
     (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
-    (set: $closebox to (css: "position: fixed; width: inherit")+(bg: white)+(color: black)+(align: "==>")+(box: "X", 2))
+    (set: $closebox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:5")+(bg: $bluegreydark)+(color: white)+(align: "==>")+(box: "X", 2))
     (set: $closeicon to [<span class="material-symbols-outlined">close</span>])
     (display: "TerminalInit")
 
 }\
+=><=
 
-This is your Desktop
+
+# This is your Desktop
