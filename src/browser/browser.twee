@@ -1,9 +1,21 @@
 :: Browser
 {
+(set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
 (change: ?Page, (text-size: 0.7))
 }\
 $windowbox[\
 $closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+$tabbox[\
+==|
+=><=
+(str: $tabnames's 1)
+=|=
+=><=
+(str: $tabnames's 2)
+==|
+=><=
+(str: $tabnames's 3)
+]
     (display: "Page1")\
     (show: ?examplepage)\
 

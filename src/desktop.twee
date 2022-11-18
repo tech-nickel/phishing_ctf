@@ -2,12 +2,18 @@
 \
 {
   (change: ?passage, (text-size: 0.7))
-<!-- Emailcenter -->
+
+
+  <!-- Email source --> 
+  (set: $IP1 to "192.92.97.209")
+  (set: $IP2 to "10.152.12.195")
+  (set: $IP3 to "outlook.com")
+  
+  <!-- Emailcenter -->
   (display: "Emailtext")
   (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
 
- <!-- Emaildata --> 
-
+  <!-- Emaildata --> 
   (set: $emaildata to (a:))
   (set: $emailcontent to (dm:))
 
@@ -40,17 +46,13 @@
   
 
 
-    <!-- Email source --> 
-    (set: $IP1 to "192.92.97.209")
-    (set: $IP2 to "10.152.12.195")
-    (set: $IP3 to "outlook.com")
-
     <!-- COMMANDS --> 
     (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
     (set: $windowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1; overflow: hidden")+(corner-radius:3)+(float-box: "X","YYYYYYYYYYYYYYYYYYYYYYYYYYY="))
     (set: $terminalwindowbox to $windowbox+(text-color: white)+(bg: black)+(float-box: "=XXXXXXXXXXXX=","=YYYYYYYYYYYY="))
     (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
     (set: $closebox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:5")+(bg: $bluegreydark)+(color: white)+(align: "==>")+(box: "X", 2))
+    (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:5")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
     (set: $closeicon to [<span class="material-symbols-outlined">close</span>])
     (display: "TerminalInit")
 

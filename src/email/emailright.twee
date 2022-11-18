@@ -1,52 +1,12 @@
 :: Emailright
 |emailright)[
-  <!-- Fixes weird BUg --> 
+<!-- Fixes weird BUg --> \
 (set: $clicktracker to 1)\
 ## [(print: $emaildata's ($clicktracker)'s subject)]<emailhead|
 $moreinfoscolumnheight[\
     //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's ($clicktracker)'s sender))[(goto: "Email Postfach")]]<emailfrom| //to// (color: grey)[(str: $emaildata's ($clicktracker)'s receiver)]<emailto|
     ]\
-|emailsource)[\
-    Received: from VE1EUR02HT128.eop-EUR02.prod.protection.outlook.com
-    ```(2603:10b6:610:50::14)``` by CH2PR20MB2917.namprd20.prod.outlook.com with HTTPS via CH2PR16CA0004.NAMPRD16.PROD.outlook.com;
-    (current-date:) (current-time:);
-    Received: from VE1EUR02FT037.eop-EUR02.prod.protection.outlook.com 
-    ```(2a01:111:e400:7e1e::4b)``` byVE1EUR02HT128.eop-EUR02.prod.protection.outlook.com 
-    ```(2a01:111:e400:7e1e::409)```with Microsoft SMTP Server ```(version=TLS1_2,cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)```
-    id 15.20.3174.21
-    (current-date:) (current-time:);
-    Received-SPF: Pass (protection.outlook.com: domain of s10.acems1.comdesignates 192.92.97.209 as permitted sender)receiver=protection.outlook.com; 
-    client-ip=192.92.97.209;
-    helo=s15.avl3.acemsrvc.com;
-    Received: from s15.avl3.acemsrvc.com 
-    ($IP1) byVE1EUR02FT037.mail.protection.outlook.com 
-    ($IP2) with Microsoft SMTPServer ```(version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384)```
-    id15.20.3174.21 via Frontend Transport;
-    (current-date:) (current-time:);
-    Received: by s15.avl3.acemsrvc.com id h1n5ek2lshkm for <hfray@outlook.com>;
-    (current-date:) (current-time:);
-    (envelope-from <bounce-511294-166-59-hfray=outlook.com@s10.acems1.com>)
-    Authentication-Results: spf=pass (sender IP is 192.92.97.209)
-    smtp.mailfrom=s10.acems1.com; 
-    domain=($IP3); 
-    dkim=pass (signature was verified) header.d=lillysloft.co;
-    dmarc=bestguesspass action=none
-    header.from=lillysloft.co;
-    compauth=pass reason=109
-    DKIM-Signature: v=1; 
-    a=rsa-sha256; 
-    c=relaxed/relaxed; 
-    s=dk; 
-    d=lillysloft.co;
-    To: $emailfrom
-    From: $emailto
-    Message-ID: <20200714151034.599.579440210.swift@lillysloft.activehosted.com>
-    Return-Path: bounce-511294-166-59-example=outlook.com@s10.acems1.com
-    MIME-Version: 1.0
-    Content-Type: text/plain;
-    charset=utf-8
-
-]\
+|emailsource)[$source1]\
 <hr>
 [(str: $emaildata's (1)'s body)]<emailbody|
 (box: "X", 5)[]\
