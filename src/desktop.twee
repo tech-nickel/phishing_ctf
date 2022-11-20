@@ -3,6 +3,7 @@
 {
   (change: ?passage, (text-size: 0.7))
 
+  (set: $showFooter to true)
 
   <!-- Email source --> 
   (set: $IP1 to "192.92.97.209")
