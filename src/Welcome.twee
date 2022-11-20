@@ -24,5 +24,13 @@
     (set: $activerightpage to 0)
     (set: $boxstyling to (box:"X", 10))
     }\
-    # Willkommen
-    (goto: "Desktop")
+    =><=
+    # Welcome to Phising-CTF    
+    ## Enter Username
+
+    (input: bind $username, "=X=")
+    (link-repeat: "Start game")
+        [(if: ((length of $username) >= 3))\
+            [(goto: "Desktop")]\
+        (else:)\
+            [Username must be at least 3 characters long]]
