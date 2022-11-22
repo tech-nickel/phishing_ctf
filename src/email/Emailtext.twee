@@ -108,4 +108,40 @@
     Ihr neuer Freund,
     Raziya.")
 
+    <!-- Email 6-->
+    (set: $title6 to "Next Daily Meeting")
+    (set: $sender6 to "Boss")
+    (set: $receiver6 to "Team 1")
+    (set: $text6 to "Hi everyone,
+    As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 09am.
+    We need to finish by 09:30, due to a meeting with a client, so please be there at 9am.
+    
+    Sincerely Boss")
+
+    <!-- Email 7-->
+    (set: $title7 to "URGENT!!!")
+    (set: $sender7 to "Boss")
+    (set: $receiver7 to "$username")
+    (set: $text7 to "Hi $username, 
+    as discussed yesterday, the client can't wait wait any longer for the data. 
+    Please get it done before the daily meeting, or have it neary completed so I can put their mind at ease during the meeting with them.
+    Just enter the data into the sharepoint that is linked in the wiki and I will forward it.
+    
+    Boss")
+
+    <!-- Email 8-->
+    (set: $title8 to "Re: URGENT!!!")
+    (set: $sender8 to "Boss")
+    (set: $receiver8 to "$username")
+    (set: $text8 to "Hi $username,
+    I'm sorry to inform you, that the client has requested additional data. 
+    Also there seemed to be an error when I transmitted the data. 
+    Please transmit this data aswell.
+
+    Since time is running short, please use the blueprint excel from the client in the appendix and upload the file to this address:
+    There is a macro installed to help you, so may want to enable them.
+
+    Get to this as soon as you read mail, as said, time is running short.
+    Boss")
+
 }
