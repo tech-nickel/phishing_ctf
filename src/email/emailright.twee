@@ -1,7 +1,7 @@
 :: Emailright
 |emailright)[
 <!-- Fixes weird BUg --> \
-(set: $clicktracker to 1)\
+<!-- (set: $clicktracker to 1)\ -->
 ## [(print: $emaildata's ($clicktracker)'s subject)]<emailhead|
 $moreinfoscolumnheight[\
     //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's ($clicktracker)'s sender))[(goto: "Email Postfach")]]<emailfrom| //to// (color: grey)[(str: $emaildata's ($clicktracker)'s receiver)]<emailto|

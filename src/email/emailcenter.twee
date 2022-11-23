@@ -7,21 +7,25 @@
       <span class="material-symbols-outlined">search</span> \
   ]\
   (for: each _i, ...(range: 1, $emaildata's length))[\
-    {(if: $clicktracker is _i)[(set: $boxstyling to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white))]
-    (else:)[(set: $boxstyling to (css: ""))]}\
+    {(if: $clicktracker is _i)[(set: $boxstyling to (hook: (str: _i)))]
+    (else:)[(set: $boxstyling to (hook: (str: _i))+(css: ""))]}\
     $boxstyling+(box:"X",8)[\
       |=
       =><=
       =|||||||=
 
-        (text-size: 0.7) + (link-repeat: (str: $emaildata's (_i)'s sender))[\
-        (set: $clicktracker to _i)\
-        (hide: ?emailsource)\
-        (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]\
-        (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]\
-        (replace: ?emailfrom)[(link-repeat: $emaildata's ($clicktracker)'s sender)[(show: ?emailsource)]]\
-        (replace: ?emailhead)[(print: $emaildata's ($clicktracker)'s subject)]\
-        (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]
+        {(text-size: 0.7) + (link-repeat: (str: $emaildata's (_i)'s sender))[
+        <!-- (change: (hooks-named: (str: $clicktracker)), via (css: "box-shadow: none")+(bg: $bluegrey2)) -->
+        <!-- (change: (hooks-named: (str: _i)), via (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)) -->
+        (change: (hooks-named: (str: $clicktracker)), (bg: $bluegrey2))
+        (change: (hooks-named: (str: _i)), (bg: white))
+        (set: $clicktracker to _i)
+        (hide: ?emailsource)
+        (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]
+        (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]
+        (replace: ?emailfrom)[(link-repeat: $emaildata's ($clicktracker)'s sender)[(show: ?emailsource)]]
+        (replace: ?emailhead)[(print: $emaildata's ($clicktracker)'s subject)]
+        (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]}
         (text-size: 0.6)(print: $emaildata's (_i)'s subject)
         (text-size: 0.6)(print: $emaildata's (_i)'s bodyshort)\
       =|

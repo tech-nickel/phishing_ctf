@@ -16,7 +16,7 @@
     (set: $blank to "n")
     (set: $nofblanks to 1)
     (set: $monospace to (font:"Courier"))
-    (set: $clicktracker to 1)
+    (set: $clicktracker to 0)
 
     <!-- Emailright --> 
     (set: $unread_mails to 5)

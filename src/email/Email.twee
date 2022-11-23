@@ -24,7 +24,7 @@ $closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[
     |=
     =|||||=
     (display: "Emailright")\
-    (event: when $activerightpage is 0)[(show: ?emailright)(hide: ?sendemail)]\
+    (event: when $activerightpage is 0 and $clicktracker > 0)[(show: ?emailright)(hide: ?sendemail)]\
     (event: when $activerightpage is 1)[(hide: ?emailright)(show: ?sendemail)]\
     =|
     ]]
