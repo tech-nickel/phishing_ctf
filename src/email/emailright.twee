@@ -8,7 +8,7 @@ $moreinfoscolumnheight[\
     ]\
 |emailsource)[$source1]\
 <hr>
-[(str: $emaildata's (1)'s body)]<emailbody|
+[(str: $emaildata's ($clicktracker)'s body)]<emailbody|
 (box: "X", 5)[]\
 <hr>]\
 |sendemail)[\

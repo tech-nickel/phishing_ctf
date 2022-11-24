@@ -7,8 +7,7 @@
       <span class="material-symbols-outlined">search</span> \
   ]\
   (for: each _i, ...(range: 1, $emaildata's length))[\
-    {(if: $clicktracker is _i)[(set: $boxstyling to (hook: (str: _i)))]
-    (else:)[(set: $boxstyling to (hook: (str: _i))+(css: ""))]}\
+    (set: $boxstyling to (hook: (str: _i)))
     $boxstyling+(box:"X",8)[\
       |=
       =><=
@@ -18,8 +17,8 @@
         <!-- (change: (hooks-named: (str: $clicktracker)), via (css: "box-shadow: none")+(bg: $bluegrey2)) -->
         <!-- (change: (hooks-named: (str: _i)), via (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)) -->
         (change: (hooks-named: (str: $clicktracker)), (bg: $bluegrey2))
-        (change: (hooks-named: (str: _i)), (bg: white))
         (set: $clicktracker to _i)
+        (change: (hooks-named: (str: _i)), (bg: white))
         (hide: ?emailsource)
         (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]
         (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]

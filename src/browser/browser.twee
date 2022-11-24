@@ -2,9 +2,15 @@
 {
 (set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
 (change: ?Page, (text-size: 0.7))
+(if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?Tab1]]
 }\
 $windowbox[\
-$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+$closebox[{
+    (link-repeat: "<span class='material-symbols-outlined'>close</span>")[
+        (if: $infected is not true)[(goto: "Desktop")]
+        (else: )[(goto: "Virus")]
+        
+    ]}]
 $tabbox[\
 ==|
 =><=
@@ -17,6 +23,11 @@ $tabbox[\
 (str: $tabnames's 3)
 ]
     (display: "Page1")\
-    (show: ?examplepage)\
+    []<content|
 
+]\
+|(hook: $tabnames's (1))[\
+(bg: blue)+(float-box: "=XXXX=", "=YYYY=")[\
+    (button: "=X=")[(link-repeat: "Buy Bitcoin")[]]
+    ]
 ]

@@ -1,0 +1,20 @@
+:: Virus
+{
+    (set: $showFooter to false)
+    (set: $infected to true)
+}\
+(float-box: "X", "Y")+(bg: red)+(color: white)[
+    =><=
+
+    # Well, this is awkward
+
+    You just got yourself in a bit of a mess.
+    All your files are encrypted and there's nothing you can do. Please don't be that guy that gets his boss in trouble.
+    Be quick, click [[Here->Browser]] to get to the Browser, pay 10.000 USD in Bitcoins and transfer them to us using the input field below.
+
+    Enter the Transaction-ID here and press the button:
+    (input: "==X==")
+
+]
+
+
