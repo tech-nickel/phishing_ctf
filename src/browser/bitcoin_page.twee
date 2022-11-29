@@ -1,0 +1,36 @@
+:: BitcoinPage
+{(set: $bitcoincourse to 16453.41)
+(set: $bcin to "0")
+(set: $usdin to "0")
+(set:num-type $calcout to 0)
+}\
+(hook: "bitcoinpage")[\
+(bg: blue)[\
+    =><=
+    ## Bitcoin Trading
+    <hr>
+    1 BTC = $bitcoincourse EUR
+    (input: bind $bcin, "===X===") Bitcoin to 
+    (input: bind $usdin, "===X===") US-Dollar
+    ]\
+]\
+<script> 
+document.onkeypress = function (e) {
+    e = e || window.event;
+        if($infected == true & e.keyCode == 13){
+            var bcin = Number($bcin);
+            var usdin = Number($usdin);
+            if($bcin != "" && $usdin == ""){
+                console.log("input: " + $bcin + "; output: " + bcin * $bitcoincourse);
+            }
+            else if($bcin == "" && $usdin != ""){
+                console.log("input: " + usdin + "; output: " + usdin / $bitcoincourse);
+
+            }
+            else{
+                alert("meh");
+            }
+            
+        };
+    }
+</script>
