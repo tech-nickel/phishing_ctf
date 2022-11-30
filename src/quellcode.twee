@@ -1,46 +1,27 @@
 :: Quellcode
-
-
-&lt;html&gt;
+(set: $quelltextheader to 
+"&lt;html&gt;
   &lt;head&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;span class="preheader"&gt;This is preheader text. Some clients will show this text as a preview.&lt;/span&gt;
-    &lt;table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body"&gt;
+    &lt;span class='preheader'&gt;This is preheader text. Some clients will show this text as a preview.&lt;/span&gt;
+    &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'&gt;
       &lt;tr&gt;
         &lt;td&gt;&nbsp;&lt;/td&gt;
-        &lt;td class="container"&gt;
-          &lt;div class="content"&gt;
+        &lt;td class='container'&gt;
+          &lt;div class='content'&gt;
 
             &lt;!-- START CENTERED WHITE CONTAINER --&gt;
-            &lt;table role="presentation" class="main"&gt;
+            &lt;table role='presentation' class='main'&gt;
 
               &lt;!-- START MAIN CONTENT AREA --&gt;
               &lt;tr&gt;
-                &lt;td class="wrapper"&gt;
-                  &lt;table role="presentation" border="0" cellpadding="0" cellspacing="0"&gt;
+                &lt;td class='wrapper'&gt;
+                  &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
                     &lt;tr&gt;
-                      &lt;td&gt;
-                        &lt;p&gt;Hi there,&lt;/p&gt;
-                        &lt;p&gt;Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.&lt;/p&gt;
-                        &lt;table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary"&gt;
-                          &lt;tbody&gt;
-                            &lt;tr&gt;
-                              &lt;td align="left"&gt;
-                                &lt;table role="presentation" border="0" cellpadding="0" cellspacing="0"&gt;
-                                  &lt;tbody&gt;
-                                    &lt;tr&gt;
-                                      &lt;td&gt; &lt;a href="http://htmlemail.io" target="_blank"&gt;Call To Action&lt;/a&gt; &lt;/td&gt;
-                                    &lt;/tr&gt;
-                                  &lt;/tbody&gt;
-                                &lt;/table&gt;
-                              &lt;/td&gt;
-                            &lt;/tr&gt;
-                          &lt;/tbody&gt;
-                        &lt;/table&gt;
-                        &lt;p&gt;This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.&lt;/p&gt;
-                        &lt;p&gt;Good luck! Hope it works.&lt;/p&gt;
-                      &lt;/td&gt;
+                      &lt;td&gt;")\
+(set: $quelltextfooter to 
+                      "&lt;/td&gt;
                     &lt;/tr&gt;
                   &lt;/table&gt;
                 &lt;/td&gt;
@@ -51,17 +32,17 @@
             &lt;!-- END CENTERED WHITE CONTAINER --&gt;
 
             &lt;!-- START FOOTER --&gt;
-            &lt;div class="footer"&gt;
-              &lt;table role="presentation" border="0" cellpadding="0" cellspacing="0"&gt;
+            &lt;div class='footer'&gt;
+              &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
                 &lt;tr&gt;
-                  &lt;td class="content-block"&gt;
-                    &lt;span class="apple-link"&gt;Company Inc, 3 Abbey Road, San Francisco CA 94102&lt;/span&gt;
-                    &lt;br&gt; Don't like these emails? &lt;a href="http://i.imgur.com/CScmqnj.gif"&gt;Unsubscribe&lt;/a&gt;.
+                  &lt;td class='content-block'&gt;
+                    &lt;span class='apple-link'&gt;Company Inc, 3 Abbey Road, San Francisco CA 94102&lt;/span&gt;
+                    &lt;br&gt; Don't like these emails? &lt;a href='http://i.imgur.com/CScmqnj.gif'&gt;Unsubscribe&lt;/a&gt;.
                   &lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
-                  &lt;td class="content-block powered-by"&gt;
-                    Powered by &lt;a href="http://htmlemail.io"&gt;HTMLemail&lt;/a&gt;.
+                  &lt;td class='content-block powered-by'&gt;
+                    Powered by &lt;a href='http://htmlemail.io'&gt;HTMLemail&lt;/a&gt;.
                   &lt;/td&gt;
                 &lt;/tr&gt;
               &lt;/table&gt;
@@ -74,4 +55,9 @@
       &lt;/tr&gt;
     &lt;/table&gt;
   &lt;/body&gt;
-&lt;/html&gt;
+&lt;/html&gt;")\
+(set: $quelltextbody to (str: $emaildata's ($clicktracker)'s bodyhtml))\
+(text-size: 0.5) + (box: 'X', 80)[$quelltextheader
+$quelltextbody
+$quelltextfooter]
+

@@ -39,6 +39,7 @@
     if ($success) {
         var emailcontent = $emailcontent;
         emailcontent.set("bodyshort",bodies_short(eval($emailcontent.get("body"))));
+        emailcontent.set("bodyhtml",bodies_html(eval($emailcontent.get("body"))));
         $emailcontent = emailcontent;
     }
     </script>
