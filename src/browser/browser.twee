@@ -25,7 +25,7 @@ $tabbox[\
 ]
 (box: "X")[\
     (display: "Page1")\
-    (display: "BitcoinPage")\
+    (if: $infected is true)[(display: "BitcoinPage")]\
     []<content|
 ]\
 ]

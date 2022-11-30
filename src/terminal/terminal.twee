@@ -1,47 +1,13 @@
 :: Terminal
-(change: ?Page, (text-size: 0.7))\
-(set: $twshow to true)\
-|terminalwindow>[\
+{
+(change: ?Page, (text-size: 0.7))
+(set: $twshow to true)}
+|terminalwindow>[
 $terminalwindowbox[\
 $closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+<div class="term"></div>
+<textarea class="vi" style="display: none"></textarea>
+]]{
 
-$monospace[type `"help`" to see all your command options]
-(box: "X", 2)[\
-=|
-{(live: )[
-    (if: $root is true)[(set: $userprefix to "#")(set: $user to "root")]
-    (else:)[(set: $userprefix to "$")(set: $user to "user")]
-    (str: $user + "@" + $host + ": ~" + $userprefix)
-    ]}
-|||||=
-(input: bind $terminalinput)]\
-{(live: )[$monospace[(print: $cmdstore)]]}
-]]\
-<script> 
-document.onkeypress = function (e) {
-    e = e || window.event;
-        if($twshow == true & e.keyCode == 13 & $terminalinput != ""){
-            var out = $accmds.get($terminalinput);
-            console.log("input: " + $terminalinput + "; output: " + out);
-            switch ($terminalinput) {
-                case "clear":
-                    $cmdstore = "";
-                    break;
-                case "exit":
-                    $twshow = false;
-                    break;
-                case "sudo":
-                    $root = true;
-                    break;
-                default:
-                    break;
-            }
-            if (!out){
-                $cmdstore += "command not found: " + $terminalinput + "\n";}
-            else{
-                $cmdstore += out + "\n";
-                $nofblanks += 1;
-                $terminalinput = "";}
-        };
-    }
-</script>
+(display: "TerminalScript")
+}

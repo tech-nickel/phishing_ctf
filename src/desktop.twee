@@ -1,5 +1,4 @@
 :: Desktop
-\
 {
   (change: ?passage, (text-size: 0.7))
 
@@ -56,7 +55,6 @@
     (set: $closebox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1")+(bg: $bluegreydark)+(color: white)+(align: "==>")+(box: "X", 2))
     (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
     (set: $closeicon to [<span class="material-symbols-outlined">close</span>])
-    (display: "TerminalInit")
 
 }\
 =><=

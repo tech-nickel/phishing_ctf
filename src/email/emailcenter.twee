@@ -1,7 +1,5 @@
 :: Emailcenter
-{
-  <!-- (change: (hooks-named: (str: $clicktracker)), (bg: white)) -->
-}\
+{}\
 (bg: $bluegrey2)+(box:"X", $col0_height)[\
   (box:"X", $col1_height)+$headershadow+(bg: $bluegrey2)[
     ==|||||
