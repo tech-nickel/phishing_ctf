@@ -2,7 +2,8 @@
 {
 (set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
 (change: ?Page, (text-size: 0.7))
-(if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?Tab1]]
+
+(if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?bitcoinpage]]
 }\
 $windowbox[\
 $closebox[{
@@ -22,12 +23,9 @@ $tabbox[\
 =><=
 (str: $tabnames's 3)
 ]
+(box: "X")[\
     (display: "Page1")\
+    (display: "BitcoinPage")\
     []<content|
-
 ]\
-|(hook: $tabnames's (1))[\
-(bg: blue)+(float-box: "=XXXX=", "=YYYY=")[\
-    (button: "=X=")[(link-repeat: "Buy Bitcoin")[]]
-    ]
 ]
