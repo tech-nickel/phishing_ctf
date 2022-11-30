@@ -1,4 +1,7 @@
 :: Emailcenter
+{
+  <!-- (change: (hooks-named: (str: $clicktracker)), (bg: white)) -->
+}\
 (bg: $bluegrey2)+(box:"X", $col0_height)[\
   (box:"X", $col1_height)+$headershadow+(bg: $bluegrey2)[
     ==|||||
@@ -14,11 +17,11 @@
       =|||||||=
 
         {(text-size: 0.7) + (link-repeat: (str: $emaildata's (_i)'s sender))[
-        <!-- (change: (hooks-named: (str: $clicktracker)), via (css: "box-shadow: none")+(bg: $bluegrey2)) -->
-        <!-- (change: (hooks-named: (str: _i)), via (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)) -->
         (change: (hooks-named: (str: $clicktracker)), (bg: $bluegrey2))
         (set: $clicktracker to _i)
         (change: (hooks-named: (str: _i)), (bg: white))
+        (hide: ?sendemail)(show: ?emailright)
+        (set: $activerightpage to 0)
         (hide: ?emailsource)
         (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]
         (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]
