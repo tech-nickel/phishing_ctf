@@ -8,7 +8,7 @@
       <span class="material-symbols-outlined">search</span> \
   ]\
   (for: each _i, ...(range: 1, $emaildata's length))[\
-    (set: $boxstyling to (hook: (str: _i)))
+    (set: $boxstyling to (hook: (str: _i)))\
     $boxstyling+(box:"X",8)[\
       |=
       =><=

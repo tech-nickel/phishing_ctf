@@ -5,6 +5,16 @@
     (set: $bluegrey to (rgb: 248, 250, 255))
     (set: $bluegrey2 to (rgb: 239, 245, 254))
     (set: $bluegreydark to (rgb: 29, 41, 58))
+    (set: $xpblue1 to (rgb: 91, 142, 225))
+    (set: $xpblue2 to (rgb: 49, 88, 208))
+    (set: $xpblue3 to (rgb: 51, 92, 212))
+    (set: $xplightblue1 to (rgb: 85, 180, 236))
+    (set: $xplightblue2 to (rgb: 64, 140, 228))
+    (set: $xplightblue3 to (rgb: 69, 150, 224))
+    (set: $xpgreen1 to (rgb: 144, 186, 137))
+    (set: $xpgreen2 to (rgb: 102, 173, 86))
+    (set: $xpgreen3 to (rgb: 80, 131, 70))
+    (set: $xpgreen to (rgb: 102, 121, 85))
     (set: $red to (rgb: 236, 101, 100))
     
     <!-- styling --> 
@@ -48,5 +58,5 @@
     (link-repeat: "Start game")
         [(if: ((length of $username) >= 3))\
             [(goto: "Desktop")]\
-        (else:)\
+        (else:)
             [Username must be at least 3 characters long]]

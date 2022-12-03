@@ -78,7 +78,7 @@ tw-story {
   
   tw-include[name="Footer"]{
       position: fixed;
-      background-color: lightblue;
+      /* background-color: rgb(54, 95, 213); */
       bottom: 0px;
       left: 0px;
       right: 0px;

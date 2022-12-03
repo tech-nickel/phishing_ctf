@@ -21,6 +21,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+.symbols-lower{
+  margin-top: 5px;
+}
 
 textarea{
   display: none;

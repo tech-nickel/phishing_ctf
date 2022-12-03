@@ -5,6 +5,7 @@
 |terminalwindow>[
 $terminalwindowbox[\
 $closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+
 <div class="term"></div>
 <textarea class="vi" style="display: none"></textarea>
 ]]{
