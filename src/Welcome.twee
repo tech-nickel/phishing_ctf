@@ -16,6 +16,9 @@
     (set: $xpgreen3 to (rgb: 80, 131, 70))
     (set: $xpgreen to (rgb: 102, 121, 85))
     (set: $red to (rgb: 236, 101, 100))
+    (set: $xpgreengradient to (gradient: 0, 0, $xpgreen3, 0.9, $xpgreen2, 1, $xpgreen1))
+    (set: $xpbluegradient to (gradient: 0, 0, $xpblue3, 0.7, $xpblue2, 1, $xpblue1))
+    (set: $xplightbluegradient to (gradient: 0, 0, $xplightblue3, 0.7, $xplightblue2, 1, $xplightblue1))
     
     <!-- styling --> 
     (set: $col0_height to 53)
@@ -36,19 +39,30 @@
 
     (set: $showFooter to false)
 
-<link rel='stylesheet' href='https://unpkg.com/prismjs/themes/prism-coy.css'>
-<link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.css'>
-<link rel='stylesheet' href='https://unpkg.com/jsvi@0.1.0/vi.css'>
-<script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
-<script src='https://cdn.jsdelivr.net/gh/jcubic/static@master/js/wcwidth.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js'></script>
-<script src='https://unpkg.com/js-polyfills/keyboard.js'></script>
-<script src='https://unpkg.com/jquery.terminal/js/unix_formatting.js'></script>
-<script src='https://unpkg.com/prismjs@1.8.1/prism.js'></script>
-<script src='https://unpkg.com/jquery.terminal/js/less.js'></script>
-<script src='https://unpkg.com/jquery.terminal/js/prism.js'></script>
-<script src='https://unpkg.com/browserfs@1.4.3/dist/browserfs.js'></script>
-<script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
+
+    <!-- COMMANDS --> 
+    (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
+    (set: $windowbox to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); overflow: hidden")+(corner-radius:3)+(float-box: "X","Y")+(bg: "https://wallpapercave.com/wp/wp2754860.jpg"))
+    (set: $startbox to (float-box: "X====","===================YYYYYYYY=")+(bg: grey))
+    (set: $terminalwindowbox to (text-color: white)+(bg: black)+(float-box: "=XXX=","=YYY="))
+    (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
+    (set: $closebox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1")+(bg: $xpbluegradient)+(color: white)+(align: "==>")+(box: "X", 2))
+    (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
+    (set: $closeicon to "<span class='material-symbols-outlined closebutton'>close</span>")
+
+    <link rel='stylesheet' href='https://unpkg.com/prismjs/themes/prism-coy.css'>
+    <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.css'>
+    <link rel='stylesheet' href='https://unpkg.com/jsvi@0.1.0/vi.css'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/jcubic/static@master/js/wcwidth.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js'></script>
+    <script src='https://unpkg.com/js-polyfills/keyboard.js'></script>
+    <script src='https://unpkg.com/jquery.terminal/js/unix_formatting.js'></script>
+    <script src='https://unpkg.com/prismjs@1.8.1/prism.js'></script>
+    <script src='https://unpkg.com/jquery.terminal/js/less.js'></script>
+    <script src='https://unpkg.com/jquery.terminal/js/prism.js'></script>
+    <script src='https://unpkg.com/browserfs@1.4.3/dist/browserfs.js'></script>
+    <script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
 }\
     =><=
     # Welcome to Phising-CTF    

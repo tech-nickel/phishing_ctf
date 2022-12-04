@@ -24,6 +24,11 @@
 .symbols-lower{
   margin-top: 5px;
 }
+.closebutton{
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.7);
+}
 
 textarea{
   display: none;

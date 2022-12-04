@@ -3,12 +3,13 @@
 (change: ?Page, (text-size: 0.7))
 (set: $twshow to true)}
 |terminalwindow>[
+$windowbox[\
 $terminalwindowbox[\
-$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
 
 <div class="term"></div>
 <textarea class="vi" style="display: none"></textarea>
-]]{
+]]]{
 
 (display: "TerminalScript")
 }

@@ -6,12 +6,11 @@
 (if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?bitcoinpage]]
 }\
 $windowbox[\
-$closebox[{
-    (link-repeat: "<span class='material-symbols-outlined'>close</span>")[
-        (if: $infected is not true)[(goto: "Desktop")]
-        (else: )[(goto: "Virus")]
-        
-    ]}]
+$closebox[(link-repeat: $closeicon)[\
+        \(if: $infected is not true)[(goto: "Desktop")]
+        \(else: )[(goto: "Virus")]  
+    \]]
+    
 $tabbox[\
 ==|
 =><=
