@@ -1,6 +1,9 @@
-:: Browser
+:: Browser[browser]
 {
 (set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
+
+(set: $browserPages to (a: (dm: "name", "", "url", "http://www.google.de"), (dm: "name", "BitcoinPage", "url", "bitcoin.fake")))
+
 (change: ?Page, (text-size: 0.7))
 
 (if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?bitcoinpage]]
@@ -12,19 +15,13 @@ $closebox[{
         (else: )[(goto: "Virus")]
         
     ]}]
-$tabbox[\
-==|
-=><=
-(str: $tabnames's 1)
-=|=
-=><=
-(str: $tabnames's 2)
-==|
-=><=
-(str: $tabnames's 3)
+$tabbox[]
+(box: "X")[\
+    Address:\
+    (input: bind $currentBrowserPage, "=X=")
+    (link: "Go", (button: "=X="))[(set: $currentDisplayPage to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))(if: $currentDisplayPage's length > 0)[(display: $currentDisplayPage's 1st's name)\    ]]
 ]
 (box: "X")[\
-    (display: "Page1")\
     (if: $infected is true)[(display: "BitcoinPage")]\
     []<content|
 ]\
