@@ -2,7 +2,12 @@
 {
 (set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
 
-(set: $browserPages to (a: (dm: "name", "", "url", "http://www.google.de"), (dm: "name", "BitcoinPage", "url", "bitcoin.fake")))
+(set: $browserPages to (a: 
+    (dm: "name", "Page1", "url", "test"),
+    (dm: "name", "Page2", "url", "test2")
+))
+
+(set: $currentDisplayPage)
 
 (change: ?Page, (text-size: 0.7))
 
@@ -19,10 +24,20 @@ $tabbox[]
 (box: "X")[\
     Address:\
     (input: bind $currentBrowserPage, "=X=")
-    (link: "Go", (button: "=X="))[(set: $currentDisplayPage to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))(if: $currentDisplayPage's length > 0)[(display: $currentDisplayPage's 1st's name)\    ]]
+    (link-repeat: "Go", (button: "=X="))[
+        (set: $currentDisplayPages to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))
+        (if: $infected is true)[(set: $currentDisplayPage to "BitcoinPage")(go-to: "Browser")]\
+        (else-if: $currentDisplayPages's length > 0)[
+            (set: $currentDisplayPage to $currentDisplayPages's 1st's name)
+            (go-to: "Browser")
+        ]
+        (else:)[(set: $currentDisplayPage to 0)(go-to: "Browser")]
+    ]
 ]
 (box: "X")[\
-    (if: $infected is true)[(display: "BitcoinPage")]\
+    (if: $currentDisplayPage is not 0)[
+        (display: $currentDisplayPage)
+    ]
     []<content|
 ]\
 ]
