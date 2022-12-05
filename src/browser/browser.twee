@@ -12,6 +12,7 @@
 (change: ?Page, (text-size: 0.7))
 
 (if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?bitcoinpage]]
+(if: $infected is true)[(set: $currentDisplayPage to "BitcoinPage")]\
 }\
 $windowbox[\
 $closebox[{
@@ -20,19 +21,23 @@ $closebox[{
         (else: )[(goto: "Virus")]
         
     ]}]
-$tabbox[]
-(box: "X")[\
-    Address:\
-    (input: bind $currentBrowserPage, "=X=")
-    (link-repeat: "Go", (button: "=X="))[
-        (set: $currentDisplayPages to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))
-        (if: $infected is true)[(set: $currentDisplayPage to "BitcoinPage")(go-to: "Browser")]\
-        (else-if: $currentDisplayPages's length > 0)[
+(box: "X")[
+    |=
+    =|=
+    (box:"X", 2)[Address:]
+    =|||||||||||||||=
+    (input: bind $currentBrowserPage, "X")
+    =|=
+    =||=
+    (link-repeat: "Go", (button: "X"))[
+        (set: $currentDisplayPages to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))        
+        (if: $currentDisplayPages's length > 0)[
             (set: $currentDisplayPage to $currentDisplayPages's 1st's name)
-            (go-to: "Browser")
+            (goto: "Browser")
         ]
-        (else:)[(set: $currentDisplayPage to 0)(go-to: "Browser")]
+        (else:)[(set: $currentDisplayPage to 0)(goto: "Browser")]
     ]
+    =|
 ]
 (box: "X")[\
     (if: $currentDisplayPage is not 0)[
