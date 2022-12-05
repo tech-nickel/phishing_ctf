@@ -1,7 +1,7 @@
 :: Email Postfach
 (change: ?Page, (text-size: 0.7))\
 $windowbox[\
-$closebox[(link-repeat: "<span class='material-symbols-outlined'>close</span>")[(goto: "Desktop")]]
+$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
     =|
   (display: "Emailleft") \
   =|| 

@@ -1,20 +1,24 @@
 :: Footer[footer]
 (if: $showFooter)[{
 |=
-(box: "X", 2)+(bg: (gradient: 0, 0, $xpgreen3, 0.9, $xpgreen2, 1, $xpgreen1))[
+(box: "X", 2)+(bg: $xpgreengradient)[
     =><=
-    Start]
+    (css: "top: 5px")[\
+    Start
+    ]]
 
 =|||||||||||||||=
 <==
-(box: "X", 2)+(bg: (gradient: 0, 0, $xpblue3, 0.7, $xpblue2, 1, $xpblue1))[
+(box: "X", 2)+(bg: $xpbluegradient)[
 |=
 =||||||||||||||||||||||||
 (link-repeat: "<span class='material-symbols-outlined symbols-lower'>terminal</span>")[(goto: "Terminal")]
 (link-repeat: "<span class='material-symbols-outlined symbols-lower'>mail</span>")[(goto: "Email Postfach")]
 (link-repeat: "<span class='material-symbols-outlined symbols-lower'>language</span>")[(goto: "Browser")]]
 =|
-==>
-(box: "X", 2)+(bg: (gradient: 0, 0, $xplightblue3, 0.7, $xplightblue2, 1, $xplightblue1))[
-    (current-time:)]
+=><=
+(box: "X", 2)+(bg: $xplightbluegradient)[
+    (css: "top: 5px")[\
+    (current-time:)
+    ]]
 }]
