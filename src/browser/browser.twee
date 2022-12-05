@@ -3,8 +3,8 @@
 (set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
 
 (set: $browserPages to (a: 
-    (dm: "name", "Page1", "url", "test"),
-    (dm: "name", "Page2", "url", "test2")
+    (dm: "name", "Page1", "url", "www.test.de"),
+    (dm: "name", "Page2", "url", "www.test1.org")
 ))
 
 (set: $currentDisplayPage)
