@@ -1,7 +1,7 @@
 :: Emailtext
 {  
     (set: $maxtexts to 15)
-    
+    <!-- The bossman has the name Eike Harms-->
     <!-- Email 1 --> 
     (set: $title1 to "Liebe Freund")
     (set: $sender1 to "Jerome Linder")
@@ -110,28 +110,41 @@
 
     <!-- Email 6-->
     (set: $title6 to "Next Daily Meeting")
-    (set: $sender6 to "Boss")
-    (set: $receiver6 to "Team 1")
+    (set: $sender6 to "Eike Harms")
+    (set: $receiver6 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others] ")
     (set: $text6 to "Hi everyone,
-    As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 09am.
+    As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 9am.
     We need to finish by 09:30, due to a meeting with a client, so please be there at 9am.
     
-    Sincerely Boss")
+    Sincerely Eike
+
+    //[Further Information]<tag64| (click-replace: ?tag64)
+    [Eike Harms is your supervisor.
+    Your usuall daily meeting is scheduled for 10am and usually will take 1 hour.]//
+    ")
 
     <!-- Email 7-->
     (set: $title7 to "URGENT!!!")
-    (set: $sender7 to "Boss")
+    (set: $sender7 to "Eike Harms")
     (set: $receiver7 to "$username")
     (set: $text7 to "Hi $username, 
     as discussed yesterday, the client can't wait wait any longer for the data. 
-    Please get it done before the daily meeting, or have it neary completed so I can put their mind at ease during the meeting with them.
+    Please get it done before the daily meeting, or have it neary completed so I can put their mind at ease during the other meeting with them.
     Just enter the data into the sharepoint that is linked in the wiki and I will forward it.
     
-    Boss")
+    Eike
+    
+    //[Further Information]<tag74| (click-replace: ?tag74)
+    [Eike Harms is your supervisor.
+    You had a chat about that data for the client yesterday.]//
+    ")
 
     <!-- Email 8-->
+    <!-- the additional actions should be done when -->
+    (set: $coffeebreak to true)
+    (set: $talkwithboss to true)
     (set: $title8 to "Re: URGENT!!!")
-    (set: $sender8 to "Boss")
+    (set: $sender8 to "Eike Harms")
     (set: $receiver8 to "$username")
     (set: $text8 to "Hi $username,
     I'm sorry to inform you, that the client has requested additional data. 
@@ -142,6 +155,35 @@
     There is a macro installed to help you, so may want to enable them.
 
     Get to this as soon as you read mail, as said, time is running short.
-    Boss")
+    Eike
+    
+    Additional Actions: 
+    [[Open the Attachment and enable macros->Virus]]
+    (if: $talkwithboss)[Write a mail to your boss.]
+    (if: $talkwithboss)[[Go to your Boss and ask about the mail.->Boss]]
+    (if: $talkwithboss is false)[Your supervisor did not write this mail, you should delete it.]
+    (if: $coffeebreak)[[Take a coffee break->Coffee Break]]
 
+    //[Further Information]<tag84| (click-replace: ?tag84)
+    [Eike Harms is your supervisor.
+    You may remember the other mail about this topic.]//
+    ")
+
+    <!-- Email 9-->
+    (set: $title9 to "test")
+    (set: $sender9 to "IT department")
+    (set: $receiver9 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others]")
+    (set: $text9 to "Hello everyone,
+    as you might already know, there was a security breach at the mailserver. Some accounts are currently taken over by an unkown party, that tries to gather informations by repliying to different mails.
+    We are currently working on a fix, but please double check every mail and check with your supervisors if a anything seems phishy.
+    
+    Stay safe
+    IT department
+    ")
+
+    <!-- Email 10-->
+    (set: $title10 to "test")
+    (set: $sender10 to "test")
+    (set: $receiver10 to "test")
+    (set: $text10 to "test")
 }

@@ -1,0 +1,11 @@
+:: Coffee Break
+
+(set: $coffeebreak to false)
+You decide to take a small break to clear things up in your mind and go to the community kitchen to get a cup of coffee.
+You feel a bit uneasy, since (link-reveal: "Eike")[//, your supervisor,//] told you to finish the task immediatly, but you need your caffine.
+
+You arrive at the kitchen. There is a small (link-reveal: "group of people")[, some familiar faces among them,] talking in the back of the room.
+(link: "Make a coffee.")[There still seems to be some coffee left, you grab a clean mug and pour the remaining coffee into the mug.]
+(link: "Approche group.")[After you hesitate for a second you move closer to the group. Something seems to cause some uproar. And you hear someone telling about some weird mails some people seem to have gotten from their supervisors, that asked them to violate security policies.]
+
+Return to your [[office.->Email Postfach]]
