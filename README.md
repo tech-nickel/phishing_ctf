@@ -1,7 +1,13 @@
 # phishing_ctf
 Project build on [Harlowe](https://twine2.neocities.org) and [Twine](https://twinery.org/cookbook/)
 
-# add. features
+## Tweego 
+[Tweego](https://www.motoslave.net/tweego/) is used to make the management of the contents easier.
+The file `[Tweego folder]/storyformats/harlowe-3/format.js` should be overriden with the `format.js` file from the General Teams chat.
+Run `tweego -o .out/story.html ./src` to compile the story.
+Open the html file in the out directory with a browser.
+
+## add. features
 Google Icon Libary [Link](https://fonts.google.com/icons?icon.platform=web)
 The tag is already added, you can use icons with
 ```
