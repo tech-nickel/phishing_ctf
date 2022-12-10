@@ -12,6 +12,7 @@
   <!-- Emailcenter -->
   (display: "Emailtext")
   (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
+  (set: $ach_welcome to true)
 
   <!-- Emaildata --> 
   (set: $emaildata to (a:))

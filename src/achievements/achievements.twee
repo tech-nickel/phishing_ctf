@@ -1,0 +1,21 @@
+:: Achievements
+{
+(set: $ach_text_welcome to "Welcome to the Game! Try exploring the [[Desktop->Desktop]]!")
+(set: $ach_text_terminal to "The [[Terminal]] is a useful tool to try out different commands and use it on the information you already gathered.")
+(set: $ach_text_email to "The [[Email Inbox->Email Postfach]] is where your game starts. The Emails in it are the introduction and there are some good clues on whats going on in there. But don't be fooled: Clicking on the wrong link might just get you in trouble!")
+(set: $ach_text_achievements to "This is the Achievements Page. Here you can see your progress and some useful tips on how to progress through the story!")
+(set: $ach_fbox to (float-box: "================XXXXX=", "=YYYY==================")+(bg:white))
+(set: $ach_news to false)
+}\
+$windowbox[\
+$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
+(float-box: "X", "Y")+(bg: white)[{
+(text-style: "bold")[$ach_text_achievements]
+(if: $ach_welcome is true)[
+* $ach_text_welcome]
+(if: $ach_email is true)[
+* $ach_text_email]
+(if: $ach_terminal is true)[
+* $ach_text_terminal]
+}
+]]

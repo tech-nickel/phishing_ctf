@@ -39,6 +39,8 @@
 
     (set: $showFooter to false)
 
+    (set: $ach_news to true)
+
 
     <!-- COMMANDS --> 
     (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))

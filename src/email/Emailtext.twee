@@ -3,19 +3,19 @@
     (set: $maxtexts to 15)
     <!-- The bossman has the name Eike Harms-->
     <!-- Email 1 --> 
-    (set: $title1 to "Liebe Freund")
-    (set: $sender1 to "Jerome Linder")
-    (set: $receiver1 to "You, Yourself")
-    (set: $text1 to "Ich bin aufrichtig braucht Ihre Aufmerksamkeit,
+    (set: $title1 to "Next Daily Meeting")
+    (set: $sender1 to "Eike Harms")
+    (set: $receiver1 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others] ")
+    (set: $text1 to "Hi everyone,
+    As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 9am.
+    We need to finish by 09:30, due to a meeting with a client, so please be there at 9am.
+    
+    Sincerely Eike
 
-    Mein Name ist Sgt. Claude, ein Soldat in Libyen, ich und zwei Kollegen heimlich verschoben irgendeinem verlassenen Bargeld aus dem spдten Libyens Prдsident Oberst Muammar Gaddafi Versteck in der Stadt von Sirte. im Einklang mit unseren Dienstleistungen, Wir sind nicht in der Lage, die Mittel in unseren jeweiligen Bank-Konto einzahlen, wir aufrichtig benцtigt Ihre Hilfe, um uns entgegenzukommen das Geld fьr uns.
-
-    Senden Sie mir Ihre Daten (Vollstдndiger Name) (Ihre Adresse) (Telefonnummer) fьr umfassende Informationen.
-
-    Danke fuer Ihr Verstдndnis.
-
-    Sgt. Claude
-    Soldier In Libyen")
+    //[Further Information]<tag64| (click-replace: ?tag64)
+    [Eike Harms is your supervisor.
+    Your usuall daily meeting is scheduled for 10am and usually will take 1 hour.]//
+    ")
     (set: $source1 to (str: "Received: from VE1EUR02HT128.eop-EUR02.prod.protection.outlook.com
     ```(2603:10b6:610:50::14)``` by CH2PR20MB2917.namprd20.prod.outlook.com with HTTPS via CH2PR16CA0004.NAMPRD16.PROD.outlook.com;
     (current-date:) (current-time:);
@@ -55,36 +55,34 @@
     Content-Type: text/plain;
     charset=utf-8 
     "))
-
-    <!-- Email 2 --> 
-    (set: $title2 to "MoneyMatrixClub")
-    (set: $sender2 to "DroitLab")
-    (set: $receiver2 to "You, Me")
-    (set: $text2 to "+++
-    Du bist doch auch Mitglied in der Gruppe „MoneyMatrixClub“ und wolltest doch auch das 1.247,- Euro Geheimnis entdecken!
-
-    Es ist noch wenige Stunden online.
-
-    Vielleicht ist es auch morgen noch online - das bezweifle ich allerdings… der Widerstand wird zu groß und die Konkurrenz kämpft mit allen Mitteln.
-    Ich selber hab schon angefangen und verdiene sogar deutlich mehr damit.
-    Wir sehen uns dann auf der Seite und demnächst wieder imClub!
-    Schöne Grüße
-    David B
-    Deshalb ist das folgende Video NUR noch HEUTE online! <http:…
-    PS: Dieses Video wird Ihnen die Augen öffnen und endlich den Weg in die finanzielle Freiheit aufzeigen!
-    +++")
-
+    
+    <!-- Email 2-->
+    (set: $title2 to "test")
+    (set: $sender2 to "IT department")
+    (set: $receiver2 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others]")
+    (set: $text2 to "Hello everyone,
+    as you might already know, there was a security breach at the mailserver. Some accounts are currently taken over by an unkown party, that tries to gather informations by repliying to different mails.
+    We are currently working on a fix, but please double check every mail and check with your supervisors if a anything seems phishy.
+    
+    Stay safe
+    IT department
+    ")
 
     <!-- Email 3 --> 
-    (set: $title3 to "Herzlichen Glueckwunsch")
-    (set: $sender3 to "Slobodan Palkdj")
-    (set: $receiver3 to "You, Yousef")
-    (set: $text3 to "Ihre E-Mail-ID hat gewonnen (450.000,00 Euro), die spanische El Gordo International E-mail Lotteriegewinn in Lucky Numbers, und 9/11/13/24/43 Ref.: ES/9420X2/68. Um das Verfahren für die Kontaktaufnahme:
-    Hengst MEGA Anspruch AGENTUR
-    Herr, David Moolman.
-    E-mail; [[infosgasl0@aim.com->Virus]]
-    Tel.: +34-602-425-580 (spricht Englisch)
-    Ihr vollständiger Name, Adresse, Alter, Beruf, Telefonnummern, Herzlichen Glückwunsch. Hinweis: Dies ist eine internationale Lotterie-Programm, Diese Meldung wird automatisch aus dem Englischen ins Deutschland übersetzt.")
+    (set: $title3 to "URGENT!!!")
+    (set: $sender3 to "Eike Harms")
+    (set: $receiver3 to "$username")
+    (set: $text3 to "Hi $username, 
+    as discussed yesterday, the client can't wait wait any longer for the data. 
+    Please get it done before the daily meeting, or have it neary completed so I can put their mind at ease during the other meeting with them.
+    Just enter the data into the sharepoint that is linked in the wiki and I will forward it.
+    
+    Eike
+    
+    //[Further Information]<tag74| (click-replace: ?tag74)
+    [Eike Harms is your supervisor.
+    You had a chat about that data for the client yesterday.]//
+    ")
 
     <!-- Email 4 --> 
     (set: $title4 to "!!! Gesperrtes Konto!!!")
@@ -109,44 +107,13 @@
     Raziya.")
 
     <!-- Email 6-->
-    (set: $title6 to "Next Daily Meeting")
-    (set: $sender6 to "Eike Harms")
-    (set: $receiver6 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others] ")
-    (set: $text6 to "Hi everyone,
-    As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 9am.
-    We need to finish by 09:30, due to a meeting with a client, so please be there at 9am.
-    
-    Sincerely Eike
-
-    //[Further Information]<tag64| (click-replace: ?tag64)
-    [Eike Harms is your supervisor.
-    Your usuall daily meeting is scheduled for 10am and usually will take 1 hour.]//
-    ")
-
-    <!-- Email 7-->
-    (set: $title7 to "URGENT!!!")
-    (set: $sender7 to "Eike Harms")
-    (set: $receiver7 to "$username")
-    (set: $text7 to "Hi $username, 
-    as discussed yesterday, the client can't wait wait any longer for the data. 
-    Please get it done before the daily meeting, or have it neary completed so I can put their mind at ease during the other meeting with them.
-    Just enter the data into the sharepoint that is linked in the wiki and I will forward it.
-    
-    Eike
-    
-    //[Further Information]<tag74| (click-replace: ?tag74)
-    [Eike Harms is your supervisor.
-    You had a chat about that data for the client yesterday.]//
-    ")
-
-    <!-- Email 8-->
     <!-- the additional actions should be done when -->
     (set: $coffeebreak to true)
     (set: $talkwithboss to true)
-    (set: $title8 to "Re: URGENT!!!")
-    (set: $sender8 to "Eike Harms")
-    (set: $receiver8 to "$username")
-    (set: $text8 to "Hi $username,
+    (set: $title6 to "Re: URGENT!!!")
+    (set: $sender6 to "Eike Harms")
+    (set: $receiver6 to "$username")
+    (set: $text6 to "Hi $username,
     I'm sorry to inform you, that the client has requested additional data. 
     Also there seemed to be an error when I transmitted the data. 
     Please transmit this data aswell.
@@ -169,21 +136,11 @@
     You may remember the other mail about this topic.]//
     ")
 
-    <!-- Email 9-->
-    (set: $title9 to "test")
-    (set: $sender9 to "IT department")
-    (set: $receiver9 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others]")
-    (set: $text9 to "Hello everyone,
-    as you might already know, there was a security breach at the mailserver. Some accounts are currently taken over by an unkown party, that tries to gather informations by repliying to different mails.
-    We are currently working on a fix, but please double check every mail and check with your supervisors if a anything seems phishy.
     
-    Stay safe
-    IT department
-    ")
 
-    <!-- Email 10-->
-    (set: $title10 to "test")
-    (set: $sender10 to "test")
-    (set: $receiver10 to "test")
-    (set: $text10 to "test")
+    <!-- Email 9-->
+    (set: $title7 to "test")
+    (set: $sender7 to "test")
+    (set: $receiver7 to "test")
+    (set: $text7 to "test")
 }

@@ -11,10 +11,14 @@
 <==
 (box: "X", 2)+(bg: $xpbluegradient)[
 |=
-=||||||||||||||||||||||||
+=||||||||||||||||||||||||=
 (link-repeat: "<span class='material-symbols-outlined symbols-lower'>terminal</span>")[(goto: "Terminal")]
 (link-repeat: "<span class='material-symbols-outlined symbols-lower'>mail</span>")[(goto: "Email Postfach")]
-(link-repeat: "<span class='material-symbols-outlined symbols-lower'>language</span>")[(goto: "Browser")]]
+(link-repeat: "<span class='material-symbols-outlined symbols-lower'>language</span>")[(goto: "Browser")]
+=|
+(if: $ach_news is true)[(color: red)+(text-style: "bold")[<span class='material-symbols-outlined symbols-lower'>```priority_high```</span>]]
+(link-repeat: "<span class='material-symbols-outlined symbols-lower'>```help_center```</span>")[(goto: "Achievements")]
+]
 =|
 =><=
 (box: "X", 2)+(bg: $xplightbluegradient)[

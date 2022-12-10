@@ -1,5 +1,8 @@
 :: Email Postfach
 (change: ?Page, (text-size: 0.7))\
+(if: $ach_email is not true)[(set: $ach_news to true)]
+(set: $ach_email to true)
+\
 $windowbox[\
 $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
     =|
