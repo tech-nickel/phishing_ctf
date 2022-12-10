@@ -73,6 +73,6 @@
     (input: bind $username, "=X=")
     (link-repeat: "Start game")
         [(if: ((length of $username) >= 3))\
-            [(goto: "Desktop")]\
+            [(goto: "Desktop")]
         (else:)
             [Username must be at least 3 characters long]]

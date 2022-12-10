@@ -1,36 +1,39 @@
 :: BitcoinPage
-{(set: $bitcoincourse to 16453.41)
+{(set: $bitcoincourse to 16453)
 (set: $bcin to "0")
 (set: $usdin to "0")
 (set:num-type $calcout to 0)
+(set: $cc_fill to false)
+(set: $start_calc to false)
 }\
 (hook: "bitcoinpage")[\
-(bg: blue)[\
-    =><=
-    ## Bitcoin Trading
-    <hr>
+|=
+=||||||||||||||||||||
+    ## Bitcoin Exchange
     1 BTC = $bitcoincourse EUR
-    (input: bind $bcin, "===X===") Bitcoin to 
-    (input: bind $usdin, "===X===") US-Dollar
-    ]\
-]\
-<script> 
-document.onkeypress = function (e) {
-    e = e || window.event;
-        if($infected == true & e.keyCode == 13){
-            var bcin = Number($bcin);
-            var usdin = Number($usdin);
-            if($bcin != "" && $usdin == ""){
-                console.log("input: " + $bcin + "; output: " + bcin * $bitcoincourse);
-            }
-            else if($bcin == "" && $usdin != ""){
-                console.log("input: " + usdin + "; output: " + usdin / $bitcoincourse);
+    
+    Please (link-repeat: "Fill in your credit card details")[(set: $cc_fill to true)] to start the transaction.
+    
+    Name: (event: when $cc_fill is true)[$username]
+    Institute: (event: when $cc_fill is true)[Maestro]
+    Credit-Card Number: (event: when $cc_fill is true)[5018 2590 6703 3382]
+    CVV: (event: when $cc_fill is true)[825]
 
-            }
-            else{
-                alert("meh");
-            }
-            
-        };
-    }
-</script>
+    Input amount:
+    (input: bind $usdin, "X===") US-Dollar
+    ===>:
+    (live: )[$calcout Bitcoin]
+
+    (link-repeat: "Start exchange")[(if: (num: $usdin) is not 0 and $cc_fill is true)[(set: $start_calc to true)(set: $calcout to (num: $usdin) / $bitcoincourse)]]
+
+    (event: when $start_calc is true and (num: $usdin) >= 10000)[\
+    (link-repeat: "Buy and exchange")[(hide: ?bitcoinpage)(show: ?bitcoinbought)]]
+
+
+]\
+|bitcoinbought)[\
+|=
+=||||||||||||||||||||
+## Done! 
+Transaction-ID: 58b3c906b46ae9589812e550fb7a7b1d0aded6d98fa8c51734d24b5ce82d8af5
+]

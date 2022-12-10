@@ -7,6 +7,9 @@
     (dm: "name", "Page2", "url", "www.test1.org")
 ))
 
+(if: $ach_browser is not true)[(set: $ach_news to true)]
+(set: $ach_browser to true)
+
 (set: $currentDisplayPage)
 
 (change: ?Page, (text-size: 0.7))
@@ -15,6 +18,7 @@
 (if: $infected is true)[(set: $currentDisplayPage to "BitcoinPage")]\
 }\
 $windowbox[\
+(float-box: "X", "Y")+(bg: white)[\
 $closebox[(link-repeat: $closeicon)[\
         \(if: $infected is not true)[(goto: "Desktop")]
         \(else: )[(goto: "Virus")]  
@@ -44,4 +48,4 @@ $closebox[(link-repeat: $closeicon)[\
     ]
     []<content|
 ]\
-]
+]]
