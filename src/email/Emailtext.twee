@@ -136,11 +136,46 @@
     You may remember the other mail about this topic.]//
     ")
 
-    
-
     <!-- Email 9-->
     (set: $title7 to "test")
     (set: $sender7 to "test")
     (set: $receiver7 to "test")
     (set: $text7 to "test")
+
+        
+    <!-- Email 9-->
+    (set: $title8 to "Phishing warning")
+    (set: $sender8 to "Security Department")
+    (set: $receiver8 to "$username")
+    (set: $text8 to "Dear $username,
+    Our company faces an increased amount of phishing attacks. To face this issue and to strengthen your IT Security skills please read the following informations:
+
+    ####Detecting phishing attacks
+    In the early days a phishing attack could easily be detected by having an unpersonal greeting or lots of spelling mistakes.
+    But these times are over now. Nowadays these attacks are very professional - which makes it hard to identify such attacks even by skilled people.
+    The following list may give you an overview about the characteristics of modern phising email attacks:
+    * The text of the mail indicates urgent need for action (e.g. if you don't follow the instructions immediately something will happen)
+    * Threats come into play (e.g. your data will be erased if you don't take any actions)
+    * You will be asked to enter confidential data such as the PIN for your online bank access or a credit card number
+    * The email contains links or forms
+    * The mail seems to come from a known person or organization, but the sender's request seems unusual to you (like your boss asking you to give your online banking password so you can get your loan)
+
+    ####The technical debt of the email
+    While emails are a reliable and a prevalent way of sending electronic messages and data over the world wide web they have various technical flaws.
+    Those flaws resulted in numerous attack scenarios which envolved with their environments and importance.
+    While email singing and encrypting emails is easily available since at least 1991 (google for Pretty Good Privacy) it's not very commonly used in private communication.
+    Furthermore because email anti spam measures have to be implemented on the server and domain name system level your means of improving your security might be restricted.
+    This leads to emails having the same problems as their real life version. For example the sender of a (e)mail can be forged and is not audited.
+
+    ####Detecting phishing websites
+    With the rise and the increasing popularity of the so called Web 2.0 phishing websites improved the same way.
+    While it was easy do determine the authenticity of a banking website with SSL certificates in the past phishing websites nowadays implement them too.
+    This puts responsibility to you to check the used certificate and the entered url.
+    Modern browsers make it easy to do so by highlighting the actual domain you are connected to:
+    https://www.bsi.<b>bund.de</b>/DE/IT-Sicherheitsvorfall/...
+    Always make sure that this matches the domains given by your service provider (e.g. your bank institute)
+    Another reason to get cautious is when you get asked to enter already known information (e.g. name, address) or for a TAN when you don't requested any actions needed for them.
+
+    Source: Bundesamt für Sicherheit in der Informationstechnik
+    ")
 }
