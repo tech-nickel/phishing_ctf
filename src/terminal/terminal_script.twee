@@ -222,7 +222,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         greetings: 'Welcome to the Phishing-CTF Terminal!\n',
         
         prompt() {
-            return `┌──(${color('green', 'user@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
+            return `┌──(${color('green', $username + '@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
         },
 
         // prompt: function() {
@@ -342,7 +342,7 @@ function split_args(args) {
     };
 }
 
-// this is how you can create backed as replecement for BrowserFS
+// this is how you can create backed as replacement for BrowserFS
 // this url need to point to JSON-RPC service you can easily create
 // using library for your backend language of choice
 var json_rpc_url = 'backend.php';
