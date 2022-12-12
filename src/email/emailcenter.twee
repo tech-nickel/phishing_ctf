@@ -23,7 +23,11 @@
         (hide: ?emailsource)
         (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]
         (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]
-        (replace: ?emailfrom)[(link-repeat: $emaildata's ($clicktracker)'s sender)[(show: ?emailsource)]]
+        (replace: ?emailfrom)[(link-repeat: $emaildata's ($clicktracker)'s sender)[
+          (show: ?emailsource)
+          (if: $ach_source is not true)[(set: $ach_news to true)]
+          (set: $ach_source to true)
+          ]]
         (replace: ?emailhead)[(print: $emaildata's ($clicktracker)'s subject)]
         (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]}
         (text-size: 0.6)(print: $emaildata's (_i)'s subject)

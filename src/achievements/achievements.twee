@@ -8,6 +8,7 @@
 "terminal", "The [[Terminal]] is a useful tool to try out different commands and use it on the information you already gathered.",
 "email", "The [[Email Inbox->Email Postfach]] is where your game starts. The Emails in it are the introduction and there are some good clues on whats going on in there. But don't be fooled: Clicking on the wrong link might just get you in trouble!",
 "browser", "In the [[Browser]] you can switch between websites and look for clues and information, just like in real life. Give it a try!",
+"source", "Oh, you've found the source code to the Email. Looks like there's some information about the sender and the sending server in there. I wonder what one could do with an IP address...",
 ))
 
 }\
@@ -25,5 +26,7 @@ $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
 * (str: $ach_text's terminal)]
 (if: $ach_browser is true)[
 * (str: $ach_text's browser)]
+(if: $ach_source is true)[
+* (str: $ach_text's source)]
 }
 ]]
