@@ -1,5 +1,5 @@
 :: BitcoinPage
-{(set: $bitcoincourse to 16453)
+{(set: $bitcoincourse to 0)
 (set: $bcin to "0")
 (set: $usdin to "0")
 (set:num-type $calcout to 0)
@@ -10,8 +10,9 @@
 |=
 =||||||||||||||||||||
     ## Bitcoin Exchange
-    1 BTC = $bitcoincourse EUR
-    
+
+    1 BTC = (print: $bitcoincourse) EUR
+
     Please (link-repeat: "Fill in your credit card details")[(set: $cc_fill to true)] to start the transaction.
     
     Name: (event: when $cc_fill is true)[$username]
@@ -37,3 +38,37 @@
 ## Done! 
 Transaction-ID: 58b3c906b46ae9589812e550fb7a7b1d0aded6d98fa8c51734d24b5ce82d8af5
 ]
+
+{ 
+        <div id="data" />
+        <script type="text/javascript">
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+            var updateBitcoinPrice = function() {
+                var request = new XMLHttpRequest();
+                request.open('GET', 'https://api.coincap.io/v2/rates/bitcoin');
+                request.onload = function() {
+                    var data = JSON.parse(request.responseText);
+                        parseJson(data);
+                };
+                request.send();
+            };
+
+        setInterval(updateBitcoinPrice, 1000);
+
+        function parseJson(json) {
+            var timestamp = json["timestamp"];
+            $bitcoincourse = json["data"]["rateUsd"];
+            var time = "<b>Last Updated : " + timestamp + "</b>";
+            var usdValue = "1 BTC equals to $" + $bitcoincourse;
+
+            var dateObject = new Date(json["timestamp"])
+            var humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
+
+            document.getElementById("data").innerHTML = "Last updated: " + humanDateFormat + 
+                "<br /><br />" + usdValue;
+            }
+
+        </script>
+    }
