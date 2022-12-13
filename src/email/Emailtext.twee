@@ -137,10 +137,40 @@
     ")
 
     <!-- Email 9-->
-    (set: $title7 to "test")
-    (set: $sender7 to "test")
-    (set: $receiver7 to "test")
-    (set: $text7 to "test")
+    (set: $title7 to "Urgent Payment")
+    (set: $sender7 to "diana@YourCompany-finance.com")
+    (set: $receiver7 to "$username")
+    (set: $text7 to "Dear $username,
+    this payment advice was issued/executed through the instruction of your customer.
+    Kindly see attached bank transcript and confirm the bank details are correct.
+    File is protected for security reasons.
+    Please treat as urgent! If any questions and clarifications please do not hestitate to contact us.
+
+    Best Regards.
+
+    Diana
+
+    YourComany GmbH
+    PrettyCorrect Street 2
+    22607 Hamburg
+
+
+    (b4r: 'ridge')+(b4r-size:2)+(corner-radius:8)[YourPaymentAdviceTT-49851687516(1).PDF.html.HtM]<attachment_click|
+
+    (click: ?attachment_click)[(show:?attachment)]
+    |attachment)[The pressuring undertone in Dianas Email convinces you to download the attached file without consideration.]
+    |attachment)[While the download is running, you find time to develop some doubts.]
+
+    |attachment)[You are not quite sure if you have seen Diana lately and although it is her email-address, she has never contacted you directly before.]
+    |attachment)[What are you going to do with the downloaded attachment.]
+
+
+
+    |attachment)[(link-goto:'I really lost track of my latest purchases. I should check that file out immediately!','Microsoft')]
+
+    |attachment)[(link-goto:'I have a weird feeling about this. I should check the content with a text editor first.','SourceCode')]
+
+    ")
 
         
     <!-- Email 9-->
