@@ -76,3 +76,13 @@
             [(goto: "Desktop")]
         (else:)
             [Username must be at least 3 characters long]]
+    
+    <!-- Event listener for enter key --> 
+    <script>
+        $("input").on('keyup', function (e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                $("tw-link").trigger("click");
+            }
+        });
+    </script>
+

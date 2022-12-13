@@ -221,18 +221,18 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         checkArity: false,
         greetings: 'Welcome to the Phishing-CTF Terminal!\n',
         
-        prompt() {
-            return `┌──(${color('green', $username + '@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
-        },
-
-        // prompt: function() {
-        //     return [
-        //         color('green', 'user@localhost'),
-        //         ':',
-        //         color('blue', cwd),
-        //         '$ '
-        //     ].join('');
+        // prompt() {
+        //     return `┌──(${color('green', $username + '@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
         // },
+
+        prompt: function() {
+            return [
+                color('green', 'user@localhost'),
+                ':',
+                color('blue', cwd),
+                '$ '
+            ].join('');
+        },
         
         completion: function(string, cb) {
             var cmd = $.terminal.parse_command(this.before_cursor());
