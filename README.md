@@ -62,11 +62,11 @@ Used to simulate a mailbox.
 The passage tag is `[[Email Postfach]]`.
 The actual mails are stored in `email/Emailtext.twee` and consist of 5 variables.
 
-- $titleX
-- $senderX
-- $receiverX 
-- $textX
-- $sourceX
+- `$titleX` subject fo the mail
+- `$senderX` person or mail address the mail is send from
+- `$receiverX` person or mail address the mail is send to
+- `$textX` contents of the mail
+- `$sourceX` source code for the mail, for the player to inspect and gather information
 
 The `X` denotes the number of the mail and the order of the numbers determine the order of display in the mailbox.
 The mails need to be in order, otherwise errors might occure.
