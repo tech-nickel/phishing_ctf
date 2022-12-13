@@ -227,7 +227,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
 
         prompt: function() {
             return [
-                color('green', 'user@localhost'),
+                color('green', $username + '@localhost'),
                 ':',
                 color('blue', cwd),
                 '$ '
