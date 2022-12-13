@@ -12,7 +12,7 @@ $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
 
 <div class="term"></div>
 <textarea class="vi" style="display: none"></textarea>
-]]]{
-
+]]]
+{
 (display: "TerminalScript")
 }

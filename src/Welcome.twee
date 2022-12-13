@@ -52,9 +52,6 @@
     (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
     (set: $closeicon to "<span class='material-symbols-outlined closebutton'>close</span>")
 
-    <link rel='stylesheet' href='https://unpkg.com/prismjs/themes/prism-coy.css'>
-    <link rel='stylesheet' href='https://unpkg.com/jquery.terminal/css/jquery.terminal.css'>
-    <link rel='stylesheet' href='https://unpkg.com/jsvi@0.1.0/vi.css'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/jcubic/static@master/js/wcwidth.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js'></script>
