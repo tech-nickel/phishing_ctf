@@ -10,6 +10,24 @@ $windowbox[\
 $terminalwindowbox[\
 $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
 
+<script>
+    window.custom = window.custom || {
+        goto : function (passageName) {
+            if (passageName) {
+                var $hiddenLink = $(document.createElement('tw-link'));
+                $hiddenLink
+                    .addClass('custom-goto')
+                    .css('display', 'none')
+                    .attr('passage-name', passageName)
+                    .append('blah')
+                    .appendTo('tw-passage')
+                    .trigger('click');
+            } else {
+                alert('no passage name given to the custom.goto() function');
+            }
+        }
+    };
+</script>
 <div class="term"></div>
 <textarea class="vi" style="display: none"></textarea>
 ]]]

@@ -84,6 +84,10 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         help: function(cmd) {
             term.echo(`Available commands: ${Object.keys(commands).join(', ')}`);
         },
+        exit: function(cmd) {
+            term.pause();
+            custom.goto('Desktop');
+        },
         mkdir: function(cmd) {
             term.pause();
             mkdir(cmd.args[0]).then(term.resume);
@@ -219,7 +223,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         }
     }, {
         checkArity: false,
-        greetings: 'Welcome to the Phishing-CTF Terminal!\n',
+        greetings: 'Welcome ' + color('red', $username) + ' to your terminal!\n',
         
         // prompt() {
         //     return `┌──(${color('green', $username + '@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
