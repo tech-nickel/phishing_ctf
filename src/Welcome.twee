@@ -67,10 +67,17 @@
     <script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
 }\
     =><=
-    # Welcome to Phising-CTF    
-    ## Enter Username
+    # Welcome to Phising-CTF 
+    This project is designed to sharpen your understanding in regards to phishing mails. Phishing, not to be confused with fishing, is a type of attack where an attacker sends fraudulent messages to the targets to trick them into reavling sensitive information or to install malware. This psychologic manipulation is called social engineering and focuses on exploiting humans, rather than machines. It is the most common attack performed by cybercriminals.
 
+    A special form of phishing is spear phishing, where the attacker directly targets a specific organization or even just singular people. But most phishing messages are not personilized and often are reffered to as spam or bulk phishing.
+
+    In this project you might encounter widespread phishing attempts and maybe even specific spear phishing attempts against your character of differnt scales. But enough theory, let's get yourself in the game by choosing a username with at least three characters.
+    ## Enter username
     (input: bind $username, "=X=")
+    ## Your character
+    Your character works an regular office job and lots of communication goes through mail, but may not be the only way to communicat in every scenario. You do have different tools at hand to do your job, namely a terminal, a mail application as well as a browser. When you start the game, it will take you to an simulated desktop from where you can access the tools. To close an application, press the X in the righthand corner (do not close your ream browser tho), or just open another application by clicking the corresponding symbols at the botton left.
+
     (link-repeat: "Start game")
         [(if: ((length of $username) >= 3))\
             [(goto: "Desktop")]
