@@ -33,10 +33,11 @@
 
 ]\
 |bitcoinbought)[\
+(set: $curtransid to (str: $transid's (random: 1, $transid's length)))
 |=
 =||||||||||||||||||||
 ## Done! 
-Transaction-ID: 58b3c906b46ae9589812e550fb7a7b1d0aded6d98fa8c51734d24b5ce82d8af5
+Transaction-ID: $curtransid
 ]
 
 { 
