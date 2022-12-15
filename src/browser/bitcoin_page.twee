@@ -25,7 +25,7 @@
     ===>:
     (live: )[$calcout Bitcoin]
 
-    (link-repeat: "Start exchange")[(if: (num: $usdin) is not 0 and $cc_fill is true)[(set: $start_calc to true)(set: $calcout to (num: $usdin) / $bitcoincourse)]]
+    (link-repeat: "Start exchange")[(if: (num: $usdin) is not 0 and $cc_fill is true)[(set: $start_calc to true)(set: $calcout to (num: $usdin) / (num: $bitcoincourse))]]
 
     (event: when $start_calc is true and (num: $usdin) >= 10000)[\
     (link-repeat: "Buy and exchange")[(hide: ?bitcoinpage)(show: ?bitcoinbought)]]
