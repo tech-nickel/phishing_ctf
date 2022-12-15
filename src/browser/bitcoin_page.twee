@@ -66,7 +66,7 @@ Transaction-ID: 58b3c906b46ae9589812e550fb7a7b1d0aded6d98fa8c51734d24b5ce82d8af5
             var dateObject = new Date(json["timestamp"])
             var humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
 
-            document.getElementById("data").innerHTML = "Last updated: " + humanDateFormat + 
+            document.getElementById("data")?.innerHTML = "Last updated: " + humanDateFormat + 
                 "<br /><br />" + usdValue;
             }
 
