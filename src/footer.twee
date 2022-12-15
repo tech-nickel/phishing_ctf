@@ -23,7 +23,7 @@
 =|
 ==>
 (if: $ach_news is true)[(set: $ach_style to $ach_emphasised)](else: )[(set: $ach_style to $ach_normal)]
-$ach_style[(if: $ach_news is true)[<span class='material-symbols-outlined symbols-lower'>```priority_high```</span>]
+$ach_style[(if: $ach_news is true)[<span class='material-symbols-outlined symbols-lower'>```priority_high```</span>]\
 (link-repeat: "<span class='material-symbols-outlined symbols-lower'>```help_center```</span>")[(goto: "Achievements")]]
 ]
 =|
