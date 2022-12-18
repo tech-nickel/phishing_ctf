@@ -63,17 +63,49 @@
     <script src='https://unpkg.com/browserfs@1.4.3/dist/browserfs.js'></script>
     <script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
 }\
-    =><=
+    ==><==
     # Welcome to Phising-CTF 
-    This project is designed to sharpen your understanding in regards to phishing mails. Phishing, not to be confused with fishing, is a type of attack where an attacker sends fraudulent messages to the targets to trick them into reavling sensitive information or to install malware. This psychologic manipulation is called social engineering and focuses on exploiting humans, rather than machines. It is the most common attack performed by cybercriminals.
+    This project is designed to sharpen your understanding in regards to phishing mails. 
 
-    A special form of phishing is spear phishing, where the attacker directly targets a specific organization or even just singular people. But most phishing messages are not personilized and often are reffered to as spam or bulk phishing.
+    (link-replace:"What is phishing?")
+    [
+        Phishing, not to be confused with fishing, is a type of attack in the cyber world where an attacker sends fraudulent messages to the targets to trick them into reavling sensitive information, to install malware or to sending money. This psychologic manipulation is called social engineering and focuses on exploiting humans, rather than machines. It currently is the most common attack performed by cybercriminals.
+        Phishing messages may vary extremly in quality and in target. Most people probably have been targets of phishing attacks, since (link-reveal: "lots of mails")[(open-url: "https://www.statista.com/statistics/420400/spam-email-traffic-share-annual/")] are such messages.
+        Usually those messages are easy to identify and most mail programms but them into dedicated directorys by them selfs, so users do not open them by accident. Usually these mails do have a generic greeting part and will not call you by your name. Furthermore are the messages written in poor grammar. They usually try to get personal informations or money by baiting you to send them.
+        A standard mail of this format could go along the lines of //Hello, you are the winner of our $500.000 price. Please send us $500 to verify your account.//
+        Also mail addresses may be wierd. It usually is a good idea to check whether you recognize the sender of the mail. Also you should take a look at the receiver to see to whom the mails was send. There may be multiple people that recived this mail, or it may be a mailing list, where the receivers may be denoted by something like //winners// are so.
+        A special form of phishing is spear phishing, where the attacker directly targets a specific organization or even just singular people. But most phishing messages are not personilized and often are reffered to as spam or bulk phishing.
+    ]
 
-    In this project you might encounter widespread phishing attempts and maybe even specific spear phishing attempts against your character of differnt scales. But enough theory, let's get yourself in the game by choosing a username with at least three characters.
-    ## Enter username
+    (link-replace:"Show me an example!") <!-- Generic spam-->
+    [Example 1
+        (link-replace:"Show me another example!") <!-- pretending support-->
+        [Example 2
+            (link-replace:"Show me one last example!") <!-- Person you know whose account got taken over-->
+            [Example 3
+    ]]]
+
+    (link-reveal:"What am I doing here?")
+    [
+        In this project you might encounter widespread phishing attempts and maybe even specific spear phishing attempts against your character of differnt scales. But enough theory, let's get yourself in the game by choosing a username with at least three characters.
+    ]
+
+    (link-reveal:"Why am I doing this?")
+    [
+        We do not know that. 
+        Perhaps you just wanted to try our game?
+        (link-replace:"That's not it")
+            [Maybe you are one of our beloved beta testers?
+            (link-replace:"That isn't it either...")
+                [Perhaps you clicked on some phishy links and someone condemned you to learn about to phishing, because the don't think you are very bright? 
+                But enough of this, just get into the game after choosing a username!
+                Perhaps you want to learn something about your character, if you enjoy clicking stuff!!!
+    ]]]
+    ## Choose a username 
     (input: bind $username, "=X=")
-    ## Your character
-    Your character works an regular office job and lots of communication goes through mail, but may not be the only way to communicat in every scenario. You do have different tools at hand to do your job, namely a terminal, a mail application as well as a browser. When you start the game, it will take you to an simulated desktop from where you can access the tools. To close an application, press the X in the righthand corner (do not close your ream browser tho), or just open another application by clicking the corresponding symbols at the botton left.
+
+    (link-replace:"Tell me about my character!")
+    [Your character works an regular office job and lots of communication goes through mail, but may not be the only way to communicat in every scenario. You do have different tools at hand to do your job, namely a terminal, a mail application as well as a browser. When you start the game, it will take you to an simulated desktop from where you can access the tools. To close an application, press the X in the righthand corner (do not close your ream browser tho), or just open another application by clicking the corresponding symbols at the botton left.]
 
     (link-repeat: "Start game")
         [(if: ((length of $username) >= 3))\
