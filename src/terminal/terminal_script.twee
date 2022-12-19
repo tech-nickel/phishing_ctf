@@ -168,6 +168,16 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                 });
             });
         },
+        atob: function(cmd) {
+            term.echo(atob(cmd.args[0]));
+        },
+
+        decodeURI: function(cmd) {
+            term.echo(decodeURI(cmd.args[0]));
+        },
+        unescape: function(cmd) {
+            term.echo(unescape(cmd.args[0]));
+        },
         vi: function(cmd) {
             var textarea = $('.vi');
             var editor;
@@ -212,6 +222,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
             }
         }
     };
+    
     
     // --------------------------------------------------------------
     var term = $('.term').terminal((command) => {
