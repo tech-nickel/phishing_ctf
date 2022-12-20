@@ -14,11 +14,11 @@ $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
     $headershadow+(bg: white)+(box:"X", $col1_height)[
         =|
         =|
-            (link-repeat: "<span class='material-symbols-outlined'>reply</span>")[(set: $activerightpage to 1)<script>alert('jaha!' + $activerightpage);</script>]
+            (link-repeat: "<span class='material-symbols-outlined'>reply</span>")[(if: $activeleftpage is 0)[(hide: ?emailright)(show: ?sendemail)(replace: ?emailanswer)[(print: $emaildata's ($clicktracker)'s answer)]]]
         |=
-            (link-repeat: "<span class='material-symbols-outlined'>delete</span>")[(display: "Delete")]  \
+            (link-repeat: "<span class='material-symbols-outlined'>delete</span>")[(if: $activeleftpage is 0)[(display: "Delete")]]  \
         |=
-            [[<span class="material-symbols-outlined">info</span>->Quellcode]]\
+            [[<span class="material-symbols-outlined">info</span>->SourceCode]]\
         |=
             <span class="material-symbols-outlined">forward</span> \
         |=
@@ -27,7 +27,5 @@ $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
     |=
     =|||||=
     (display: "Emailright")\
-    (event: when $activerightpage is 0 and $clicktracker > 0)[(hide: ?sendemail)(show: ?emailright)]\
-    (event: when $activerightpage is 1)[(hide: ?emailright)(show: ?sendemail)(replace: ?emailanswer)[(print: $emaildata's ($clicktracker)'s answer)]]\
     =|
     ]]

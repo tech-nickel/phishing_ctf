@@ -11,12 +11,12 @@
   
   <!-- Emailcenter -->
   (display: "Emailtext")
-  (set: $menuitems to (a:"Inbox", "Starred", "Important", "Sent", "Draft", "Trash"))
   (set: $ach_welcome to true)
 
   <!-- Emaildata --> 
   (set: $emaildata to (a:))
   (set: $emailcontent to (dm:))
+  (set: $emailtrash to (a:))
 
   (for: each _i, ...(range: 1, $maxtexts)) [
     (set: $success to false)
@@ -46,9 +46,8 @@
     </script>
     (if: $success is true)[(set: $emaildata's (_i) to $emailcontent)]
   ]
-  
 
-
+(set: $data to $emaildata)
 
 }\
 =><=

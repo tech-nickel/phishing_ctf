@@ -8,10 +8,19 @@
   (box:"X", 30)[\
   
     ==|||
-      (for: each _item, ...$menuitems)[\
 
-      (text-indent: 40)+(hover-style:(text-style: "bold"))[_item]
-      ]\
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[(link-repeat: 'Inbox')[(set: $activeleftpage to 0)(set: $data to $emaildata)(goto: 'Email Postfach')]]
+      
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[Starred]
+
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[Important]
+
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[Sent]
+
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[Draft]
+
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[(link-repeat: 'Trash')[(set: $activeleftpage to 5)(set: $data to $emailtrash)(goto: 'Email Postfach')]]
+
     =|
 
       {(live: 0.5s)[''0$unread_mails'']}\

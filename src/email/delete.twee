@@ -1,4 +1,8 @@
 :: Delete
-    (move: $emaildata's ($clicktracker) into _a)
+    {
+    (move: $emaildata's ($clicktracker) into $emailtrash's ($emailtrash's length + 1))
+    (set: $data to $emaildata)
+    <!-- (set: $emailtrash's ($emailtrash's length + 1) to _a) -->
     (set: $clicktracker to 0)
     (goto: "Email Postfach")
+    }

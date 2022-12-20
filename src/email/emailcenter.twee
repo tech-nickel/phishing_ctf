@@ -7,29 +7,29 @@
     |=
       <span class="material-symbols-outlined">search</span> \
   ]\
-  (for: each _i, ...(range: 1, $emaildata's length))[\
+  (if: $data's length > 0)[(for: each _i, ...(range: 1, $data's length))[\
     (set: $boxstyling to (hook: (str: _i)))\
     $boxstyling+(box:"X",8)[\
       |=
       =><=
       =|||||||=
 
-        {(text-size: 0.7) + (link-repeat: (str: $emaildata's (_i)'s sender))[
+        {(text-size: 0.7) + (link-repeat: (str: $data's (_i)'s sender))[
         (change: (hooks-named: (str: $clicktracker)), (bg: $bluegrey2))
         (set: $clicktracker to _i)
         (change: (hooks-named: (str: _i)), (bg: white))
-        (set: $activerightpage to 0)
+        (hide: ?sendemail)(show: ?emailright)
         (hide: ?emailsource)
-        (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]
-        (replace: ?emailto)[(print: $emaildata's ($clicktracker)'s receiver)]
-        (replace: ?emailfrom)[(link-repeat: $emaildata's ($clicktracker)'s sender)[
+        (replace: ?emailbody)[(print: $data's ($clicktracker)'s body)]
+        (replace: ?emailto)[(print: $data's ($clicktracker)'s receiver)]
+        (replace: ?emailfrom)[(link-repeat: $data's ($clicktracker)'s sender)[
           (show: ?emailsource)
           (if: $ach_source is not true)[(set: $ach_news to true)]
           (set: $ach_source to true)
           ]]
-        (replace: ?emailhead)[(print: $emaildata's ($clicktracker)'s subject)]
+        (replace: ?emailhead)[(print: $data's ($clicktracker)'s subject)]
         (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]}
-        (text-size: 0.6)(print: $emaildata's (_i)'s subject)
-        (text-size: 0.6)(print: $emaildata's (_i)'s bodyshort)\
+        (text-size: 0.6)(print: $data's (_i)'s subject)
+        (text-size: 0.6)(print: $data's (_i)'s bodyshort)\
       =|
-    ]]]\
+    ]]]]\

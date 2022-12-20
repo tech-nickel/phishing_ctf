@@ -73,8 +73,8 @@
     IT department
     ")
     (set: $answer2 to "
-    Hi Eike, 
-    Haha yeah sure! Nice try! I'm going to report this mail to our security department!
+    Hi IT departement, 
+    Haha yeah sure! Nice try! I'm going to report this mail to our IT department!
     Regards " + $username)
 
     <!-- Email 3 --> 
