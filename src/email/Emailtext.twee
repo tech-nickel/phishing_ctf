@@ -14,8 +14,13 @@
 
     //[Further Information]<tag64| (click-replace: ?tag64)
     [Eike Harms is your supervisor.
-    Your usuall daily meeting is scheduled for 10am and usually will take 1 hour.]//
+    Your usual daily meeting is scheduled for 10am and takes about an hour.]//
     ")
+    (set: $answer1 to "Hi Eike, 
+    alrighty, no problemo! Meet you at 9am!
+    
+    Regards " + $username)
+
     (set: $source1 to (str: "Received: from VE1EUR02HT128.eop-EUR02.prod.protection.outlook.com
     ```(2603:10b6:610:50::14)``` by CH2PR20MB2917.namprd20.prod.outlook.com with HTTPS via CH2PR16CA0004.NAMPRD16.PROD.outlook.com;
     (current-date:) (current-time:);
@@ -67,6 +72,10 @@
     Stay safe
     IT department
     ")
+    (set: $answer2 to "
+    Hi Eike, 
+    Haha yeah sure! Nice try! I'm going to report this mail to our security department!
+    Regards " + $username)
 
     <!-- Email 3 --> 
     (set: $title3 to "URGENT!!!")
@@ -83,6 +92,10 @@
     [Eike Harms is your supervisor.
     You had a chat about that data for the client yesterday.]//
     ")
+    (set: $answer3 to "Hi Eike, 
+    no worries, I will stop eating and sleeping until the data is ready to be presented!
+    Customer is king!
+    Regards " + $username)
 
     <!-- Email 4 --> 
     (set: $title4 to "!!! Gesperrtes Konto!!!")
@@ -93,9 +106,13 @@
     Dies sind Sicherheitsmaßnahmen um Fremde Bestellungen oder Ähnlichem vorzubeugen.
     Sie können Ihren Account wieder Aktivieren dazu ist eine kurze Verifizierung Ihrer Daten erforderlich. Hierfür ist lediglich eine Verifizierung unter:
     http:/ /entsperrung.biz")
+    (set: $answer4 to "
+    Good morning,
+    Apologies but I don't speak french. Feel free to contact me in english, though.
+    Regards "+ $username)
 
     <!-- Email 5 --> 
-    (set: $title5 to "Freundschaft Inbetriebnahme ")
+    (set: $title5 to "Freundschaft Inbetriebnahme")
     (set: $sender5 to "UENO")
     (set: $receiver5 to "You, Your Boss")
     (set: $text5 to "Hallo Guten Tag,
@@ -105,6 +122,9 @@
 
     Ihr neuer Freund,
     Raziya.")
+    (set: $answer5 to "Hi, Friendship? Sounds great, I dont really have friends!
+    Regards " + $username)
+
 
     <!-- Email 6-->
     <!-- the additional actions should be done when -->
@@ -135,6 +155,13 @@
     [Eike Harms is your supervisor.
     You may remember the other mail about this topic.]//
     ")
+    (set: $answer6 to "Hi Eike,
+    if you don't mind me asking, I was supposed to put the data in the sharepoint, wasn't I? I am not sure if this is the right approach, since files with macros have a high risk of being unsafe! 
+    
+    But we can discuss this in the meeting later on, I don't want to keep you busy with my concerns!
+
+    Best regards,
+    " + $username)
 
     <!-- Email 9-->
     (set: $title7 to "Urgent Payment")
@@ -171,6 +198,12 @@
     |attachment)[(link-goto:'I have a weird feeling about this. I should check the content with a text editor first.','SourceCode')]
 
     ")
+    (set: $answer7 to "Good morning,
+    nice scam dickhead! I'm totally broke, I can't buy stuff, even if I wanted to! You're totally exploited!
+    Also my boss has these new phising email workshops, so nothing an fool me now!
+    
+    Worst regards
+    " + $username)
 
         
     <!-- Email 9-->

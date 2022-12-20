@@ -18,7 +18,6 @@
         (change: (hooks-named: (str: $clicktracker)), (bg: $bluegrey2))
         (set: $clicktracker to _i)
         (change: (hooks-named: (str: _i)), (bg: white))
-        (hide: ?sendemail)(show: ?emailright)
         (set: $activerightpage to 0)
         (hide: ?emailsource)
         (replace: ?emailbody)[(print: $emaildata's ($clicktracker)'s body)]

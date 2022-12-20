@@ -10,5 +10,6 @@ $moreinfoscolumnheight[\
 (box: "X", 5)[]\
 <hr>]\
 |sendemail)[\
-## Send out an Email
-(css: "padding-bottom: 10em")[(input: bind $inputtest)]]
+## Answer
+[(str: $emaildata's ($clicktracker)'s answer)]<emailanswer|
+]

@@ -28,6 +28,7 @@
           emailcontent.set("sender","$sender" + _i);
           emailcontent.set("receiver","$receiver" + _i);
           emailcontent.set("body","$text" + _i);
+          emailcontent.set("answer", "$answer" + _i);
           $emailcontent = emailcontent;
           $success = true;
       } catch (e) {
