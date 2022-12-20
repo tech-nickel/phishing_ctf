@@ -32,7 +32,7 @@
     (set: $clicktracker to 0)
 
     <!-- Emailright --> 
-    (set: $unread_mails to 5)
+    (set: $unread_mails to 8)
     (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))
     (set: $activerightpage to 0)
     (set: $boxstyling to (box:"X", 10))
@@ -40,6 +40,8 @@
     (set: $showFooter to false)
 
     (set: $ach_news to true)
+
+    (set: $patiencetest to 0)
 
 
     <!-- COMMANDS --> 

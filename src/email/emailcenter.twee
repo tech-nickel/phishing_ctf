@@ -24,8 +24,8 @@
         (replace: ?emailto)[(print: $data's ($clicktracker)'s receiver)]
         (replace: ?emailfrom)[(link-repeat: $data's ($clicktracker)'s sender)[
           (show: ?emailsource)
-          (if: $ach_source is not true)[(set: $ach_news to true)]
-          (set: $ach_source to true)
+          (if: $ach_sendersource is not true)[(set: $ach_news to true)]
+          (set: $ach_sendersource to true)
           ]]
         (replace: ?emailhead)[(print: $data's ($clicktracker)'s subject)]
         (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]}

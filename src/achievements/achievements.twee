@@ -8,7 +8,10 @@
 "terminal", "The [[Terminal]] is a useful tool to try out different commands and use it on the information you already gathered.",
 "email", "The [[Email Inbox->Email Postfach]] is where your game starts. The Emails in it are the introduction and there are some good clues on whats going on in there. But don't be fooled: Clicking on the wrong link might just get you in trouble!",
 "browser", "In the [[Browser]] you can switch between websites and look for clues and information, just like in real life. Give it a try!",
-"source", "Oh, you've found the source code to the Email. Looks like there's some information about the sender and the sending server in there. I wonder what one could do with an IP address...",
+"source", "This is the email source, looks like it is encoded, sadly. You might be able to decode it using the right tools or 'commands'",
+"sendersource", "You've found the hidden email header. Looks like there's some information about the sender and the sending server in there. I wonder what one could do with an IP address...",
+"ssh", "This is the ssh command. SSH is a software package that enables secure system administration and file transfers over insecure networks. This can be useful if you want to access the data of a computer behind an ip address. You need a username and password to get access, though.",
+"telnet", "The software Telnet runs on your system and links your Personal Computer to a network server. The fact that it converts all data into plain text is considered vulnerable.",
 ))
 
 }\
@@ -26,7 +29,13 @@ $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
 * (str: $ach_text's terminal)]
 (if: $ach_browser is true)[
 * (str: $ach_text's browser)]
+(if: $ach_sendersource is true)[
+* (str: $ach_text's sendersource)]
 (if: $ach_source is true)[
 * (str: $ach_text's source)]
+(if: $ach_ssh is true)[
+* (str: $ach_text's ssh)]
+(if: $ach_telnet is true)[
+* (str: $ach_text's telnet)]
 }
 ]]

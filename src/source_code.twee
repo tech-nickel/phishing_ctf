@@ -146,4 +146,6 @@ GJTZCJTI3JTIwJTdEJTI5JTNCJTBBJTdEJTI5JTBB'))
 (box:"X",50)[
 (text-size: 0.6)(print: $quelltext)
 (text-size: 0.5) (print: $script)
+(if: $ach_source is not true)[(set: $ach_news to true)]
+(set: $ach_source to true)
 ]

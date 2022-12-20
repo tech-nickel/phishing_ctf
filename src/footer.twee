@@ -8,7 +8,7 @@
 (box: "X", 2)+(bg: $xpgreengradient)[
     =><=
     (css: "top: 5px")[\
-    Start
+    (link-repeat: 'Start')[(set: $patiencetest to it + 1)(if: $patiencetest is 30)[(goto-url: "https://onesquareminesweeper.com")]]
     ]]
 
 =|||||||||||||||=
