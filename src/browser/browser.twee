@@ -38,7 +38,7 @@ $closebox[(link-repeat: $closeicon)[\
             (set: $currentDisplayPage to $currentDisplayPages's 1st's name)
             (goto: "Browser")
         ]
-        (else:)[(set: $currentDisplayPage to 0)(goto: "Browser")]
+        (else:)[(set: $currentDisplayPage to "Browser404")(goto: "Browser")]
     ]
     =|
 ]
