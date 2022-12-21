@@ -19,7 +19,7 @@
     (set: $xpgreengradient to (gradient: 0, 0, $xpgreen3, 0.9, $xpgreen2, 1, $xpgreen1))
     (set: $xpbluegradient to (gradient: 0, 0, $xpblue3, 0.7, $xpblue2, 1, $xpblue1))
     (set: $xplightbluegradient to (gradient: 0, 0, $xplightblue3, 0.7, $xplightblue2, 1, $xplightblue1))
-    
+    (set: $test to 0)
     <!-- styling --> 
     (set: $col0_height to 53)
     (set: $col1_height to 5)
@@ -111,16 +111,19 @@
     [Your character works an regular office job and lots of communication goes through mail, but may not be the only way to communicat in every scenario. You do have different tools at hand to do your job, namely a terminal, a mail application as well as a browser. When you start the game, it will take you to an simulated desktop from where you can access the tools. To close an application, press the X in the righthand corner (do not close your ream browser tho), or just open another application by clicking the corresponding symbols at the botton left.]
 
     (link-repeat: "Start game")
-        [(if: ((length of $username) >= 3))\
-            [(goto: "Desktop")]
+        [\
+        (if: ((length of $username) >= 3))\
+            [(set: $test to 1)]
         (else:)
             [Username must be at least 3 characters long]]
-    
+    <!-- (event: when $test is 1)[(if: (length of $username) >= 3)[(goto: 'Desktop')]
+    (else: )
+    [Username must be at least 3 characters long (set: $test to 0)]] -->
     <!-- Event listener for enter key --> 
     <script>
         $("input").on('keyup', function (e) {
             if (e.key === 'Enter' || e.keyCode === 13) {
-                $("tw-link").trigger("click");
+                // $test = 1;
             }
         });
     </script>
