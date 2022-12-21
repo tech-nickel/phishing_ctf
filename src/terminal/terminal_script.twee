@@ -1,9 +1,12 @@
 :: TerminalScript
 {<script>
+
 BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
     
     window.fs = BrowserFS.BFSRequire("fs");
     window.path = BrowserFS.BFSRequire("path");
+    var pinging;
+    var prompt;
     
     // --------------------------------------------------------------
     function list(path) {
@@ -77,6 +80,91 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
             });
         });    
     }
+
+    // --------------------------------------------------------------
+    function touch(fileName) {
+        fileName = resolve(fileName);
+        return new Promise((resolve, reject) => {
+            fs.stat(fileName, (err, stat) => {
+                if (err) {
+                    fileName: fileName;
+                    fs.writeFile(fileName, '', function(err) {
+                        if (err) {
+                            reject(err.message);
+                        } else {
+                            resolve();
+                        }
+                    });
+                } else if (stat.isDirectory()) {
+                    reject(`${fileName} is directory`);
+                } else {
+                    resolve();
+                }
+            });
+        });    
+    }
+    
+    // --------------------------------------------------------------
+
+    // ping function - enables ping commands to the terminal
+    function ping(cmd, address) {
+        // save current prompt to apply him back after the ping ends
+        prompt = term.get_prompt();
+
+        if (cmd.name == 'ping' && address != undefined) {
+            times = [];
+            loc = address;
+            
+            // differentiate between url and ip
+            if(address.substring(0,7) != 'http://' && address.substring(0,8) != 'https://') {
+                ad = "http://" + address;
+            }
+            else {
+            ad = address;
+            }
+        
+            term.echo("PINGING " + address);
+
+            // set and reset multiple vars for calculation and escape possibility
+            var i = 0;
+            total = 0;
+            suc = 0;
+            var output = "";
+            var p = new Ping();
+            pinging = true;
+            
+            // loop function for ping - runs until the user escape the sequence
+            (function loop() {
+                p.ping(ad, function(err, data) {
+                // Also display error if err is returned.
+                    if (err || data >= 1500) {
+                        output = "Request timeout for ping_seq " + i;
+                    } else {
+                        holder = data;
+                        output = "Transmission to " + address + ": ping_seq=" + i + " time=" + data + " ms";
+                    }
+                });
+        
+                // generates the terminal output
+                if(output) {
+                    term.echo(output);
+                    total = i + 1;
+                    i++;
+                    if (output.substring(0,1) == 'T') {
+                        suc++;
+                        times.push(holder);
+                    }
+                }
+                
+                term.set_prompt(""); // clears the prompt
+                p = new Ping();
+                timer = setTimeout(loop, 1000);
+            })();
+        
+        } else if (cmd.name == 'ping' && address == undefined) {
+            term.echo("ping: no address to ping");
+        }
+    }
     
     // --------------------------------------------------------------
     window.cwd = '/';
@@ -86,7 +174,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         },
         exit: function(cmd) {
             term.pause();
-            custom.goto('Desktop');
+            custom.goto("Desktop");
         },
         mkdir: function(cmd) {
             term.pause();
@@ -152,7 +240,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                     } else if (stat) {
                         if (stat.isDirectory()) {
                             if (options.match(/r/)) {
-                                rmDir(path_name);
+                                fs.rmdir(path_name);
                             } else {
                                 term.error(`${path_name} is directory`);
                             }
@@ -178,6 +266,23 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         unescape: function(cmd) {
             term.echo(unescape(cmd.args[0]));
         },
+
+        ip: function(cmd) {
+            term.echo("Test");
+        },
+
+        nslookup: function(cmd) {
+            term.echo("Test");
+        },
+
+        nmap: function(cmd) {
+            term.echo("test");
+        },
+
+        ping: function(cmd) {
+            ping(cmd, cmd.args[0]);
+        },
+
         vi: function(cmd) {
             var textarea = $('.vi');
             var editor;
@@ -229,6 +334,8 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         var cmd = $.terminal.parse_command(command);
         if (commands[cmd.name]) {
             commands[cmd.name].call(term, cmd);
+        } else if (command === "") {
+            term.resume;
         } else {
             term.error('Command not found: ' + cmd.name);
         }
@@ -239,7 +346,8 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         // prompt() {
         //     return `┌──(${color('green', $username + '@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
         // },
-
+        
+        // sets default prompt
         prompt: function() {
             return [
                 color('green', $username + '@localhost'),
@@ -247,6 +355,37 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                 color('blue', cwd),
                 '$ '
             ].join('');
+        },
+
+        // enables escaping from running terminal output - stops an running task and resume to the original terminal prompt
+        keydown: function(e, term) {
+            if (pinging) {
+                if (e.which == 67 && e.ctrlKey) { // CTRL+c
+                    term.echo("^C");
+                    clearTimeout(timer);
+                    pinging = false;
+                    
+                    term.echo("--- " + loc + " ping statistics ---");
+                    var ploss = (total - suc) * 100.0 / total;
+                    var round = ploss.toFixed(1);
+                    term.echo(total + " pings transmitted, " + suc + " successful pings, " + round + "% loss");
+                    
+                    var min = Math.min(...times);
+                    var max = Math.max(...times);
+                    var avg = (times.reduce((a,b) => a + b, 0) / times.length).toFixed(1);
+                    var sqrs = times.map(function(value){
+                        var diff = value - avg;
+                        var sqr = diff * diff;
+                        return sqr;
+                        });
+                    var sqrAvg = sqrs.reduce((a,b) => a + b, 0) / sqrs.length;
+                    var std = (Math.sqrt(sqrAvg)).toFixed(1);
+                    term.echo("Time data: min/max/avg/stddev = " + min + "/" + max + "/" + avg + "/" + std);
+
+                    term.set_prompt(prompt);
+                }
+                return false;
+            }
         },
         
         completion: function(string, cb) {
@@ -270,6 +409,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                 switch (cmd.name) {
                     // complete file and directories
                     case 'cat':
+                    case 'rm':
                     case 'vi':
                     case 'less':
                         return processAssets(content => cb(prepend(trailing(content.dirs).concat(content.files))));
@@ -360,18 +500,18 @@ function split_args(args) {
 // this is how you can create backed as replacement for BrowserFS
 // this url need to point to JSON-RPC service you can easily create
 // using library for your backend language of choice
-var json_rpc_url = 'backend.php';
-function cb_call(method, args, cb) {
-    $.jrpc(json_rpc_url, method, args, function(resp) {
-        if (resp.error) {
-            cb(resp.error);
-        } else {
-            cb(null, resp.result);
-        }
-    }, function(err, status) {
-        cb(status);
-    })
-}
+// var json_rpc_url = 'backend.php';
+// function cb_call(method, args, cb) {
+//     $.jrpc(json_rpc_url, method, args, function(resp) {
+//         if (resp.error) {
+//             cb(resp.error);
+//         } else {
+//             cb(null, resp.result);
+//         }
+//     }, function(err, status) {
+//         cb(status);
+//     })
+// }
 // same API as BrowserFS that's based on node.js
 var backendFS = {
     readFile: function(path, cb) {

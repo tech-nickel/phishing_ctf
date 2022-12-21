@@ -9,7 +9,6 @@
 $windowbox[\
 $terminalwindowbox[\
 $closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
-
 <script>
     window.custom = window.custom || {
         goto : function (passageName) {
