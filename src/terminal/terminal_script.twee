@@ -1,9 +1,13 @@
 :: TerminalScript
 {<script>
+
 BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
     
     window.fs = BrowserFS.BFSRequire("fs");
     window.path = BrowserFS.BFSRequire("path");
+    var pinging;
+    var nslookup;
+    var prompt;
     
     // --------------------------------------------------------------
     function list(path) {
@@ -77,6 +81,100 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
             });
         });    
     }
+
+    // --------------------------------------------------------------
+    function touch(fileName) {
+        fileName = resolve(fileName);
+        return new Promise((resolve, reject) => {
+            fs.stat(fileName, (err, stat) => {
+                if (err) {
+                    fileName: fileName;
+                    fs.writeFile(fileName, '', function(err) {
+                        if (err) {
+                            reject(err.message);
+                        } else {
+                            resolve();
+                        }
+                    });
+                } else if (stat.isDirectory()) {
+                    reject(`${fileName} is directory`);
+                } else {
+                    resolve();
+                }
+            });
+        });    
+    }
+    
+    // --------------------------------------------------------------
+
+    // ping function - enables ping commands to the terminal
+    function ping(cmd, address) {
+        // save current prompt to apply him back after the ping ends
+        prompt = term.get_prompt();
+
+        if (cmd.name == 'ping' && address != undefined) {
+            times = [];
+            loc = address;
+            
+            // differentiate between url and ip
+            if(address.substring(0,7) != 'http://' && address.substring(0,8) != 'https://') {
+                ad = "http://" + address;
+            }
+            else {
+            ad = address;
+            }
+        
+            term.echo("PINGING " + address);
+
+            // set and reset multiple vars for calculation and escape possibility
+            var i = 0;
+            total = 0;
+            suc = 0;
+            var output = "";
+            var p = new Ping();
+            pinging = true;
+            
+            // loop function for ping - runs until the user escape the sequence
+            (function loop() {
+                p.ping(ad, function(err, data) {
+                // Also display error if err is returned.
+                    if (err || data >= 1500) {
+                        output = "Request timeout for ping_seq " + i;
+                    } else {
+                        holder = data;
+                        output = "Transmission to " + address + ": ping_seq=" + i + " time=" + data + " ms";
+                    }
+                });
+        
+                // generates the terminal output
+                if(output) {
+                    term.echo(output);
+                    total = i + 1;
+                    i++;
+                    if (output.substring(0,1) == 'T') {
+                        suc++;
+                        times.push(holder);
+                    }
+                }
+                
+                term.set_prompt(""); // clears the prompt
+                p = new Ping();
+                timer = setTimeout(loop, 1000);
+            })();
+        
+        } else if (cmd.name == 'ping' && address == undefined) {
+            term.echo("ping: no address to ping");
+        }
+    }
+
+    // --------------------------------------------------------------
+
+    function nslookup(cmd, address) {
+        // save current prompt to apply him back after the ping ends
+        prompt = term.get_prompt();
+        nslookup = true;
+        term.set_prompt("> ");
+    }
     
     // --------------------------------------------------------------
     window.cwd = '/';
@@ -86,7 +184,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         },
         exit: function(cmd) {
             term.pause();
-            custom.goto('Desktop');
+            custom.goto("Desktop");
         },
         mkdir: function(cmd) {
             term.pause();
@@ -152,7 +250,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                     } else if (stat) {
                         if (stat.isDirectory()) {
                             if (options.match(/r/)) {
-                                rmDir(path_name);
+                                fs.rmdir(path_name);
                             } else {
                                 term.error(`${path_name} is directory`);
                             }
@@ -178,6 +276,153 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         unescape: function(cmd) {
             term.echo(unescape(cmd.args[0]));
         },
+
+        ip: function(cmd) {
+            var banner = `Usage: ip [ OPTIONS ] OBJECT { COMMAND | help }
+       ip [ -force ] -batch filename
+where  OBJECT := { link | address | addrlabel | route | rule | neigh | ntable |
+                   tunnel | tuntap | maddress | mroute | mrule | monitor | xfrm |
+                   netns | l2tp | fou | macsec | tcp_metrics | token | netconf | ila |
+                   vrf | sr | nexthop }
+       OPTIONS := { -V[ersion] | -s[tatistics] | -d[etails] | -r[esolve] |
+                    -h[uman-readable] | -iec | -j[son] | -p[retty] |
+                    -f[amily] { inet | inet6 | mpls | bridge | link } |
+                    -4 | -6 | -I | -D | -M | -B | -0 |
+                    -l[oops] { maximum-addr-flush-attempts } | -br[ief] |
+                    -o[neline] | -t[imestamp] | -ts[hort] | -b[atch] [filename] |
+                    -rc[vbuf] [size] | -n[etns] name | -N[umeric] | -a[ll] |
+                    -c[olor]}`;
+                
+            term.echo(banner);
+        },
+
+        nslookup: function(cmd) {
+            nslookup(cmd, cmd.args[0]);
+        },
+
+        nmap: function(cmd) {
+            var banner = `Nmap 7.60 ( https://nmap.org )
+Usage: nmap [Scan Type(s)] [Options] {target specification}
+TARGET SPECIFICATION:
+  Can pass hostnames, IP addresses, networks, etc.
+  Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0.0-255.1-254
+  -iL <inputfilename>: Input from list of hosts/networks
+  -iR <num hosts>: Choose random targets
+  --exclude <host1[,host2][,host3],...>: Exclude hosts/networks
+  --excludefile <exclude_file>: Exclude list from file
+HOST DISCOVERY:
+  -sL: List Scan - simply list targets to scan
+  -sn: Ping Scan - disable port scan
+  -Pn: Treat all hosts as online -- skip host discovery
+  -PS/PA/PU/PY[portlist]: TCP SYN/ACK, UDP or SCTP discovery to given ports
+  -PE/PP/PM: ICMP echo, timestamp, and netmask request discovery probes
+  -PO[protocol list]: IP Protocol Ping
+  -n/-R: Never do DNS resolution/Always resolve [default: sometimes]
+  --dns-servers <serv1[,serv2],...>: Specify custom DNS servers
+  --system-dns: Use OS's DNS resolver
+  --traceroute: Trace hop path to each host
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+  -sU: UDP Scan
+  -sN/sF/sX: TCP Null, FIN, and Xmas scans
+  --scanflags <flags>: Customize TCP scan flags
+  -sI <zombie host[:probeport]>: Idle scan
+  -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+  -sO: IP protocol scan
+  -b <FTP relay host>: FTP bounce scan
+PORT SPECIFICATION AND SCAN ORDER:
+  -p <port ranges>: Only scan specified ports
+    Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+  --exclude-ports <port ranges>: Exclude the specified ports from scanning
+  -F: Fast mode - Scan fewer ports than the default scan
+  -r: Scan ports consecutively - don't randomize
+  --top-ports <number>: Scan <number> most common ports
+  --port-ratio <ratio>: Scan ports more common than <ratio>
+SERVICE/VERSION DETECTION:
+  -sV: Probe open ports to determine service/version info
+  --version-intensity <level>: Set from 0 (light) to 9 (try all probes)
+  --version-light: Limit to most likely probes (intensity 2)
+  --version-all: Try every single probe (intensity 9)
+  --version-trace: Show detailed version scan activity (for debugging)
+SCRIPT SCAN:
+  -sC: equivalent to --script=default
+  --script=<Lua scripts>: <Lua scripts> is a comma separated list of
+           directories, script-files or script-categories
+  --script-args=<n1=v1,[n2=v2,...]>: provide arguments to scripts
+  --script-args-file=filename: provide NSE script args in a file
+  --script-trace: Show all data sent and received
+  --script-updatedb: Update the script database.
+  --script-help=<Lua scripts>: Show help about scripts.
+           <Lua scripts> is a comma-separated list of script-files or
+           script-categories.
+OS DETECTION:
+  -O: Enable OS detection
+  --osscan-limit: Limit OS detection to promising targets
+  --osscan-guess: Guess OS more aggressively
+TIMING AND PERFORMANCE:
+  Options which take <time> are in seconds, or append 'ms' (milliseconds),
+  's' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m).
+  -T<0-5>: Set timing template (higher is faster)
+  --min-hostgroup/max-hostgroup <size>: Parallel host scan group sizes
+  --min-parallelism/max-parallelism <numprobes>: Probe parallelization
+  --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>: Specifies
+      probe round trip time.
+  --max-retries <tries>: Caps number of port scan probe retransmissions.
+  --host-timeout <time>: Give up on target after this long
+  --scan-delay/--max-scan-delay <time>: Adjust delay between probes
+  --min-rate <number>: Send packets no slower than <number> per second
+  --max-rate <number>: Send packets no faster than <number> per second
+FIREWALL/IDS EVASION AND SPOOFING:
+  -f; --mtu <val>: fragment packets (optionally w/given MTU)
+  -D <decoy1,decoy2[,ME],...>: Cloak a scan with decoys
+  -S <IP_Address>: Spoof source address
+  -e <iface>: Use specified interface
+  -g/--source-port <portnum>: Use given port number
+  --proxies <url1,[url2],...>: Relay connections through HTTP/SOCKS4 proxies
+  --data <hex string>: Append a custom payload to sent packets
+  --data-string <string>: Append a custom ASCII string to sent packets
+  --data-length <num>: Append random data to sent packets
+  --ip-options <options>: Send packets with specified ip options
+  --ttl <val>: Set IP time-to-live field
+  --spoof-mac <mac address/prefix/vendor name>: Spoof your MAC address
+  --badsum: Send packets with a bogus TCP/UDP/SCTP checksum
+OUTPUT:
+  -oN/-oX/-oS/-oG <file>: Output scan in normal, XML, s|<rIpt kIddi3,
+     and Grepable format, respectively, to the given filename.
+  -oA <basename>: Output in the three major formats at once
+  -v: Increase verbosity level (use -vv or more for greater effect)
+  -d: Increase debugging level (use -dd or more for greater effect)
+  --reason: Display the reason a port is in a particular state
+  --open: Only show open (or possibly open) ports
+  --packet-trace: Show all packets sent and received
+  --iflist: Print host interfaces and routes (for debugging)
+  --append-output: Append to rather than clobber specified output files
+  --resume <filename>: Resume an aborted scan
+  --stylesheet <path/URL>: XSL stylesheet to transform XML output to HTML
+  --webxml: Reference stylesheet from Nmap.Org for more portable XML
+  --no-stylesheet: Prevent associating of XSL stylesheet w/XML output
+MISC:
+  -6: Enable IPv6 scanning
+  -A: Enable OS detection, version detection, script scanning, and traceroute
+  --datadir <dirname>: Specify custom Nmap data file location
+  --send-eth/--send-ip: Send using raw ethernet frames or IP packets
+  --privileged: Assume that the user is fully privileged
+  --unprivileged: Assume the user lacks raw socket privileges
+  -V: Print version number
+  -h: Print this help summary page.
+EXAMPLES:
+  nmap -v -A scanme.nmap.org
+  nmap -v -sn 192.168.0.0/16 10.0.0.0/8
+  nmap -v -iR 10000 -Pn -p 80
+SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES`;
+
+            term.echo(banner);
+        },
+
+        ping: function(cmd) {
+            ping(cmd, cmd.args[0]);
+        },
+
         vi: function(cmd) {
             var textarea = $('.vi');
             var editor;
@@ -229,6 +474,8 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         var cmd = $.terminal.parse_command(command);
         if (commands[cmd.name]) {
             commands[cmd.name].call(term, cmd);
+        } else if (command === "") {
+            term.resume;
         } else {
             term.error('Command not found: ' + cmd.name);
         }
@@ -239,7 +486,8 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
         // prompt() {
         //     return `┌──(${color('green', $username + '@localhost')})-[${color('blue', cwd)}]\n└─\$ `;
         // },
-
+        
+        // sets default prompt
         prompt: function() {
             return [
                 color('green', $username + '@localhost'),
@@ -247,6 +495,42 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                 color('blue', cwd),
                 '$ '
             ].join('');
+        },
+
+        // enables escaping from running terminal output - stops an running task and resume to the original terminal prompt
+        keydown: function(e, term) {
+            if (pinging) {
+                if (e.which == 67 && e.ctrlKey) { // CTRL+c
+                    term.echo("^C");
+                    clearTimeout(timer);
+                    pinging = false;
+                    
+                    term.echo("--- " + loc + " ping statistics ---");
+                    var ploss = (total - suc) * 100.0 / total;
+                    var round = ploss.toFixed(1);
+                    term.echo(total + " pings transmitted, " + suc + " successful pings, " + round + "% loss");
+                    
+                    var min = Math.min(...times);
+                    var max = Math.max(...times);
+                    var avg = (times.reduce((a,b) => a + b, 0) / times.length).toFixed(1);
+                    var sqrs = times.map(function(value){
+                        var diff = value - avg;
+                        var sqr = diff * diff;
+                        return sqr;
+                        });
+                    var sqrAvg = sqrs.reduce((a,b) => a + b, 0) / sqrs.length;
+                    var std = (Math.sqrt(sqrAvg)).toFixed(1);
+                    term.echo("Time data: min/max/avg/stddev = " + min + "/" + max + "/" + avg + "/" + std);
+
+                    term.set_prompt(prompt);
+                }
+                return false;
+            } else if (nslookup) {
+                if (e.which == 67 && e.ctrlKey) { // CTRL+c
+                    nslookup = false;
+                    term.set_prompt(prompt);
+                }
+            }
         },
         
         completion: function(string, cb) {
@@ -270,6 +554,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
                 switch (cmd.name) {
                     // complete file and directories
                     case 'cat':
+                    case 'rm':
                     case 'vi':
                     case 'less':
                         return processAssets(content => cb(prepend(trailing(content.dirs).concat(content.files))));
@@ -360,18 +645,18 @@ function split_args(args) {
 // this is how you can create backed as replacement for BrowserFS
 // this url need to point to JSON-RPC service you can easily create
 // using library for your backend language of choice
-var json_rpc_url = 'backend.php';
-function cb_call(method, args, cb) {
-    $.jrpc(json_rpc_url, method, args, function(resp) {
-        if (resp.error) {
-            cb(resp.error);
-        } else {
-            cb(null, resp.result);
-        }
-    }, function(err, status) {
-        cb(status);
-    })
-}
+// var json_rpc_url = 'backend.php';
+// function cb_call(method, args, cb) {
+//     $.jrpc(json_rpc_url, method, args, function(resp) {
+//         if (resp.error) {
+//             cb(resp.error);
+//         } else {
+//             cb(null, resp.result);
+//         }
+//     }, function(err, status) {
+//         cb(status);
+//     })
+// }
 // same API as BrowserFS that's based on node.js
 var backendFS = {
     readFile: function(path, cb) {
