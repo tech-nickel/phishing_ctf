@@ -1,0 +1,41 @@
+:: Login
+{(set: $xplogolink to 'https://logodownload.org/wp-content/uploads/2019/12/windows-xp-logo.png')
+(set: $fishimglink to 'https://images.pexels.com/photos/2156311/pexels-photo-2156311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+(set: $username to '')
+}
+(bg: $xpdarkblue1)+(css: "border-bottom: solid rgb(244, 194, 66); z-index: 2")+(float-box: "X", "Y=======")[]
+(bg: $xpdarkblue1)+(css: "border-top: solid rgb(244, 194, 66)")+(float-box: "X", "=======Y")[
+    ==>
+    (color: white)(print: "A username must be longer than 3 characters")
+]
+(bg: $xpblue4)+(float-box: "X=", "=YYYYYY=")[
+    ==>
+
+    (box: "X", 8)[]
+    (bg: $xplogolink)+(box: "X", 5)+(css: "margin-left: auto; margin-right: 20px; width: 170px; height: 100px")[]
+    (color: white)+(css: "margin-right: 20px;")[To begin, enter your username]
+]\
+(css: "overflow: hidden; border-left: solid white")+(bg: $xpblue4)+(float-box: "=X", "=YYYYYY=")[
+    (float-box: "X", "Y")+(css: "position: relative;")[
+    (box: "X", 11)[]
+    (corner-radius: 10)+(bg: $xpdarkbluegradient)+(box: "=XXXXXX============", 5)[\
+        (bg: $fishimglink)+(box: 'X===', 4)+(css: "position: absolute; top: 10px; left: 10px; width: 80px; height: 80px")+(corner-radius: 6)+(border: 'solid')+(border-colour: $yellow)+(border-size: 2)[]
+        (css: "position: absolute; left: 25%; top: 20px")+(color: white)(print: 'Username:')
+        (css: "position: absolute; left: 0; bottom: 2px; background-color: white")+(corner-radius: 6)(input: bind $username, "==XXX===")\
+        (bg: $xpgreengradient)+(css: "position: absolute; bottom: 5px; right: 28%; width: 40px; height: 40px")+(corner-radius: 6)+(color: white)[{
+            (link-style: (css: 'margin-left: 15px'))[(link-repeat: '>')[
+                (if: (length of $username) >= 3)[(go-to: 'Desktop')]]]
+            (event: when $continue is 1)[(go-to: 'Desktop')]
+        }]
+    ]
+]]
+
+<script>
+$(window).on("keypress", function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        let username = $username;
+        if (username.length >= 3)
+            $continue = 1;
+    }
+});
+</script>
