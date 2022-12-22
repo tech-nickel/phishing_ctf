@@ -16,14 +16,11 @@
 
 (if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?bitcoinpage]]
 (if: $infected is true)[(set: $currentDisplayPage to "BitcoinPage")]\
+(if: $infected is not true)[(set: $goto to 'Desktop')](else: )[(set: $goto to 'Virus')]
 }\
 $windowbox[\
 (float-box: "X", "Y")+(bg: white)[\
-$closebox[(link-repeat: $closeicon)[\
-        \(if: $infected is not true)[(goto: "Desktop")]
-        \(else: )[(goto: "Virus")]  
-    \]]
-
+($closeboxmacro: $goto)
 (box: "X")[
     |=
     =|=

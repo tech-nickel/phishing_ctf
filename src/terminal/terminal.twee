@@ -8,7 +8,7 @@
 |terminalwindow>[
 $windowbox[\
 $terminalwindowbox[\
-$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
+($closeboxmacro: "Desktop")
 <script>
     window.custom = window.custom || {
         goto : function (passageName) {

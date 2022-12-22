@@ -4,7 +4,7 @@
 (set: $ach_email to true)
 \
 $windowbox[\
-$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
+($closeboxmacro: "Desktop")
     =|
   (display: "Emailleft") \
   =|| 

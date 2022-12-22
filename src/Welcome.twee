@@ -7,9 +7,9 @@
     (set: $bluegreydark to (rgb: 29, 41, 58))
     (set: $xpdarkblue1 to (rgb: 32, 68, 179))
     (set: $xpdarkblue2 to (rgb: 44, 71, 148))
-    (set: $xpblue1 to (rgb: 91, 142, 225))
-    (set: $xpblue2 to (rgb: 49, 88, 208))
-    (set: $xpblue3 to (rgb: 51, 92, 212))
+    (set: $xpblue1 to (rgb: 65, 143, 245))
+    (set: $xpblue2 to (rgb: 33, 83, 229))
+    (set: $xpblue3 to (rgb: 42, 100, 243))
     (set: $xpblue4 to (rgb: 98, 125, 213))
     (set: $xplightblue1 to (rgb: 85, 180, 236))
     (set: $xplightblue2 to (rgb: 64, 140, 228))
@@ -18,11 +18,15 @@
     (set: $xpgreen2 to (rgb: 102, 173, 86))
     (set: $xpgreen3 to (rgb: 80, 131, 70))
     (set: $xpgreen to (rgb: 102, 121, 85))
+    (set: $xpred1 to (rgb: 217, 123, 96))
+    (set: $xpred2 to (rgb: 213, 88, 48))
+    (set: $xpred3 to (rgb: 160, 59, 32))
     (set: $red to (rgb: 236, 101, 100))
     (set: $yellow to (rgb: 244, 194, 66))
     (set: $xpdarkbluegradient to (gradient: 90, 0, $xpdarkblue1, 0.4, $xpdarkblue2, 0.8, $xpblue4))
     (set: $xpgreengradient to (gradient: 0, 0, $xpgreen3, 0.9, $xpgreen2, 1, $xpgreen1))
-    (set: $xpbluegradient to (gradient: 0, 0, $xpblue3, 0.7, $xpblue2, 1, $xpblue1))
+    (set: $xpbluegradient to (gradient: 0, 0, $xpblue3, 0.1, $xpblue2, 0.9, $xpblue2, 1, $xpblue1))
+    (set: $xpredgradient to (gradient: 0, 0, $xpred3, 0.1, $xpred2, 0.9, $xpred2, 1, $xpred1))
     (set: $xplightbluegradient to (gradient: 0, 0, $xplightblue3, 0.7, $xplightblue2, 1, $xplightblue1))
     (set: $continue to 0)
     <!-- styling --> 
@@ -58,7 +62,8 @@
     (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
     (set: $closebox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(align: "==>")+(box: "X", 2))
     (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
-    (set: $closeicon to "<span class='material-symbols-outlined closebutton'>close</span>")
+    (set: $closeicon to "<span class='material-symbols-outlined'>close</span>")
+    (set: $closeboxmacro to (macro: str-type _o, [(output: )+$closebox[(bg: $xpredgradient)+(link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(go-to: _o)]]]))
 
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/jcubic/static@master/js/wcwidth.js'></script>
@@ -72,5 +77,4 @@
     <script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
     <script src="https://cdn.jsdelivr.net/gh/alfg/ping.js@0.2.2/dist/ping.min.js"></script>
 }\
-    ==><==
-        (go-to: "Login")
+    (go-to: "Login")

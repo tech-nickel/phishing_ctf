@@ -1,7 +1,7 @@
 :: Intro
 $windowbox[\
 $introwindowbox[\
-$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
+($closeboxmacro: "Desktop")
 # Welcome to Phising-CTF 
     This project is designed to sharpen your understanding in regards to phishing mails. 
 

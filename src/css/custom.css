@@ -27,7 +27,9 @@
 .closebutton{
   top: 5px;
   right: 5px;
-  background-color: rgba(255, 0, 0, 0.7);
+  background-image: linear-gradient(rgb(217, 123, 96), rgb(213, 88, 48), rgb(160, 59, 32));
+  border-radius: 5px;
+  border: 2px solid white;
 }
 
 textarea{
