@@ -24,8 +24,8 @@
         (css: "position: absolute; left: 0; bottom: 2px; background-color: white")+(corner-radius: 6)(input: bind $username, "==XXX===")\
         (bg: $xpgreengradient)+(css: "position: absolute; bottom: 5px; right: 28%; width: 40px; height: 40px")+(corner-radius: 6)+(color: white)[{
             (link-style: (css: 'margin-left: 15px'))[(link-repeat: '>')[
-                (if: (length of $username) >= 3)[(go-to: 'Desktop')]]]
-            (event: when $continue is 1)[(go-to: 'Desktop')]
+                (if: (length of $username) >= 3)[(go-to: 'Intro')]]]
+            (event: when $continue is 1)[(go-to: 'Intro')]
         }]
     ]
 ]]
