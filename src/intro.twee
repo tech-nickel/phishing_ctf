@@ -39,5 +39,5 @@ $introwindowbox[\
                 But enough of this, just get into the game after choosing a username!
                 Perhaps you want to learn something about your character, if you enjoy clicking stuff!!!
     ]]]
-
+    (button: "===X===")[[Yes->Desktop]]
 ]]
