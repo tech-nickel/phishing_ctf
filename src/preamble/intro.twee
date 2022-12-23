@@ -2,7 +2,7 @@
 $windowbox[\
 $introwindowbox[\
 ($closeboxmacro: "Welcome", "Desktop")
-# Welcome to Phising-CTF 
+# Welcome, $username to Phising-CTF 
     This project is designed to sharpen your understanding in regards to phishing mails. 
 
     (link-replace:"What is phishing?")
@@ -39,5 +39,5 @@ $introwindowbox[\
                 But enough of this, just get into the game after choosing a username!
                 Perhaps you want to learn something about your character, if you enjoy clicking stuff!!!
     ]]]
-    (button: "===X===")[[Yes->Desktop]]
+    (button: "===X===")[[Understood->Desktop]]
 ]]

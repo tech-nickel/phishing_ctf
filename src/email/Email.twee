@@ -4,7 +4,7 @@
 (set: $ach_email to true)
 \
 $windowbox[\
-($closeboxmacro: "Terminal", "Desktop")
+($closeboxmacro: "Mail", "Desktop")
     =|
   (display: "Emailleft") \
   =|| 

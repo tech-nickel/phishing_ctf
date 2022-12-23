@@ -47,10 +47,13 @@
     (set: $boxstyling to (box:"X", 10))
 
     (set: $showFooter to false)
-
     (set: $ach_news to true)
-
     (set: $patiencetest to 0)
+    (set: $xplogolink to 'https://logodownload.org/wp-content/uploads/2019/12/windows-xp-logo.png')
+    (set: $xplogoblacklink to 'https://images6.fanpop.com/image/photos/37600000/Windows-XP-logo-2-nintendofan12-3-37697471-1357-992.png')
+    <!-- (set: $xplogoblacklink to 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0035c643-b596-439c-9483-5ccbfeb5a20e/drjq05-aef382dd-0c23-4526-a63a-704b249a8a3d.jpg/v1/fill/w_600,h_450,q_75,strp/pirate_bay_windows_xp_logo_by_jeffhoyo_drjq05-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD00NTAiLCJwYXRoIjoiXC9mXC8wMDM1YzY0My1iNTk2LTQzOWMtOTQ4My01Y2NiZmViNWEyMGVcL2RyanEwNS1hZWYzODJkZC0wYzIzLTQ1MjYtYTYzYS03MDRiMjQ5YThhM2QuanBnIiwid2lkdGgiOiI8PTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.OPBpQT9_XFzLV1m06pBZLXy4CT3rP2uoole1k6r0t4Q') -->
+    (set: $fishimglink to 'https://images.pexels.com/photos/2156311/pexels-photo-2156311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+
 
 
     <!-- COMMANDS --> 

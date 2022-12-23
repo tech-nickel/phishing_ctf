@@ -1,0 +1,30 @@
+:: Loading
+{
+    <!-- Can I use a Microsoft logo in my school project?
+    It is okay to use Microsoft logos in school projects such as book reports, 
+    stories, or articles about or involving Microsoft or its software, products, and services. 
+    The project should be displayed, used in, or directed to an academic environment. -->
+    (set: $loadingbar to '')
+    (set: $spaces to '')
+    (after: 3s)[(goto: 'Intro')]
+}
+(bg: black)+(float-box: "X", "Y")[]
+(bg: black)+(float-box: "X", "======YYYYYYYYYYYYYYYYYYYYYYYYYY=")[
+(bg: $xplogoblacklink)+(box: "=X=", 4)+(css: "margin: auto; height: 350px; width: 470px")[]
+(css: "border: 2px solid white; width:200px")+(corner-radius: 3)+(box: "===X===", 1)[{
+(live: 0.07s)[{
+(css: "bottom: 8px")+(color: black)+(text-size: 0.5)[(print: $spaces)]
+(css: "bottom: 8px")+(color: blue)+(text-size: 0.5)[(print: $loadingbar)]
+(if: $loadingbar's length < 6)[(set: $loadingbar to it + '█ ')]
+(else: )[(set: $spaces to it + 'X')]
+(if: $spaces's length > 25)[(set: $loadingbar to '')(set: $spaces to '')]
+}]
+}]]\
+(bg: black)+(float-box: "X", "====================Y")[{
+    |=
+    <==
+    Copyright @ PhishingCTF
+    =|
+    ==>
+    Have Fun!
+}]
