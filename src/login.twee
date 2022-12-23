@@ -25,7 +25,8 @@
         (css: "position: absolute; bottom: 4px; right: 29%;")[{
             [(link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none')+(button: ))[
                 (if: (length of $username) >= 3)[(go-to: 'Intro')]]]
-            (event: when $continue is 1)[(go-to: 'Intro')]
+            <!-- (event: when $continue is 1)[(set: $currentBrowserPage to "www.buybitcoin.org")(go-to: 'Browser')] -->
+            (event: when $continue is 1)[(go-to: 'Desktop')]
         }]
     ]
 ]]

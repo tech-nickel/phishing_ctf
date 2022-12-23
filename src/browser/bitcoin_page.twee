@@ -1,48 +1,45 @@
 :: BitcoinPage
-{(set: $bitcoincourse to 0)
-(set: $bcin to "0")
-(set: $usdin to "0")
+{
+(set: $bitcoincourse to 0)
 (set:num-type $calcout to 0)
 (set: $cc_fill to false)
 (set: $start_calc to false)
+(set: $usdin to 0)
 }\
-(hook: "bitcoinpage")[\
-|=
-=||||||||||||||||||||
+    |=
     ## Bitcoin Exchange
 
-    1 BTC = (print: $bitcoincourse) EUR
-
-    Please (link-repeat: "Fill in your credit card details")[(set: $cc_fill to true)] to start the transaction.
+    Please fill in your credit card details to start the transaction.
     
     Name: (event: when $cc_fill is true)[$username]
     Institute: (event: when $cc_fill is true)[Maestro]
     Credit-Card Number: (event: when $cc_fill is true)[5018 2590 6703 3382]
     CVV: (event: when $cc_fill is true)[825]
 
+    (link-repeat: "Fill in the fields", (button: "X="))[(set: $cc_fill to true)]
+    =|=
+
+
     Input amount:
-    (input: bind $usdin, "X===") US-Dollar
-    ===>:
-    (live: )[$calcout Bitcoin]
+    (input: bind $usdin, "X==") US-Dollar
 
-    (link-repeat: "Start exchange")[(if: (num: $usdin) is not 0 and $cc_fill is true)[(set: $start_calc to true)(set: $calcout to (num: $usdin) / (num: $bitcoincourse))]]
+    (live: 0.1s)[$calcout Bitcoin]
 
-    (event: when $start_calc is true and (num: $usdin) >= 10000)[\
-    (link-repeat: "Buy and exchange")[(hide: ?bitcoinpage)(show: ?bitcoinbought)]]
+    (link-repeat: "Start exchange", (button: "X=="))[(if: (num: $usdin) is not 0 and $cc_fill is true)[(set: $start_calc to true)(set: $calcout to (num: $usdin) / (num: $bitcoincourse))]
+    (else: )[Please fill in an amount and your credit card details!]]
 
-
-]\
-|bitcoinbought)[\
-(set: $curtransid to (str: $transid's (random: 1, $transid's length)))
-|=
-=||||||||||||||||||||
-## Done! 
-Transaction-ID: $curtransid
-Dont forget to copy this, otherwise your money is lost!
-]
-
+    (event: when $start_calc is true)[\
+    (link-repeat: "Buy", (button: "X===="))[
+        (if: (num: $usdin) >= 1)[
+            (set: $calcout to (num: $usdin) / (num: $bitcoincourse))
+            (set: $currentBrowserPage to "www.buybitcoin.org/success")
+            (set: $currentDisplayPage to "BitcoinTransDone")
+            (goto: "Browser")]
+        ]]
+    =||
+    <div id="data" />
 { 
-        <div id="data" />
+        
         <script type="text/javascript">
             var xmlhttp = new XMLHttpRequest();
             var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
@@ -76,3 +73,10 @@ Dont forget to copy this, otherwise your money is lost!
 
         </script>
     }
+
+:: BitcoinTransDone
+(set: $curtransid to (str: $transid's (random: 1, $transid's length)))
+
+## Done! 
+Transaction-ID: $curtransid
+Dont forget to copy this, otherwise your money is lost!

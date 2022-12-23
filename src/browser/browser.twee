@@ -4,29 +4,31 @@
 
 (set: $browserPages to (a: 
     (dm: "name", "Page1", "url", "www.test.de"),
-    (dm: "name", "Page2", "url", "www.test1.org")
+    (dm: "name", "Page2", "url", "www.test1.org"),
+    (dm: "name", "BitcoinPage", "url", "www.buybitcoin.org"),
+    (dm: "name", "BitcoinTransDone", "url", "www.buybitcoin.org/success")
 ))
 
 (if: $ach_browser is not true)[(set: $ach_news to true)]
 (set: $ach_browser to true)
 
-(set: $currentDisplayPage)
+<!-- (set: $currentDisplayPage) -->
 
 (change: ?Page, (text-size: 0.7))
 
-(if: $infected is true)[(set: $showFooter to false)(replace: ?content)[?bitcoinpage]]
-(if: $infected is true)[(set: $currentDisplayPage to "BitcoinPage")]\
+(if: $infected is true)[(set: $showFooter to false)]
 (if: $infected is not true)[(set: $goto to 'Desktop')](else: )[(set: $goto to 'Virus')]
+(set: $title to "Browser - " + (str: $currentBrowserPage))
 }\
 $windowbox[\
 (float-box: "X", "Y")+(bg: white)[\
-($closeboxmacro: "Browser", $goto)
+($closeboxmacro: $title, $goto)
 (box: "X")[
     |=
     =|=
     (box:"X", 2)[Address:]
     =|||||||||||||||=
-    (input: bind $currentBrowserPage, "X")
+    (input: bind $currentBrowserPage, "X", (str: $currentBrowserPage))
     =|=
     =||=
     (link-repeat: "Go", (button: "X"))[
@@ -40,6 +42,8 @@ $windowbox[\
     =|
 ]
 (box: "X")[\
+    |=
+    =||||||||||||||||||||
     (if: $currentDisplayPage is not 0)[
         (display: $currentDisplayPage)
     ]
