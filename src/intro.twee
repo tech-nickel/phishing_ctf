@@ -1,7 +1,7 @@
 :: Intro
 $windowbox[\
 $introwindowbox[\
-($closeboxmacro: "Desktop")
+($closeboxmacro: "Welcome", "Desktop")
 # Welcome to Phising-CTF 
     This project is designed to sharpen your understanding in regards to phishing mails. 
 

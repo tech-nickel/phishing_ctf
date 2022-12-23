@@ -22,8 +22,8 @@
         (bg: $fishimglink)+(box: 'X===', 4)+(css: "position: absolute; top: 10px; left: 10px; width: 80px; height: 80px")+(corner-radius: 6)+(border: 'solid')+(border-colour: $yellow)+(border-size: 2)[]
         (css: "position: absolute; left: 25%; top: 20px")+(color: white)(print: 'Username:')
         (css: "position: absolute; left: 0; bottom: 2px; background-color: white")+(corner-radius: 6)(input: bind $username, "==XXX===")\
-        (bg: $xpgreengradient)+(css: "position: absolute; bottom: 5px; right: 28%; width: 40px; height: 40px")+(corner-radius: 6)+(color: white)[{
-            (link-style: (css: 'margin-left: 15px'))[(link-repeat: '>')[
+        (css: "position: absolute; bottom: 4px; right: 29%;")[{
+            [(link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none')+(button: ))[
                 (if: (length of $username) >= 3)[(go-to: 'Intro')]]]
             (event: when $continue is 1)[(go-to: 'Intro')]
         }]

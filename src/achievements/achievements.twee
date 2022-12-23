@@ -16,7 +16,7 @@
 
 }\
 $windowbox[\
-$closebox[(link-repeat: $closeicon)[(goto: "Desktop")]]
+($closeboxmacro: 'Achievements', 'Desktop')
 (float-box: "X", "Y")+(bg: white)[
 (text-style: "bold")[
 (str: $ach_text's achievement)]\

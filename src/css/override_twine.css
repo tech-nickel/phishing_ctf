@@ -19,7 +19,7 @@ tw-link.enchantment-button,
 .enchantment-button:not(.link) .link,
 .link.enchantment-button {
   background-image: linear-gradient(rgb(253, 253, 253), rgb(242, 242, 238), rgb(219, 214, 203));
-  /* border: 2px solid #3E5C88; */
+  border: 2px solid #3E5C88;
   display: block;
   margin-bottom: 0;
   font-weight: 400;
@@ -28,17 +28,14 @@ tw-link.enchantment-button,
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   cursor: pointer;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
   border-radius: 4px;
   cursor:pointer;
 }
 tw-link.enchantment-button :hover,
 .enchantment-button:not(.link) tw-link :hover,
 .enchantment-button:not(.link) .link :hover,
-.link.enchantment-button :hover {
-  border: 4px solid orange !important;
+.enchantment-button :hover {
+  border: 2px solid orange !important;
   color: black !important;
 }
 /* this is a link */

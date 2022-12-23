@@ -20,7 +20,7 @@
 }\
 $windowbox[\
 (float-box: "X", "Y")+(bg: white)[\
-($closeboxmacro: $goto)
+($closeboxmacro: "Browser", $goto)
 (box: "X")[
     |=
     =|=

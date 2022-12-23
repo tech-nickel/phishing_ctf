@@ -55,15 +55,22 @@
 
     <!-- COMMANDS --> 
     (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
-    (set: $windowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); overflow: hidden")+(corner-radius:3)+(float-box: "X","Y")+(bg: "https://wallpapercave.com/wp/wp2754860.jpg"))
+    (set: $windowbox to (css: "overflow: hidden")+(float-box: "X","Y")+(bg: "https://wallpapercave.com/wp/wp2754860.jpg"))
     (set: $startbox to (float-box: "X====","===================YYYYYYYY=")+(bg: grey))
     (set: $terminalwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: white)+(bg: black)+(float-box: "=XXX=","=YYY="))
     (set: $introwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white)+(float-box: "=XXXXXXXXX=","=YYYYYYYY="))
     (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
-    (set: $closebox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(align: "==>")+(box: "X", 2))
+    (set: $closebox to (css: "position: fixed; width: inherit; z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(box: "X", 2))
     (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
     (set: $closeicon to "<span class='material-symbols-outlined'>close</span>")
-    (set: $closeboxmacro to (macro: str-type _o, [(output: )+$closebox[(bg: $xpredgradient)+(link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(go-to: _o)]]]))
+    (set: $closeboxmacro to (macro: str-type _t, str-type _o, [{\
+        $closebox+(bg: $xpbluegradient)+(output: )[{
+            |=
+            (css: "left: 10px; top: 5px; text-shadow: 1px 1px black;")[_t]
+            =|
+            ==>
+            [(bg: $xpredgradient)+(link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(go-to: _o)]]
+        }]}]))
 
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/jcubic/static@master/js/wcwidth.js'></script>
