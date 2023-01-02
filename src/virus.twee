@@ -2,6 +2,7 @@
 {
     (set: $showFooter to false)
     (set: $infected to true)
+    (set: $usdin to "5")
 }\
 (float-box: "X", "Y")+(bg: red)+(color: white)[
     =><=
