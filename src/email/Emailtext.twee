@@ -105,7 +105,8 @@
     Unser Sicherheitssystem hat einen Fremdzugriff oder eine Adressänderung in Ihrem Account festgestellt, Da unser System stets auf die Kundensicherheit bedacht ist, wurde Ihr Account zeitweise deaktiviert.
     Dies sind Sicherheitsmaßnahmen um Fremde Bestellungen oder Ähnlichem vorzubeugen.
     Sie können Ihren Account wieder Aktivieren dazu ist eine kurze Verifizierung Ihrer Daten erforderlich. Hierfür ist lediglich eine Verifizierung unter:
-    http:/ /entsperrung.biz")
+    [[(set: $currentBrowserPage to 'www.entsperrung-microsoft.biz')(set: $currentDisplayPage to 'Microsoft')http://www.entsperrung-microsoft.biz->Browser]]
+    ")
     (set: $answer4 to "
     Good morning,
     Apologies but I don't speak french. Feel free to contact me in english, though.
@@ -200,7 +201,7 @@
     ")
     (set: $answer7 to "Good morning,
     nice scam dickhead! I'm totally broke, I can't buy stuff, even if I wanted to! You're totally exploited!
-    Also my boss has these new phising email workshops, so nothing an fool me now!
+    Also my boss has these new phising email workshops, so nothing can fool me now!
     
     Worst regards
     " + $username)

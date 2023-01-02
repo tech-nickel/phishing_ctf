@@ -6,7 +6,8 @@
     (dm: "name", "Page1", "url", "www.test.de"),
     (dm: "name", "Page2", "url", "www.test1.org"),
     (dm: "name", "BitcoinPage", "url", "www.buybitcoin.org"),
-    (dm: "name", "BitcoinTransDone", "url", "www.buybitcoin.org/success")
+    (dm: "name", "BitcoinTransDone", "url", "www.buybitcoin.org/success"),
+    (dm: "name", "Microsoft", "url", "www.entsperrung-microsoft.biz")
 ))
 
 (if: $ach_browser is not true)[(set: $ach_news to true)]

@@ -4,7 +4,7 @@
 (set:num-type $calcout to 0)
 (set: $cc_fill to false)
 (set: $start_calc to false)
-(set: $usdin to 0)
+(set: $usdin to "0")
 }\
     |=
     ## Bitcoin Exchange
