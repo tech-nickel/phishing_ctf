@@ -16,28 +16,71 @@ $introwindowbox[\
     ]
 
     (link-replace:"Show me an example!") <!-- Generic spam-->
-    [Example 1
+    [''Example 1:''
+    Sender: Price Ali `<ji2343@yahoo.com>`
+    Reciever: Winners `<ji2343@yahoo.com>`
+    Subject: Congratulation
+    Content: Congratulations dear winner,
+    I am trying to get 5,000,000 USD into your country and need your help to do that. You may keep half the amout if you are willing to help. But to prove yourself trust worthy you need to send 50 USD worth of gift card codes in a reply to this mail, together with your bank details so we can send you the money.
+    Best regards
+    Prince Ali
+
+    (link-reveal:"Solution:")[
+    //You should easily be able to identify this mail as spam, just from what is depicted in the mail. It is too good to be true. Who would be willing to essentially gift you 2,500,000 USD?! Also why would they choose a person they obviously don't know to hanlde that amount of money? Also why would you need to send them gift card codes? Why wouldn't they just give you their bank details so you can send them the money directly?//
+    // But there are also some other details that may suggest a phishing attempt. The mail comes from a mailing list, since your mail address is not in the recipient field. Also the sender doesn't call you by your name, nor does it call upon anything that may be familiar with you. So this mail could have been intedned for anyone, in this case not even the country where the money should be send to is specified. Besides the address from the sender (in the < > brackets) is strange//]
         (link-replace:"Show me another example!") <!-- pretending support-->
-        [Example 2
+        [''Example 2:'' 
+        Sender: Microsoft Support `<mircosoft-suppart@gmail.com>`
+    Receiver: you `<your.mail@address>`
+    Subject: Suspicious activity detected.
+    Content: Hello dear customer,
+    an unknown device was used to log into your account. Please check this immediatly with this link <mircosoft-support.com/log-in/> to monitor and manage the new activity.
+    This mail is automatically generated. Please do not respond to this mail
+    Microsoft Support
+
+    (link-reveal:"Solution:")[
+    // One thing to be super carefull about, is when some kind of support writes to you. Things like this usually has to do something with the security of your accounts. A red flag is the demand of urgent actions. Don't panic, take your time to carefully read the mail. In this instance there are some spelling mistakes in the link, as well as the sender address. Another thing to notice in the address of the sender is the domain name it comes from (the @gmail part). If someone is providing support, they usually have their own domain (@microsoft.com as example) they use, instead of public ones like @gmail etc.. Some attacker may try to fake these domains as well, so keep an eye at the domain name. This mail tries to get you on an website to log in to manage a incident. In such cases take a close look at the link, or better, log into that account without using that link, to be sure you take the right address. If there is a button with "Take me there" or something similar, hovering over that button will usually display the exact link.//
+    //Yes we know it is tidious to watch every detail in the flood of mails this closly, but please do so for the sake of security.//]
             (link-replace:"Show me one last example!") <!-- Person you know whose account got taken over-->
-            [Example 3
+            [''Example 3:''
+            Sender: your old friend `<friends.mail@address>`
+            Receiver: you `<your.mail@address>`
+            Subject: Haven't heared abaout you in a time
+            Contents: Hi $username,
+            it has been some time since we last wrote. I found some pictures of us in the old days. Take a look.
+            Hope to hear from you soon.
+            Your friend
+            Attachment: pics.jpeg.exe
+
+            (link-reveal:"Solution:")[
+            //This mail might seem okay on the first glance, but always be carefull with attachments. Especially ones with multiple extension, like in this case, or ones that are unfamiliar to you. Just because you are carefull with your mails, that might not be the case for your friend, whos account was taken over by attackers and is now used to attack more people. In case for work related file sharing, collaboration tools are used, such like SharePoint, OneDrive or Dropbox.//]
     ]]]
 
     (link-reveal:"What am I doing here?")
     [
-        In this project you might encounter widespread phishing attempts and maybe even specific spear phishing attempts against your character of differnt scales. But enough theory, let's get yourself in the game by choosing a username with at least three characters.
+        In this project you might encounter widespread phishing attempts and maybe even specific spear phishing attempts against your character of differnt scales. 
     ]
 
     (link-reveal:"Why am I doing this?")
     [
         We do not know that. 
         Perhaps you just wanted to try our game?
-        (link-replace:"That's not it")
+        (link-replace:"That's not it.")
             [Maybe you are one of our beloved beta testers?
             (link-replace:"That isn't it either...")
                 [Perhaps you clicked on some phishy links and someone condemned you to learn about to phishing, because the don't think you are very bright? 
                 But enough of this, just get into the game after choosing a username!
                 Perhaps you want to learn something about your character, if you enjoy clicking stuff!!!
     ]]]
+
+    (link-reveal:"''About my character''")
+    [
+        You take on the role of someone with a generic 9-5 office job, having to work with lots of mails.
+        You have a couple of tool at your side to do your job. These consist of a terminal, a mail client, browser and an achievement page.
+        ''Termial:'' A powerfull tool with many options to help you on your journey. Type an initial //help// to get a view of all commands. 
+        ''Mail client:'' The main part of this game, where you can interact with mails. Delete mails you think are phishing and reply to those that are legit. Some mails offer additional options and informations below the actual mail and you can interact with certain elements of mails.
+        ''Browser:'' A browser that allows you to visit some websites to do different things.
+        ''Achievements:'' A page where you can see wht you have accomplished and get some tips.
+    ]
     (button: "===X===")[[Understood->Desktop]]
 ]]
