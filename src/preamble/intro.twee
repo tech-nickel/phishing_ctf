@@ -1,6 +1,5 @@
 :: Intro
 {
-    (if: '<' in $usernames's chars or '/' in $usernames's chars)[(set: $username to 'User')]
 }\
 $windowbox[\
 $introwindowbox[\
