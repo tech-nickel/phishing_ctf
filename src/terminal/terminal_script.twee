@@ -462,9 +462,16 @@ SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES`
         geoiplookup: function(cmd) {
             var {options, args} = split_args(cmd.args);
             var output = `GeoIP Country Edition: KR, Korea, Republic of`;
-            
-            if (options.match(/1.1.1.1/)) {
+            var help = `Usage: geoiplookup [-h] [-?] [-d custom_dir] [-f custom_file] [-v] [-i] [-l] <ipaddress|hostname>`
+
+            if (cmd.args[0] == undefined) {
+                term.echo(help);
+            }
+            else if (cmd.args[0].match(/1.1.1.1/)){
                 term.echo(output);
+            } 
+            else {
+                term.echo("Address unknown")
             }
         },
 
