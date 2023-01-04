@@ -171,9 +171,27 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
 
     function nslookup(cmd, address) {
         // save current prompt to apply him back after the ping ends
-        prompt = term.get_prompt();
-        nslookup = true;
-        term.set_prompt("> ");
+        //prompt = term.get_prompt();
+        //nslookup = true;
+        //term.set_prompt("> ");
+        output = `Server:		192.168.43.89
+Address:	192.168.43.89#53
+
+Non-authoritative answer:
+Name:	google.de
+Address: 142.250.186.131
+Name:	google.de
+Address: 2a00:1450:4001:831::2003`;
+
+        if (cmd.args[0] == undefined) {
+            term.echo("Plese specify an address");
+        }
+        else if (cmd.args[0].match(/google.com/)){
+            term.echo(output);
+        } 
+        else {
+            term.echo("Address unknown")
+        }
     }
     
     // --------------------------------------------------------------
@@ -443,6 +461,22 @@ SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES`
 
         ping: function(cmd) {
             ping(cmd, cmd.args[0]);
+        },
+
+        geoiplookup: function(cmd) {
+            var {options, args} = split_args(cmd.args);
+            var output = `GeoIP Country Edition: KR, Korea, Republic of`;
+            var help = `Usage: geoiplookup [-h] [-?] [-d custom_dir] [-f custom_file] [-v] [-i] [-l] <ipaddress|hostname>`
+
+            if (cmd.args[0] == undefined) {
+                term.echo(help);
+            }
+            else if (cmd.args[0].match(/1.1.1.1/)){
+                term.echo(output);
+            } 
+            else {
+                term.echo("Address unknown")
+            }
         },
 
         vi: function(cmd) {
