@@ -1,6 +1,7 @@
 :: Login
 {
-(set: $username to '')
+    <!-- <script>alert('1')</script> -->
+(set:str-type $username to '')
 }
 (bg: $xpdarkblue1)+(css: "border-bottom: solid rgb(244, 194, 66); z-index: 2")+(float-box: "X", "Y=======")[]
 (bg: $xpdarkblue1)+(css: "border-top: solid rgb(244, 194, 66)")+(float-box: "X", "=======Y")[
@@ -23,7 +24,7 @@
         (css: "position: absolute; left: 0; bottom: 2px; background-color: white")+(corner-radius: 6)(input: bind $username, "==XXX===")\
         (css: "position: absolute; bottom: 4px; right: 29%;")[{
             [(link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none')+(button: ))[
-                (if: (length of $username) >= 3)[(go-to: 'Loading')]]]
+                (if: ((length of $username) >= 3))[(set: $continue to 1)]]]
             (event: when $continue is 1)[(go-to: 'Loading')]
         }]
     ]
@@ -32,8 +33,8 @@
 <script>
 $(window).on("keypress", function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
-        let username = $username;
-        if (username.length >= 3)
+        let uname = $username;
+        if (uname.length >= 3 & uname.indexOf('<') <= -1 & uname.indexOf('/') <= -1)
             $continue = 1;
     }
 });

@@ -1,8 +1,11 @@
 :: Intro
+{
+    (if: '<' in $usernames's chars or '/' in $usernames's chars)[(set: $username to 'User')]
+}\
 $windowbox[\
 $introwindowbox[\
 ($closeboxmacro: "Welcome", "Desktop")
-# Welcome, $username to Phising-CTF 
+# Welcome, (print: $username) to Phising-CTF 
     This project is designed to sharpen your understanding in regards to phishing mails. 
 
     (link-replace:"What is phishing?")
@@ -46,7 +49,7 @@ $introwindowbox[\
             Sender: your old friend `<friends.mail@address>`
             Receiver: you `<your.mail@address>`
             Subject: Haven't heared abaout you in a time
-            Contents: Hi $username,
+            Contents: Hi (print: $username),
             it has been some time since we last wrote. I found some pictures of us in the old days. Take a look.
             Hope to hear from you soon.
             Your friend
