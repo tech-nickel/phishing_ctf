@@ -171,9 +171,9 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
 
     function nslookup(cmd, address) {
         // save current prompt to apply him back after the ping ends
-        prompt = term.get_prompt();
-        nslookup = true;
-        term.set_prompt("> ");
+        //prompt = term.get_prompt();
+        //nslookup = true;
+        //term.set_prompt("> ");
         output = `Server:		192.168.43.89
 Address:	192.168.43.89#53
 
@@ -183,11 +183,15 @@ Address: 142.250.186.131
 Name:	google.de
 Address: 2a00:1450:4001:831::2003`;
 
-        if (options.match(google.com)) {
-                term.echo(output);
-            } else {
-                term.echo("Not the right ip address!");
-            }
+        if (cmd.args[0] == undefined) {
+            term.echo("Plese specify an address");
+        }
+        else if (cmd.args[0].match(/google.com/)){
+            term.echo(output);
+        } 
+        else {
+            term.echo("Address unknown")
+        }
     }
     
     // --------------------------------------------------------------
