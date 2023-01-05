@@ -1,5 +1,6 @@
 :: Achievements
 {
+(enchant: ?Page, (text-size: 0.7))
 (set: $ach_fbox to (float-box: "================XXXXX=", "=YYYY==================")+(bg:white))
 (set: $ach_news to false)
 (set: $ach_text to (dm:
@@ -13,11 +14,11 @@
 "ssh", "This is the ssh command. SSH is a software package that enables secure system administration and file transfers over insecure networks. This can be useful if you want to access the data of a computer behind an ip address. You need a username and password to get access, though.",
 "telnet", "The software Telnet runs on your system and links your Personal Computer to a network server. The fact that it converts all data into plain text is considered vulnerable.",
 ))
-
+($checkwindowsize: )
 }\
-$windowbox[\
+$desktopbox[\
+$windowbox+$currentwindowsize[\
 ($closeboxmacro: 'Achievements', 'Desktop')
-(float-box: "X", "Y")+(bg: white)[
 (text-style: "bold")[
 (str: $ach_text's achievement)]\
 {

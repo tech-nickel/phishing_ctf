@@ -22,10 +22,18 @@
   -webkit-font-smoothing: antialiased;
 }
 .symbols-lower{
-  margin-top: 5px;
+  margin-top: 2px;
 }
 .closebutton{
   background-image: linear-gradient(rgb(217, 123, 96), rgb(213, 88, 48), rgb(160, 59, 32));
+  border-radius: 5px;
+  border: 2px solid white;
+  margin-left: auto;
+  top: 5px;
+  right: 5px;
+}
+.mbutton{
+  background-image: linear-gradient(rgb(44, 71, 148), rgb(32, 68, 179));
   border-radius: 5px;
   border: 2px solid white;
   margin-left: auto;

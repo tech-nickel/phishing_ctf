@@ -58,29 +58,40 @@
     (set: $usdin to "5")
 
     <!-- COMMANDS --> 
+    (set: $windowsmallsize to (float-box: "=XXX=","=YYY="))
+    (set: $windowlargesize to (float-box: "X","Y"))
+    (set: $currentwindowsizebool to true)
     (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
-    (set: $windowbox to (css: "overflow: hidden")+(float-box: "X","Y")+(bg: "https://wallpapercave.com/wp/wp2754860.jpg"))
+    (set: $desktopbox to $windowlargesize+(css: "overflow: hidden")+(bg: "https://wallpapercave.com/wp/wp2754860.jpg"))
     (set: $startbox to (float-box: "X====","===================YYYYYYYY=")+(bg: grey))
-    (set: $terminalwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: white)+(bg: black)+(float-box: "=XXX=","=YYY="))
+    (set: $terminalwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: white)+(bg: black))
     (set: $introwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white)+(float-box: "=XXXXXXXXX=","=YYYYYYYY="))
+    (set: $windowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white)+(float-box: "=XXXXXXXXX=","=YYYYYYYY="))
     (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
     (set: $closebox to (css: "position: fixed; width: inherit; z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(box: "X", 2))
     (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
     (set: $closeicon to "<span class='material-symbols-outlined'>close</span>")
-
-    (set: $closeboxmacro to (macro: str-type _t, str-type _o, [{\
-        $closebox+(bg: $xpbluegradient)+(output: )[{
-            |=
-            (css: "left: 10px; top: 5px; text-shadow: 1px 1px black;")[_t]
-            =|
-            ==>
-            [(bg: $xpredgradient)+(link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(go-to: _o)]]
-        }]}]))
     (set: $transid to (a: 'dbdbac0b3072d7677fc94eebaf8eba9e81e5c3b7de6899dae12c98d6799b065a', 
                         '1ed7259a5243a1e9e33e45d8d2510bc0470032df964956e18b9f56fa65c96e89',
                         '0c5582329503f93b4b243a986551d9e22e46ee9ba681d687078cbcbad0c7d023',
                         '0a49508bf91ac4f98e6a01b575e1a3f200a5d9a03d00219aea52b15b064cdf50',
                         'de6206bd52f4228ebc556c85b26e3582fa141f8839a11d2a2ca761d0f7e24ec3'))
+    (set: $checkwindowsize to (macro: [{
+        (if: $currentwindowsizebool is true)[(set: $currentwindowsize to $windowlargesize)]
+        (else:)[(set: $currentwindowsize to $windowsmallsize)]
+    }]))
+
+    (set: $closeboxmacro to (macro: str-type _t, str-type _o, [{
+        $closebox+(bg: $xpbluegradient)+(output: )[{
+            |=
+            (css: "left: 10px; top: 5px; text-shadow: 1px 1px black;")[_t]
+            =|
+            ==>
+            (link-repeat: "<span class='material-symbols-outlined mbutton'>maximize</span>")[(set: $currentwindowsizebool to not it)(go-to: (passage: )'s name)]
+            (link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(go-to: _o)]
+        }]}]))
+    
+    
 
     <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/gh/jcubic/static@master/js/wcwidth.js'></script>

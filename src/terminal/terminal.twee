@@ -4,10 +4,10 @@
 (set: $twshow to true)
 (if: $ach_terminal is not true)[(set: $ach_news to true)]
 (set: $ach_terminal to true)
+($checkwindowsize: )
 }
-|terminalwindow>[
-$windowbox[\
-$terminalwindowbox[\
+$desktopbox[\
+$terminalwindowbox+$currentwindowsize[\
 ($closeboxmacro: 'Terminal', "Desktop")
 <script>
     window.custom = window.custom || {
@@ -29,7 +29,7 @@ $terminalwindowbox[\
 </script>
 <div class="term"></div>
 <textarea class="vi" style="display: none"></textarea>
-]]]
+]]
 {
 (display: "TerminalScript")
 }

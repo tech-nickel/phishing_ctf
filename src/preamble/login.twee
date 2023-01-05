@@ -25,7 +25,8 @@
         (css: "position: absolute; bottom: 4px; right: 29%;")[{
             [(link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none')+(button: ))[
                 (if: ((length of $username) >= 3))[(set: $continue to 1)]]]
-            (event: when $continue is 1)[(go-to: 'Loading')]
+            <!-- (event: when $continue is 1)[(go-to: 'Loading')] -->
+            (event: when $continue is 1)[(go-to: 'Desktop')]
         }]
     ]
 ]]

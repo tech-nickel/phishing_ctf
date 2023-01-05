@@ -1,7 +1,7 @@
 :: Intro
 {
 }\
-$windowbox[\
+$desktopbox[\
 $introwindowbox[\
 ($closeboxmacro: "Welcome", "Desktop")
 # Welcome, (print: $username) to Phising-CTF 

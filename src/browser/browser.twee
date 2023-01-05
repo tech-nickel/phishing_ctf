@@ -1,5 +1,6 @@
 :: Browser[browser]
 {
+($checkwindowsize: )
 (set: $tabnames to (a: "Tab1", "Tab2", "Tab3"))
 
 (set: $browserPages to (a: 
@@ -21,8 +22,8 @@
 (if: $infected is not true)[(set: $goto to 'Desktop')](else: )[(set: $goto to 'Virus')]
 (set: $title to "Browser - " + (str: $currentBrowserPage))
 }\
-$windowbox[\
-(float-box: "X", "Y")+(bg: white)[\
+$desktopbox[\
+$windowbox+$currentwindowsize[\
 ($closeboxmacro: $title, $goto)
 (box: "X")[
     |=

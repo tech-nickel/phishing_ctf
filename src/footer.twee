@@ -2,10 +2,16 @@
 {
     (set: $ach_emphasised to (color: red)+(text-style: "bold"))
     (set: $ach_normal to (color: black)+(text-style: "none"))
+    (set: $buttonstandardstyling to (css: "width: 90%;height: 1.8em; top: 2px; background-image: none; background-color: rgb(13, 63, 209); border-radius: 3px; border-color: rgb(13, 63, 209); text-align: left; color: white"))
+    (set: $buttonextrastyling to (css: ''))
+
+    (set: $taskbutton to (macro: str-type _t, str-type _o, any-type _n, [
+        (if: _o is (passage:)'s name)[(set: $buttonset to (css: "border-style:inset;"))](else: )[(set: $buttonset to (css: "border-style:outset;"))]
+        (output: )+(link-repeat: (str: "<span class='material-symbols-outlined'>" + _t + "</span><span style='vertical-align: top;'>" + _o + '</span>'), $buttonstandardstyling+$buttonset+_n+(button: ))[(goto: _o)]]))
 }
 (if: $showFooter)[{
 |=
-(box: "X", 2)+(bg: $xpgreengradient)[
+(css: "overflow: hidden")+(box: "X", 2)+(bg: $xpgreengradient)[
     =><=
     (css: "top: 5px")[\
     (link-repeat: 'Start')[(set: $patiencetest to it + 1)(if: $patiencetest is 30)[(goto-url: "https://onesquareminesweeper.com")]]
@@ -13,18 +19,22 @@
 
 =|||||||||||||||=
 <==
-(box: "X", 2)+(bg: $xpbluegradient)[
+(css: "overflow: hidden")+(box: "X", 2)+(bg: $xpbluegradient)[
 |=
 =||||||||||||||||||||||||=
-
-(link-repeat: "<span class='material-symbols-outlined symbols-lower'>terminal</span>")[(goto: "Terminal")]
-(link-repeat: "<span class='material-symbols-outlined symbols-lower'>mail</span>")[(goto: "Email Postfach")]
-(link-repeat: "<span class='material-symbols-outlined symbols-lower'>language</span>")[(goto: "Browser")]
+[
+|=
+($taskbutton: 'terminal', 'Terminal', $buttonextrastyling)
+|=
+($taskbutton: 'email', 'Email Postfach', $buttonextrastyling)
+|=
+($taskbutton: 'language', 'Browser', $buttonextrastyling)
+|=
+(if: $ach_news is true)[(set: $ach_style to (css: 'background-color: orange; border-color:orange'))](else: )[(set: $ach_style to (css: ''))]
+($taskbutton: '```help_center```', 'Achievements', $ach_style)
+=||||
+]
 =|
-==>
-(if: $ach_news is true)[(set: $ach_style to $ach_emphasised)](else: )[(set: $ach_style to $ach_normal)]
-$ach_style[(if: $ach_news is true)[<span class='material-symbols-outlined symbols-lower'>```priority_high```</span>]\
-(link-repeat: "<span class='material-symbols-outlined symbols-lower'>```help_center```</span>")[(goto: "Achievements")]]
 ]
 =|
 =><=
