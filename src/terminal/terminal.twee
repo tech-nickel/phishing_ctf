@@ -2,8 +2,7 @@
 {
 (change: ?Page, (text-size: 0.7))
 (set: $twshow to true)
-(if: $ach_terminal is not true)[(set: $ach_news to true)]
-(set: $ach_terminal to true)
+($achmacro: $ach_terminal)
 ($checkwindowsize: )
 }
 $desktopbox[\

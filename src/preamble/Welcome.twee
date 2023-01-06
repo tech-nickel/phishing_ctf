@@ -78,6 +78,7 @@
                         '0c5582329503f93b4b243a986551d9e22e46ee9ba681d687078cbcbad0c7d023',
                         '0a49508bf91ac4f98e6a01b575e1a3f200a5d9a03d00219aea52b15b064cdf50',
                         'de6206bd52f4228ebc556c85b26e3582fa141f8839a11d2a2ca761d0f7e24ec3'))
+    <!-- MACROS -->
     (set: $checkwindowsize to (macro: [{
         (if: $currentwindowsizebool is true)[(set: $currentwindowsize to $windowlargesize)]
         (else:)[(set: $currentwindowsize to $windowsmallsize)]
@@ -92,6 +93,15 @@
             (link-repeat: "<span class='material-symbols-outlined mbutton'>maximize</span>")[(set: $currentwindowsizebool to not it) (t8n-arrive: "instant")(go-to: (passage: )'s name)]
             (link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(t8n-arrive: "instant")(go-to: _o)]
         }]}]))
+    
+    (set: $achmacro to (macro: _o, [{
+        (if: _o is not true)[
+            (set: $ach_news to true)]
+        (else:)[
+        (set: _o to true)
+        (if: $sound is true)[<audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Notify.mp3"></audio>]]
+        
+    }]))
     
     
 

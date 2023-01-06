@@ -52,5 +52,19 @@
 }\
 =><=
 $desktopbox[
-# Welcome, $username
+<!-- # Welcome, $username --> \
+(bg: (rgb: 178, 229, 178, 0))+(box: "X============", 10)[
+  [(box: "=XXX=")[<img src="https://archive.org/download/WindowsXPExtractedIcons/cmd.exe_14_IDI_APPICON-6.png" style="width: 40px">
+  Terminal]]<terminal|
+
+  b
+  c
+  A
+  data
+  call
+  as
+
 ]
+]
+
+(click: ?terminal)[(go-to: "Terminal")]

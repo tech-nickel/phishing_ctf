@@ -32,7 +32,6 @@
 |=
 (if: $ach_news is true)[
     (set: $ach_style to (css: 'background-color: orange; border-color:orange'))
-    (if: $sound is true)[<audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Notify.mp3"></audio>]
     ]
     (else: )[(set: $ach_style to (css: ''))]
 ($taskbutton: '```help_center```', 'Achievements', $ach_style)
