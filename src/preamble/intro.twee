@@ -1,9 +1,10 @@
 :: Intro
 {
-(if: $sound is true)[<audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Startup.mp3"></audio>]
+(if: $sound is true and $playsoundonceonlogin is true)[(set: $playsoundonceonlogin to false) <audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Startup.mp3"></audio>]
+($checkwindowsize: )
 }\
 $desktopbox[\
-$introwindowbox[\
+$windowbox+$currentwindowsize[\
 ($closeboxmacro: "Welcome", "Desktop")
 # Welcome, (print: $username) to Phising-CTF 
     This project is designed to sharpen your understanding in regards to phishing mails. 

@@ -8,11 +8,11 @@ $desktopbox[\
 $windowbox+$currentwindowsize[\
 ($closeboxmacro: "Mail", "Desktop")
     =|
-  (display: "Emailleft") \
+  (display: "Emailleft")
   =|| 
-  (display: "Emailcenter") \
+  (display: "Emailcenter")
   =||||
-  $rightemailbox[\
+  (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3)")+(bg: white)+(box:"X", $col0_height)[\
     $headershadow+(bg: white)+(box:"X", $col1_height)[
         =|
         =|
@@ -28,6 +28,6 @@ $windowbox+$currentwindowsize[\
         ]
     |=
     =|||||=
-    (display: "Emailright")\
+    (display: "Emailright") \
     =|
 ]]]

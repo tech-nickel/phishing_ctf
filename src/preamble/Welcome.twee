@@ -28,57 +28,31 @@
     (set: $xpbluegradient to (gradient: 0, 0, $xpblue3, 0.1, $xpblue2, 0.9, $xpblue2, 1, $xpblue1))
     (set: $xpredgradient to (gradient: 0, 0, $xpred3, 0.1, $xpred2, 0.9, $xpred2, 1, $xpred1))
     (set: $xplightbluegradient to (gradient: 0, 0, $xplightblue3, 0.7, $xplightblue2, 1, $xplightblue1))
-    (set: $continue to 0)
-    <!-- styling --> 
-    (set: $col0_height to 53)
-    (set: $col1_height to 5)
-    (set: $moreinfoscolumnheight to (box: "X", 3))
-
     
-    <!-- statics --> 
+    <!-- VARIABLES --> 
+    (set: $continue to 0)
     (set: $blank to "n")
     (set: $nofblanks to 1)
     (set: $monospace to (font:"Courier"))
     (set: $clicktracker to 0)
     (set: $sound to true)
-
-    <!-- Emailright --> 
     (set: $unread_mails to 8)
-    (set: $bgt1 to (bg: "https://thispersondoesnotexist.com/image"))
     (set: $activerightpage to 0)
     (set: $boxstyling to (box:"X", 10))
-
     (set: $showFooter to false)
     (set: $ach_news to true)
     (set: $patiencetest to 0)
-    (set: $xplogolink to 'https://logodownload.org/wp-content/uploads/2019/12/windows-xp-logo.png')
-    (set: $xplogoblacklink to 'https://images6.fanpop.com/image/photos/37600000/Windows-XP-logo-2-nintendofan12-3-37697471-1357-992.png')
-    <!-- (set: $xplogoblacklink to 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0035c643-b596-439c-9483-5ccbfeb5a20e/drjq05-aef382dd-0c23-4526-a63a-704b249a8a3d.jpg/v1/fill/w_600,h_450,q_75,strp/pirate_bay_windows_xp_logo_by_jeffhoyo_drjq05-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD00NTAiLCJwYXRoIjoiXC9mXC8wMDM1YzY0My1iNTk2LTQzOWMtOTQ4My01Y2NiZmViNWEyMGVcL2RyanEwNS1hZWYzODJkZC0wYzIzLTQ1MjYtYTYzYS03MDRiMjQ5YThhM2QuanBnIiwid2lkdGgiOiI8PTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.OPBpQT9_XFzLV1m06pBZLXy4CT3rP2uoole1k6r0t4Q') -->
-    (set: $fishimglink to 'https://images.pexels.com/photos/2156311/pexels-photo-2156311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
-    (set: $doomimg to 'https://js-dos.com/cdn/DOOM.png')
+    (set: $col0_height to 53)
+    (set: $col1_height to 4)
+    (set: $playsoundonceonlogin to true)
     <!-- init usdin for virus page -->
     (set: $usdin to "5")
-
-    <!-- COMMANDS --> 
-    (set: $windowsmallsize to (float-box: "=XXX=","=YYY="))
-    (set: $windowlargesize to (float-box: "X","Y"))
-    (set: $currentwindowsizebool to true)
-    (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
-    (set: $desktopbox to $windowlargesize+(css: "overflow: hidden")+(bg: "https://wallpapercave.com/wp/wp2754860.jpg"))
-    (set: $startbox to (float-box: "X====","===================YYYYYYYY=")+(bg: grey))
-    (set: $terminalwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: white)+(bg: black))
-    (set: $introwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white)+(float-box: "=XXXXXXXXX=","=YYYYYYYY="))
-    (set: $windowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white)+(float-box: "=XXXXXXXXX=","=YYYYYYYY="))
-    (set: $rightemailbox to (css: "box-shadow: -2px 0px 10px 1px rgba(0, 0, 0, 0.3);")+(bg: white)+(box:"X", $col0_height))
-    (set: $closebox to (css: "position: fixed; width: inherit; z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(box: "X", 2))
-    (set: $tabbox to (css: "position: fixed; width: inherit;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)")+(bg: white)+(color: $bluegreydark)+(align: "<==")+(box: "X", 2))
     (set: $closeicon to "<span class='material-symbols-outlined'>close</span>")
     (set: $transid to (a: 'dbdbac0b3072d7677fc94eebaf8eba9e81e5c3b7de6899dae12c98d6799b065a', 
                         '1ed7259a5243a1e9e33e45d8d2510bc0470032df964956e18b9f56fa65c96e89',
                         '0c5582329503f93b4b243a986551d9e22e46ee9ba681d687078cbcbad0c7d023',
                         '0a49508bf91ac4f98e6a01b575e1a3f200a5d9a03d00219aea52b15b064cdf50',
                         'de6206bd52f4228ebc556c85b26e3582fa141f8839a11d2a2ca761d0f7e24ec3'))
-    
     (set: $openwindow to (dm: 
     "Terminal", false,
     "Mail", false,
@@ -86,13 +60,31 @@
     "Achievements", false,
     ))
 
+    <!-- IMAGES -->
+    (set: $xplogolink to 'https://logodownload.org/wp-content/uploads/2019/12/windows-xp-logo.png')
+    (set: $xplogoblacklink to 'https://images6.fanpop.com/image/photos/37600000/Windows-XP-logo-2-nintendofan12-3-37697471-1357-992.png')
+    (set: $fishimglink to 'https://images.pexels.com/photos/2156311/pexels-photo-2156311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+    (set: $desktopimg to 'https://wallpapercave.com/wp/wp2754860.jpg')
+
+    <!-- COMMANDS --> 
+    (set: $windowsmallsize to (float-box: "=XXX=","=YYY="))
+    (set: $windowlargesize to (float-box: "X","Y"))
+    (set: $currentwindowsizebool to true)
+    (set: $headershadow to (css: "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"))
+    (set: $desktopbox to $windowlargesize+(css: "overflow: hidden")+(bg: $desktopimg))
+    (set: $terminalwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: white)+(bg: black))
+    (set: $windowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white))
+    (set: $closebox to (css: "position: fixed; width: inherit; z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(box: "X", 2))
+    
+
     <!-- MACROS -->
     (set: $checkwindowsize to (macro: [{
-        (if: $currentwindowsizebool is true)[(set: $currentwindowsize to $windowlargesize)]
-        (else:)[(set: $currentwindowsize to $windowsmallsize)]
+        (if: $currentwindowsizebool is true)[(set: $currentwindowsize to $windowlargesize)(set: $col0_height to 53)]
+        (else:)[(set: $currentwindowsize to $windowsmallsize)(set: $col0_height to 31)]
     }]))
 
     (set: $closeboxmacro to (macro: str-type _t, str-type _o, [{
+        (set: $openwindow's (str: _t) to true)
         $closebox+(bg: $xpbluegradient)+(output: )[{
             |=
             (css: "left: 10px; top: 5px; text-shadow: 1px 1px black;")[_t]
@@ -111,6 +103,34 @@
         (if: $sound is true)[<audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Notify.mp3"></audio>]]
         
     }]))
+
+    (set: $appswitchblock to (macro: str-type _icon, str-type _passage, str-type _hook, any-type _styling, [
+        (if: _passage is (passage:)'s name)[(set: $buttonset to (css: "border-style:inset;"))](else: )[(set: $buttonset to (css: "border-style:outset;"))]
+        <!-- (set: $openwindow's _hook to true) -->
+        (if: $openwindow's (str: _passage) is true)[
+            (output: )[{
+            (hook: _hook)[$buttonstandardstyling+_styling+$buttonset[(str: "<span class='material-symbols-outlined symbols-lower symbols-lefter'>" + _icon + "</span><span style='vertical-align: top; top: 2px;'>" + _passage + "</span>")
+                                                ]]}]]
+        (else:)[(output: )[]]
+    ]))
+
+    (set: $appswitchermacro to (macro: str-type _hook, str-type _passage, [
+        (output: )[{
+            (click: (hooks-named: _hook))[
+                <!-- if the window is not open yet, open it -->
+                (if: $openwindow's (str: _passage) is false)[(t8n-arrive: "instant")(go-to: _passage)]
+                <!-- if the window is already open, and you still click it -->
+                (else: )[
+                    <!-- either youre in the passage that youre clicking on, then it will go to the desktop -->
+                    (if: (passage: )'s name is _passage)[(t8n-arrive: "instant")(go-to: "Desktop")]
+                    <!-- or youre in another passage, then it will open said passage.  -->
+                    <!-- if youre not on the desktop, it will also size the window up to fullscreen -->
+                    (else: )[
+                        (if: (passage: )'s name is not "Desktop")[(set: $currentwindowsizebool to true)]
+                        (t8n-arrive: "instant")(go-to: _passage)]
+                    ]
+                ]}]
+    ]))
     
     
 
@@ -125,6 +145,5 @@
     <script src='https://unpkg.com/browserfs@1.4.3/dist/browserfs.js'></script>
     <script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
     <script src="https://cdn.jsdelivr.net/gh/alfg/ping.js@0.2.2/dist/ping.min.js"></script>
-    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
 }\
     (t8n-arrive: "instant")(go-to: "Login")

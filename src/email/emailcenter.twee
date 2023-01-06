@@ -1,12 +1,6 @@
 :: Emailcenter
 {}\
 (bg: $bluegrey2)+(box:"X", $col0_height)[\
-  (box:"X", $col1_height)+$headershadow+(bg: $bluegrey2)[
-    ==|||||
-      (text-indent: 40)[Search]\
-    |=
-      <span class="material-symbols-outlined">search</span> \
-  ]\
   (if: $data's length > 0)[(for: each _i, ...(range: 1, $data's length))[\
     (set: $boxstyling to (hook: (str: _i)))\
     $boxstyling+(box:"X",8)[\
@@ -32,4 +26,4 @@
         (text-size: 0.6)(print: $data's (_i)'s subject)
         (text-size: 0.6)(print: $data's (_i)'s bodyshort)\
       =|
-    ]]]]\
+    ]]]]

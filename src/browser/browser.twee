@@ -42,7 +42,7 @@ $windowbox+$currentwindowsize[\
         ||=
         (box:"X", 2)[(css: 'top: 3px;')[Address]]
         =|||||||||||||||||=
-        (bg: white)+(css: "top: 5px")[(input: bind $currentBrowserPage, "X", (str: $currentBrowserPage))]
+        (bg: white)+(css: "border-style:inset;")[(input: bind $currentBrowserPage, "X", (str: $currentBrowserPage))]
         =|=
         =|=
         (link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none; margin-top: 3px;')+(button: ))[

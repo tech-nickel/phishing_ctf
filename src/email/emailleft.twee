@@ -1,10 +1,5 @@
 :: Emailleft
 (bg: (rgb: 248, 250, 255))+(box:"X", $col0_height)[\
-  $headershadow+(bg: $red)+(box:"X", $col1_height)[\
-    =><=
-
-    (colour: white)[<span class="material-symbols-outlined">edit</span> New Message ]\
-  ]\
   (box:"X", 30)[\
   
     ==|||

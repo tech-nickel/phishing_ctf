@@ -3,7 +3,7 @@ tw-story {
   color: rgb(67, 67, 67); /* Set text to green or other color */
   font-size: 20px;
   font-family: "Helvetica", "Arial", sans-serif;
-  background: rgb(222, 222, 222); /* For old browsers */
+  background-color: transparent !important;
   margin-top: 0 auto;
   padding: 0% 0%;
 }
@@ -87,10 +87,4 @@ tw-include[name="Footer"]{
 
 tw-expression[type="macro"]{
   padding: 0 !important;
-}
-
-tw-expression[name="input"]{
-  border-style:none !important;
-  border: 0;
-  border-radius: 0;
 }

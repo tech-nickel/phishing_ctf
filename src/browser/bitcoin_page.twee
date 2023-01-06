@@ -21,7 +21,7 @@
 
 
     Input amount:
-    (input: bind $usdin, "X==") US-Dollar
+    (css: "border: solit 2px black")[(input: bind $usdin, "X==")] US-Dollar
 
     (live: 0.1s)[$calcout Bitcoin]
 
