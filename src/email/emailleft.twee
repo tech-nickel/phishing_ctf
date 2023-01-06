@@ -9,7 +9,7 @@
   
     ==|||
 
-      (text-indent: 40)+(hover-style:(text-style: "bold"))[(link-repeat: 'Inbox')[(set: $activeleftpage to 0)(set: $data to $emaildata)(t8n-arrive: "instant")(goto: 'Email Postfach')]]
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[(link-repeat: 'Inbox')[(set: $activeleftpage to 0)(set: $data to $emaildata)(t8n-arrive: "instant")(goto: 'Mail')]]
       
       (text-indent: 40)+(hover-style:(text-style: "bold"))[Starred]
 
@@ -19,7 +19,7 @@
 
       (text-indent: 40)+(hover-style:(text-style: "bold"))[Draft]
 
-      (text-indent: 40)+(hover-style:(text-style: "bold"))[(link-repeat: 'Trash')[(set: $activeleftpage to 5)(set: $data to $emailtrash)(t8n-arrive: "instant")(goto: 'Email Postfach')]]
+      (text-indent: 40)+(hover-style:(text-style: "bold"))[(link-repeat: 'Trash')[(set: $activeleftpage to 5)(set: $data to $emailtrash)(t8n-arrive: "instant")(goto: 'Mail')]]
 
     =|
 

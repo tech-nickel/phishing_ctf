@@ -125,7 +125,7 @@
 
 (box: "=X=======")+(text-size:0.7)[You're greeted by a very convincing MS Office 365 Login Window]
 (box: "=X=======")+(text-size:0.7)[What are you gonna do?]
-(box: "=X=======")+(text-size:0.7)[[Go Back->Email Postfach]]\
+(box: "=X=======")+(text-size:0.7)[[Go Back->Mail]]\
 (box: "=X=======")+(text-size:0.7)+(t8n-depart: "shudder")[[Submit. What could possibly go wrong?->Virus]]
 
 <style>

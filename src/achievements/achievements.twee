@@ -7,7 +7,7 @@
 "achievement", "This is the Achievements Page. Here you can see your progress and some useful tips on how to progress through the story!",
 "welcome", "Welcome to the Game! Try exploring the [[Desktop->Desktop]]!",
 "terminal", "The [[Terminal]] is a useful tool to try out different commands and use it on the information you already gathered.",
-"email", "The [[Email Inbox->Email Postfach]] is where your game starts. The Emails in it are the introduction and there are some good clues on whats going on in there. But don't be fooled: Clicking on the wrong link might just get you in trouble!",
+"email", "The [[Email Inbox->Mail]] is where your game starts. The Emails in it are the introduction and there are some good clues on whats going on in there. But don't be fooled: Clicking on the wrong link might just get you in trouble!",
 "browser", "In the [[Browser]] you can switch between websites and look for clues and information, just like in real life. Give it a try!",
 "source", "This is the email source, looks like it is encoded, sadly. You might be able to decode it using the right tools or 'commands'",
 "sendersource", "You've found the hidden email header. Looks like there's some information about the sender and the sending server in there. I wonder what one could do with an IP address...",

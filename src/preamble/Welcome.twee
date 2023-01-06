@@ -78,6 +78,14 @@
                         '0c5582329503f93b4b243a986551d9e22e46ee9ba681d687078cbcbad0c7d023',
                         '0a49508bf91ac4f98e6a01b575e1a3f200a5d9a03d00219aea52b15b064cdf50',
                         'de6206bd52f4228ebc556c85b26e3582fa141f8839a11d2a2ca761d0f7e24ec3'))
+    
+    (set: $openwindow to (dm: 
+    "Terminal", false,
+    "Mail", false,
+    "Browser", false,
+    "Achievements", false,
+    ))
+
     <!-- MACROS -->
     (set: $checkwindowsize to (macro: [{
         (if: $currentwindowsizebool is true)[(set: $currentwindowsize to $windowlargesize)]
@@ -90,8 +98,9 @@
             (css: "left: 10px; top: 5px; text-shadow: 1px 1px black;")[_t]
             =|
             ==>
+            (link-repeat: "<span class='material-symbols-outlined mbutton'>minimize</span>")[(t8n-arrive: "instant")(go-to: _o)]
             (link-repeat: "<span class='material-symbols-outlined mbutton'>maximize</span>")[(set: $currentwindowsizebool to not it) (t8n-arrive: "instant")(go-to: (passage: )'s name)]
-            (link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(t8n-arrive: "instant")(go-to: _o)]
+            (link-repeat: "<span class='material-symbols-outlined closebutton'>close</span>")[(set: $openwindow's (str: _t) to false) (t8n-arrive: "instant")(go-to: _o)]
         }]}]))
     
     (set: $achmacro to (macro: _o, [{

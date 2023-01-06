@@ -53,18 +53,15 @@
 =><=
 $desktopbox[
 <!-- # Welcome, $username --> \
-(bg: (rgb: 178, 229, 178, 0))+(box: "X============", 10)[
-  [(box: "=XXX=")[<img src="https://archive.org/download/WindowsXPExtractedIcons/cmd.exe_14_IDI_APPICON-6.png" style="width: 40px">
+(bg: (rgb: 178, 229, 178, 0))+(box: "X=========")[
+  [(box: "X")[<img src="https://archive.org/download/WindowsXPExtractedIcons/cmd.exe_14_IDI_APPICON-6.png" style="width: 40px">
   Terminal]]<terminal|
-
-  b
-  c
-  A
-  data
-  call
-  as
-
+  [(box: "X")[<img src="https://archive.org/download/WindowsXPExtractedIcons/iexplore.exe_14_32528-7.png" style="width: 40px">
+  Browser]]<browser|
+  [(box: "X")[<img src="https://archive.org/download/WindowsXPExtractedIcons/explorer.exe_14_103-7.png" style="width: 40px">
+  Email]]<email|
+  [(box: "X")[<img src="https://archive.org/download/WindowsXPExtractedIcons/icwconn1.exe_14_200-7.png" style="width: 40px">
+  $ach_style[Achievements]]]<achievements|
 ]
 ]
 
-(click: ?terminal)[(go-to: "Terminal")]

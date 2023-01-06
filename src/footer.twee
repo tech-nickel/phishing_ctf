@@ -2,12 +2,27 @@
 {
     (set: $ach_emphasised to (color: red)+(text-style: "bold"))
     (set: $ach_normal to (color: black)+(text-style: "none"))
-    (set: $buttonstandardstyling to (css: "width: 90%;height: 1.8em; top: 2px; background-image: none; background-color: rgb(13, 63, 209); border-radius: 3px; border-color: rgb(13, 63, 209); text-align: left; color: white"))
+    (set: $buttonstandardstyling to (css: "display: inline-block; width: 10em; height: 100%; top: 2px; background-image: none; background-color: rgb(13, 63, 209); border-radius: 3px; border-color: rgb(13, 63, 209); text-align: left; color: white; padding-left: 2px"))
     (set: $buttonextrastyling to (css: ''))
 
-    (set: $taskbutton to (macro: str-type _t, str-type _o, any-type _n, [
-        (if: _o is (passage:)'s name)[(set: $buttonset to (css: "border-style:inset;"))](else: )[(set: $buttonset to (css: "border-style:outset;"))]
-        (output: )+(link-repeat: (str: "<span class='material-symbols-outlined'>" + _t + "</span><span style='vertical-align: top;'>" + _o + '</span>'), $buttonstandardstyling+$buttonset+_n+(button: ))[(t8n-arrive: "instant")(goto: _o)]]))
+        <!-- (output: )+(link-repeat: (str: "<span class='material-symbols-outlined'>" + _t + "</span><span style='vertical-align: top;'>" + _o + '</span>'), $buttonstandardstyling+$buttonset+_n+(button: ))[(t8n-arrive: "instant")(goto: _o)]])) -->
+    (set: $appswitchblock to (macro: str-type _icon, str-type _passage, str-type _hook, any-type _styling, [
+        (if: _passage is (passage:)'s name)[(set: $buttonset to (css: "border-style:inset;"))](else: )[(set: $buttonset to (css: "border-style:outset;"))]
+        <!-- (set: $openwindow's _hook to true) -->
+        (if: $openwindow's (str: _passage) is true)[
+            (output: )[{
+            (hook: _hook)[$buttonstandardstyling+_styling+$buttonset[(str: "<span class='material-symbols-outlined symbols-lower symbols-lefter'>" + _icon + "</span><span style='vertical-align: top; top: 2px;'>" + _passage + "</span>")
+                                                ]]}]]
+        (else:)[(output: )[]]
+    ]))
+    (click: ?terminal)[(set: $openwindow's (str: 'Terminal') to true) (t8n-arrive: "instant")(go-to: "Terminal")]
+    (click: ?browser)[(set: $openwindow's (str: 'Browser') to true) (t8n-arrive: "instant")(go-to: "Browser")]
+    (click: ?email)[(set: $openwindow's (str: 'Mail') to true) (t8n-arrive: "instant")(go-to: "Mail")]
+    (click: ?achievements)[(set: $openwindow's (str: 'Achievements') to true) (t8n-arrive: "instant")(go-to: "Achievements")]
+    (if: $ach_news is true)[
+    (set: $ach_style to (css: 'background-color: orange; border-color:orange'))
+    ]
+    (else: )[(set: $ach_style to (css: ''))]
 }
 (if: $showFooter)[{
 |=
@@ -22,21 +37,10 @@
 (css: "overflow: hidden")+(box: "X", 2)+(bg: $xpbluegradient)[
 |=
 =||||||||||||||||||||||||=
-[
-|=
-($taskbutton: 'terminal', 'Terminal', $buttonextrastyling)
-|=
-($taskbutton: 'email', 'Email Postfach', $buttonextrastyling)
-|=
-($taskbutton: 'language', 'Browser', $buttonextrastyling)
-|=
-(if: $ach_news is true)[
-    (set: $ach_style to (css: 'background-color: orange; border-color:orange'))
-    ]
-    (else: )[(set: $ach_style to (css: ''))]
-($taskbutton: '```help_center```', 'Achievements', $ach_style)
-=||||
-]
+[($appswitchblock: "terminal", "Terminal", "terminal", (css: ""))]
+[($appswitchblock: "email", "Mail", "email", (css: ""))]
+[($appswitchblock: "language", "Browser", "browser", (css: ""))]
+($appswitchblock: '```help_center```', 'Achievements', 'achievements', $ach_style)
 =|
 ]
 =|

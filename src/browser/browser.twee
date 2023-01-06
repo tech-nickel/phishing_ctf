@@ -20,11 +20,10 @@
 
 (if: $infected is true)[(set: $showFooter to false)]
 (if: $infected is not true)[(set: $goto to 'Desktop')](else: )[(set: $goto to 'Virus')]
-(set: $title to "Browser - " + (str: $currentBrowserPage))
 }\
 $desktopbox[\
 $windowbox+$currentwindowsize[\
-($closeboxmacro: $title, $goto)
+($closeboxmacro: "Browser", $goto)
 (bg: (rgb: 239, 236, 216))+(box: "X")+(css: "margin-top: 7px;")[(box: "X")+(css: "border-bottom: solid grey")[{
         |=
         File

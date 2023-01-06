@@ -24,6 +24,9 @@
 .symbols-lower{
   margin-top: 2px;
 }
+.symbols-lefter{
+  margin-left: 7px;
+}
 .closebutton{
   background-image: linear-gradient(rgb(217, 123, 96), rgb(213, 88, 48), rgb(160, 59, 32));
   border-radius: 5px;
@@ -33,7 +36,7 @@
   right: 5px;
 }
 .mbutton{
-  background-image: linear-gradient(rgb(44, 71, 148), rgb(32, 68, 179));
+  background-image: linear-gradient(rgb(85, 180, 236), rgb(64, 140, 228),rgb(69, 150, 224)); 
   border-radius: 5px;
   border: 2px solid white;
   margin-left: auto;
