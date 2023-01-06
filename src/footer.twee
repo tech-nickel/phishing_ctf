@@ -7,7 +7,7 @@
 
     (set: $taskbutton to (macro: str-type _t, str-type _o, any-type _n, [
         (if: _o is (passage:)'s name)[(set: $buttonset to (css: "border-style:inset;"))](else: )[(set: $buttonset to (css: "border-style:outset;"))]
-        (output: )+(link-repeat: (str: "<span class='material-symbols-outlined'>" + _t + "</span><span style='vertical-align: top;'>" + _o + '</span>'), $buttonstandardstyling+$buttonset+_n+(button: ))[(goto: _o)]]))
+        (output: )+(link-repeat: (str: "<span class='material-symbols-outlined'>" + _t + "</span><span style='vertical-align: top;'>" + _o + '</span>'), $buttonstandardstyling+$buttonset+_n+(button: ))[(t8n-arrive: "instant")(goto: _o)]]))
 }
 (if: $showFooter)[{
 |=

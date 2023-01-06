@@ -25,30 +25,43 @@
 $desktopbox[\
 $windowbox+$currentwindowsize[\
 ($closeboxmacro: $title, $goto)
-(box: "X")[
-    |=
-    =|=
-    (box:"X", 2)[Address:]
-    =|||||||||||||||=
-    (input: bind $currentBrowserPage, "X", (str: $currentBrowserPage))
-    =|=
-    =||=
-    (link-repeat: "Go", (button: "X"))[
-        (set: $currentDisplayPages to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))        
-        (if: $currentDisplayPages's length > 0)[
-            (set: $currentDisplayPage to $currentDisplayPages's 1st's name)
-            (goto: "Browser")
+(bg: (rgb: 239, 236, 216))+(box: "X")+(css: "margin-top: 7px;")[(box: "X")+(css: "border-bottom: solid grey")[{
+        |=
+        File
+        =|=
+        Edit
+        =|=
+        View
+        =||=
+        Favourites
+        =|=
+        Tools
+        =|=
+        Help
+        =|||||||||||||||||||
+    }](box: "X")+(css: "border-bottom: solid grey")[{
+        ||=
+        (box:"X", 2)[(css: 'top: 3px;')[Address]]
+        =|||||||||||||||||=
+        (bg: white)+(css: "top: 5px")[(input: bind $currentBrowserPage, "X", (str: $currentBrowserPage))]
+        =|=
+        =|=
+        (link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none; margin-top: 3px;')+(button: ))[
+            (set: $currentDisplayPages to (find: _currentDisplayPage where _currentDisplayPage's url is $currentBrowserPage, ...$browserPages))        
+            (if: $currentDisplayPages's length > 0)[
+                (set: $currentDisplayPage to $currentDisplayPages's 1st's name)
+                (goto: "Browser")
+            ]
+            (else:)[(set: $currentDisplayPage to "Browser404")(goto: "Browser")]
         ]
-        (else:)[(set: $currentDisplayPage to "Browser404")(goto: "Browser")]
-    ]
-    =|
-]
-(box: "X")[\
+        =|||||||||||||||
+    }]]\
+(box: "X")[{
     |=
     =||||||||||||||||||||
     (if: $currentDisplayPage is not 0)[
         (display: $currentDisplayPage)
     ]
     []<content|
-]\
+}]\
 ]]

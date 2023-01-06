@@ -84,5 +84,5 @@ $introwindowbox[\
         ''Browser:'' A browser that allows you to visit some websites to do different things.
         ''Achievements:'' A page where you can see wht you have accomplished and get some tips.
     ]
-    (button: "===X===")[[Understood->Desktop]]
+    (t8n-arrive: "instant")+(button: "===X===")[[Understood->Desktop]]
 ]]

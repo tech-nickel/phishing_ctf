@@ -6,7 +6,7 @@
     The project should be displayed, used in, or directed to an academic environment. -->
     (set: $loadingbar to '')
     (set: $spaces to '')
-    (after: 3s)[(goto: 'Intro')]
+    (after: 3s)[(t8n-arrive: "instant")(goto: 'Intro')]
 }
 (bg: black)+(float-box: "X", "Y")[]
 (bg: black)+(float-box: "X", "======YYYYYYYYYYYYYYYYYYYYYYYYYY=")[
