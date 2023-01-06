@@ -1,5 +1,6 @@
 :: Intro
 {
+(if: $sound is true)[<audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Startup.mp3"></audio>]
 }\
 $desktopbox[\
 $introwindowbox[\

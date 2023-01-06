@@ -14,6 +14,8 @@
     (box: "X", 8)[]
     (bg: $xplogolink)+(box: "X", 5)+(css: "margin-left: auto; margin-right: 20px; width: 170px; height: 100px")[]
     (color: white)+(css: "margin-right: 20px;")[To begin, enter your username]
+
+    (color: white)+(css: "margin-right: 20px;")[(link: "Disable Sound")[(set: $sound to false)]]
 ]\
 (css: "overflow: hidden; border-left: solid white")+(bg: $xpblue4)+(float-box: "=X", "=YYYYYY=")[
     (float-box: "X", "Y")+(css: "position: relative;")[

@@ -33,12 +33,14 @@
     (set: $col0_height to 53)
     (set: $col1_height to 5)
     (set: $moreinfoscolumnheight to (box: "X", 3))
+
     
     <!-- statics --> 
     (set: $blank to "n")
     (set: $nofblanks to 1)
     (set: $monospace to (font:"Courier"))
     (set: $clicktracker to 0)
+    (set: $sound to true)
 
     <!-- Emailright --> 
     (set: $unread_mails to 8)
