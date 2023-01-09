@@ -31,6 +31,11 @@
 [($appswitchblock: "email", "Mail", "email", (css: ""))]
 [($appswitchblock: "language", "Browser", "browser", (css: ""))]
 ($appswitchblock: '```help_center```', 'Achievements', 'achievements', $ach_style)
+=||||=
+(box: "X", 2)[
+    (css: "top: 5px")[\
+    ($getMoney:)
+    ]]
 =|
 ]
 =|
