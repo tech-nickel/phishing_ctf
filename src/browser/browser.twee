@@ -55,7 +55,7 @@ $windowbox+$currentwindowsize[\
         ]
         =|||||||||||||||
     }]]\
-(box: "X")[{
+(box: "X")+(css: "height: 80%")[{
     |=
     =||||||||||||||||||||
     (if: $currentDisplayPage is not 0)[
