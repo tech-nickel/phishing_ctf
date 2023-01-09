@@ -62,10 +62,14 @@
     (set: $money to 0.0)
 
     <!-- IMAGES -->
-    (set: $xplogolink to 'https://logodownload.org/wp-content/uploads/2019/12/windows-xp-logo.png')
-    (set: $xplogoblacklink to 'https://images6.fanpop.com/image/photos/37600000/Windows-XP-logo-2-nintendofan12-3-37697471-1357-992.png')
-    (set: $fishimglink to 'https://images.pexels.com/photos/2156311/pexels-photo-2156311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
-    (set: $desktopimg to 'https://wallpapercave.com/wp/wp2754860.jpg')
+    (set: $xplogolink to '../img/XP-logo_white.png')
+    (set: $xplogoblacklink to '../img/XP-logo.png')
+    (set: $fishimglink to '../img/pexels-photo-fish.jpg')
+    (set: $desktopimg to '../img/xpwallpaper.jpg')
+    (set: $cmdimg to '../img/cmd.exe.png')
+    (set: $iexplorerimg to '../img/iexplore.exe.png')
+    (set: $explorerimg to '../img/explorer.exe.png')
+    (set: $icwconnimg to '../img/icwconn1.exe.png')
 
     <!-- COMMANDS --> 
     (set: $windowsmallsize to (float-box: "=XXX=","=YYY="))
