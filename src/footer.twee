@@ -10,8 +10,7 @@
     ($appswitchermacro: "email", "Mail")
     ($appswitchermacro: "achievements", "Achievements")
     (if: $ach_news is true)[
-    (set: $ach_style to (css: 'background-color: orange; border-color:orange'))
-    ]
+    (set: $ach_style to (css: 'background-color: orange; border-color:orange'))]
     (else: )[(set: $ach_style to (css: ''))]
 }
 (if: $showFooter)[{
@@ -54,7 +53,7 @@
   [(box: "X")[(str: '<img src=' + $explorerimg + ' style="width: 40px">')
   Email]]<email|
   [(box: "X")[(str: '<img src=' + $icwconnimg + ' style="width: 40px">')
-  $ach_style[Achievements]]]<achievements|
+  [$ach_style(print: 'Achievements')]]]<achievements|
 ]]\
 </div>]
 

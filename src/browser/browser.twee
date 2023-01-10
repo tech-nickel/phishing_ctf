@@ -11,8 +11,7 @@
     (dm: "name", "Microsoft", "url", "www.entsperrung-microsoft.biz")
 ))
 
-(if: $ach_browser is not true)[(set: $ach_news to true)]
-(set: $ach_browser to true)
+($achmacro: 'browser')
 
 <!-- (set: $currentDisplayPage) -->
 

@@ -2,7 +2,7 @@
 {
 (change: ?Page, (text-size: 0.7))
 (set: $twshow to true)
-($achmacro: $ach_terminal)
+($achmacro: 'terminal')
 ($checkwindowsize: )
 }
 $desktopbox[\
