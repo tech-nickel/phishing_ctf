@@ -1,22 +1,22 @@
 :: Emailtext
 {  
     (set: $maxtexts to 15)
-    <!-- The bossman has the name MaxHarms-->
+    <!-- The bossman has the name Max Mustermann-->
     <!-- Email 1 --> 
     (set: $title1 to "Next Daily Meeting")
-    (set: $sender1 to "MaxHarms")
+    (set: $sender1 to "Max Mustermann")
     (set: $receiver1 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others] ")
     (set: $text1 to "Hi everyone,
     As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 9am.
     We need to finish by 09:30, due to a meeting with a client, so please be there at 9am.
     
-    Sincerely Eike
+    Sincerely  Max
 
     //[Further Information]<tag64| (click-replace: ?tag64)
-    [MaxMustermannis your supervisor.
+    [Max Mustermann is your supervisor.
     Your usual daily meeting is scheduled for 10am and takes about an hour.]//
     ")
-    (set: $answer1 to "Hi Eike, 
+    (set: $answer1 to "Hi  Max, 
     alrighty, no problemo! Meet you at 9am!
     
     Regards " + $username)
@@ -79,20 +79,20 @@
 
     <!-- Email 3 --> 
     (set: $title3 to "URGENT!!!")
-    (set: $sender3 to "MaxHarms")
+    (set: $sender3 to "Max Mustermann")
     (set: $receiver3 to "$username")
     (set: $text3 to "Hi $username, 
     as discussed yesterday, the client can't wait wait any longer for the data. 
     Please get it done before the daily meeting, or have it neary completed so I can put their mind at ease during the other meeting with them.
     Just enter the data into the sharepoint that is linked in the wiki and I will forward it.
     
-    Eike
+     Max
     
     //[Further Information]<tag74| (click-replace: ?tag74)
-    [MaxMustermannis your supervisor.
+    [Max Mustermannis your supervisor.
     You had a chat about that data for the client yesterday.]//
     ")
-    (set: $answer3 to "Hi Eike, 
+    (set: $answer3 to "Hi  Max, 
     no worries, I will stop eating and sleeping until the data is ready to be presented!
     Customer is king!
     Regards " + $username)
@@ -132,7 +132,7 @@
     (set: $coffeebreak to true)
     (set: $talkwithboss to true)
     (set: $title6 to "Re: URGENT!!!")
-    (set: $sender6 to "MaxHarms")
+    (set: $sender6 to "Max Mustermann")
     (set: $receiver6 to "$username")
     (set: $text6 to "Hi $username,
     I'm sorry to inform you, that the client has requested additional data. 
@@ -143,7 +143,7 @@
     There is a macro installed to help you, so may want to enable them.
 
     Get to this as soon as you read mail, as said, time is running short.
-    Eike
+     Max
     
     Additional Actions: 
     [[Open the Attachment and enable macros->Virus]]
@@ -153,10 +153,10 @@
     (if: $coffeebreak)[[Take a coffee break->Coffee Break]]
 
     //[Further Information]<tag84| (click-replace: ?tag84)
-    [MaxMustermannis your supervisor.
+    [Max Mustermannis your supervisor.
     You may remember the other mail about this topic.]//
     ")
-    (set: $answer6 to "Hi Eike,
+    (set: $answer6 to "Hi  Max,
     if you don't mind me asking, I was supposed to put the data in the sharepoint, wasn't I? I am not sure if this is the right approach, since files with macros have a high risk of being unsafe! 
     
     But we can discuss this in the meeting later on, I don't want to keep you busy with my concerns!
