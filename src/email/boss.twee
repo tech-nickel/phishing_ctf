@@ -3,7 +3,7 @@
 (set: $talkwithboss to false)
 You decide to ask your supervisor about the mail, since something does not feel right.
 As you walk into his office, he thanks you for completing the data sheet.
-//Seems your suspicions were right.// You tell Eike about the mail you got, asking for additional data and the excel file with the macro.
+//Seems your suspicions were right.// You tell Maxabout the mail you got, asking for additional data and the excel file with the macro.
 He tells you that he did not write another mail and that the project for the client is completed. 
 
 Return to your [[office.->Mail]]

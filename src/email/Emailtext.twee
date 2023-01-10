@@ -1,10 +1,10 @@
 :: Emailtext
 {  
     (set: $maxtexts to 15)
-    <!-- The bossman has the name Eike Harms-->
+    <!-- The bossman has the name MaxHarms-->
     <!-- Email 1 --> 
     (set: $title1 to "Next Daily Meeting")
-    (set: $sender1 to "Eike Harms")
+    (set: $sender1 to "MaxHarms")
     (set: $receiver1 to "[Team 1]<tag63| (click-replace: ?tag63)[$username and 7 others] ")
     (set: $text1 to "Hi everyone,
     As announced yesterday, the timeslot for the next daily meeting has been shifted from 10am to 9am.
@@ -13,7 +13,7 @@
     Sincerely Eike
 
     //[Further Information]<tag64| (click-replace: ?tag64)
-    [Eike Harms is your supervisor.
+    [MaxMustermannis your supervisor.
     Your usual daily meeting is scheduled for 10am and takes about an hour.]//
     ")
     (set: $answer1 to "Hi Eike, 
@@ -79,7 +79,7 @@
 
     <!-- Email 3 --> 
     (set: $title3 to "URGENT!!!")
-    (set: $sender3 to "Eike Harms")
+    (set: $sender3 to "MaxHarms")
     (set: $receiver3 to "$username")
     (set: $text3 to "Hi $username, 
     as discussed yesterday, the client can't wait wait any longer for the data. 
@@ -89,7 +89,7 @@
     Eike
     
     //[Further Information]<tag74| (click-replace: ?tag74)
-    [Eike Harms is your supervisor.
+    [MaxMustermannis your supervisor.
     You had a chat about that data for the client yesterday.]//
     ")
     (set: $answer3 to "Hi Eike, 
@@ -132,7 +132,7 @@
     (set: $coffeebreak to true)
     (set: $talkwithboss to true)
     (set: $title6 to "Re: URGENT!!!")
-    (set: $sender6 to "Eike Harms")
+    (set: $sender6 to "MaxHarms")
     (set: $receiver6 to "$username")
     (set: $text6 to "Hi $username,
     I'm sorry to inform you, that the client has requested additional data. 
@@ -153,7 +153,7 @@
     (if: $coffeebreak)[[Take a coffee break->Coffee Break]]
 
     //[Further Information]<tag84| (click-replace: ?tag84)
-    [Eike Harms is your supervisor.
+    [MaxMustermannis your supervisor.
     You may remember the other mail about this topic.]//
     ")
     (set: $answer6 to "Hi Eike,
