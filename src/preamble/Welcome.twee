@@ -114,7 +114,7 @@
     (set: $achmacro to (macro:str-type _achname, [{
         (output: )[
             (if: ($ach_text's (str: _achname))'s 2 is false)[
-            (if: $sound is true)[(str: '<audio autoplay><source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Notify.mp3"></audio>')]
+            (if: $sound is true)[(str: '<audio autoplay><source src="../sound/WindowsXP-Notify.mp3"></audio>')]
             (set: ($ach_text's (str: _achname))'s 2 to true)
             (set: $ach_news to true)]]
     }]))
