@@ -1,6 +1,6 @@
 :: Microsoft
 <!DOCTYPE html>
-<html dir="ltr" lang="EN-US"><body class="cb" data-bind="defineGlobals: ServerData, bodyCssClass"><div><!--  --> <div data-bind="component: { name: &#39;background-image&#39;, publicMethods: backgroundControlMethods }"><div class="background" style="z-index: -10" role="presentation" data-bind="css: { app: isAppBranding }, style: { background: backgroundStyle }"><!-- ko if: smallImageUrl --> <div data-bind="backgroundImage: smallImageUrl()" style="background-image: url(&quot;https://auth.gfx.ms/16.000.27773.2/images/Backgrounds/0-small.jpg?x=138bcee624fa04ef9b75e86211a9fe0d&quot;);"></div><!-- /ko --><!-- ko if: backgroundImageUrl --> <div class="backgroundImage" data-bind="backgroundImage: backgroundImageUrl()" style="background-image: url(&quot;https://auth.gfx.ms/16.000.27773.2/images/Backgrounds/0.jpg?x=a5dbd4393ff6a725c7e62b61df7e72f0&quot;);"></div><!-- ko if: useImageMask --><!-- /ko --><!-- /ko --> </div></div> <form name="f1" id="i0281" novalidate="novalidate" spellcheck="false" method="post" target="_top" autocomplete="off" data-bind="autoSubmit: forceSubmit, attr: { action: postUrl }" action="login.php"><!-- ko withProperties: { '$loginPage': $data } --> <div class="outer" data-bind="component: { name: &#39;page&#39;,
+<html dir="ltr" lang="EN-US"><body class="cb" data-bind="defineGlobals: ServerData, bodyCssClass"><div><!--  --> <div data-bind="component: { name: &#39;background-image&#39;, publicMethods: backgroundControlMethods }"><div class="background" style="z-index: -10" role="presentation" data-bind="css: { app: isAppBranding }, style: { background: backgroundStyle }"><!-- ko if: smallImageUrl --> <div data-bind="backgroundImage: smallImageUrl()" style="background-image: url(&quot;https://auth.gfx.ms/16.000.27773.2/images/Backgrounds/0-small.jpg?x=138bcee624fa04ef9b75e86211a9fe0d&quot;);"></div><!-- /ko --><!-- ko if: backgroundImageUrl --> <div class="backgroundImage" data-bind="backgroundImage: backgroundImageUrl()" style="background-image: url(&quot;https://auth.gfx.ms/16.000.27773.2/images/Backgrounds/0.jpg?x=a5dbd4393ff6a725c7e62b61df7e72f0&quot;);"></div><!-- ko if: useImageMask --><!-- /ko --><!-- /ko --> </div></div> <form name="f1" id="i0281" novalidate="novalidate" spellcheck="false" target="_top" autocomplete="off" action=><!-- ko withProperties: { '$loginPage': $data } --> <div class="outer" data-bind="component: { name: &#39;page&#39;,
         params: {
             serverData: svr,
             showButtons: svr.AV,
@@ -102,7 +102,7 @@
             css: {
                 &#39;inline-block&#39;: svr.BH,
                 &#39;col-xs-12 primary&#39;: isSecondaryButtonVisible() &amp;&amp; !svr.BH,
-                &#39;col-xs-24&#39;: !(isSecondaryButtonVisible() || svr.BH) }" class="inline-block"> <input type="submit" id="idSIButton9" class="btn btn-block btn-primary" data-bind="
+                &#39;col-xs-24&#39;: !(isSecondaryButtonVisible() || svr.BH) }" class="inline-block"> <input type="button" onclick="test()" id="idSIButton9" class="btn btn-block btn-primary" data-bind="
             attr: {
                 &#39;id&#39;: primaryButtonId || &#39;idSIButton9&#39;,
                 &#39;aria-describedby&#39;: primaryButtonDescribedBy },
@@ -123,10 +123,18 @@
 </body>
 </html>
 
-(box: "=X=======")+(text-size:0.7)[You're greeted by a very convincing MS Office 365 Login Window]
-(box: "=X=======")+(text-size:0.7)[What are you gonna do?]
-(box: "=X=======")+(text-size:0.7)[[Go Back->Mail]]\
-(box: "=X=======")+(text-size:0.7)+(t8n-depart: "shudder")[[Submit. What could possibly go wrong?->Virus]]
+<script>
+  window.test = function() {
+    var money = eval("$money");
+    var currentBrowserPage = eval("$currentBrowserPage");
+    money -= 100.0; 
+    $money = money;
+    $currentDisplayPage = "MicrosoftCredsStolen";
+    $currentBrowserPage = "".concat(currentBrowserPage,"/CredentialsGone");
+    //window.location.reload();
+  };
+
+</script>
 
 <style>
   body {
@@ -7194,3 +7202,4 @@
     background-color: rgba(0, 0, 0, .3)
   }
 </style>
+
