@@ -5,8 +5,7 @@ before_script:
   - cd ./tools/tweego
 pages:
   script:
-    - echo 'Building page...'
-    - ./tweego ../../src -o ../../out/index.html
+    - tweego ../../src -o ../../out/index.html
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
