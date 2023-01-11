@@ -8,6 +8,7 @@ BrowserFS.configure({ fs: "IndexedDB", options: {} }, function (err) {
     var pinging;
     var nslookup;
     var prompt;
+    var telnet;
     
     // --------------------------------------------------------------
     function list(path) {
@@ -191,7 +192,7 @@ Name:	m1crosoft.com
 Address: 95.182.157.245`;
 
         if (cmd.args[0] == undefined) {
-            term.echo("Plese specify an address");
+            term.echo("Please specify an address");
         } else if (cmd.args[0].match(/google.de/)){
             term.echo(googleOut);
         } else if (cmd.args[0].match(/m1crosoft.com/)){
@@ -482,13 +483,44 @@ Nmap done: 1 IP address (1 host up) scanned in 0.16 seconds`;
             } else if (cmd.args[0].match(/95.182.157.245/)) {
                 term.echo(output);
             } else {
-                term.echo("Address unknown");
+                term.error("Address unknown");
             }
         },
 
         telnet: function(cmd) {
-            
-        }
+            telnet = true;
+            prompt = term.get_prompt();
+            var text = `\n 150.76.67.95 | dimitri | YXZlcnlzZWN1cmVwYXNzd29yZA== \n`;
+
+            if (cmd.args[0] == undefined) {
+                term.set_prompt('telnet>');
+            } else if (cmd.args[0].match(/95.182.157.245/)) {
+                term.set_prompt('telnet>');
+                fs.writeFile('/keys.bak', text);
+            } else {
+                term.error("Address unknown");
+            }
+        },
+
+        ssh: function(cmd) {
+            telnet = true;
+            help = `usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]
+           [-F configfile] [-I pkcs11] [-i identity_file]
+           [-J [user@]host[:port]] [-L address] [-l login_name] [-m mac_spec]
+           [-O ctl_cmd] [-o option] [-p port] [-Q query_option] [-R address]
+           [-S ctl_path] [-W host:port] [-w local_tun[:remote_tun]]
+           [user@]hostname [command]`;
+            prompt = term.get_prompt();
+
+            if (cmd.args[0] == undefined) {
+                term.echo(help);
+            } else if (cmd.args[0].match(/dm@95.182.157.245/)) {
+                term.set_prompt([color('white', root + '@hackerpc'), ':', color('blue', cwd),'$ '].join('') );
+            } else {
+                term.error("telnet: Unable to connect to remote host: Connection refused");
+            }  
+        },
 
         ping: function(cmd) {
             ping(cmd, cmd.args[0]);
@@ -506,7 +538,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.16 seconds`;
                 term.echo(output);
             } 
             else {
-                term.echo("Address unknown")
+                term.error("Address unknown");
             }
         },
 
@@ -612,9 +644,18 @@ Nmap done: 1 IP address (1 host up) scanned in 0.16 seconds`;
                     term.set_prompt(prompt);
                 }
                 return false;
-            } else if (nslookup) {
+            } 
+            
+            if (nslookup) {
                 if (e.which == 67 && e.ctrlKey) { // CTRL+c
                     nslookup = false;
+                    term.set_prompt(prompt);
+                }
+            }
+
+            if (telnet) {
+                if (e.which == 67 && e.ctrlKey) { // CTRL+c
+                    telnet = false;
                     term.set_prompt(prompt);
                 }
             }
