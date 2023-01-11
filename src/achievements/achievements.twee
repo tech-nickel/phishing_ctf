@@ -3,6 +3,7 @@
 (enchant: ?Page, (text-size: 0.7))
 (set: $ach_fbox to (float-box: "================XXXXX=", "=YYYY==================")+(bg:white))
 (set: $ach_news to false)
+<!-- (set: $ach_style to (css: '')) -->
 ($checkwindowsize: )
 }\
 $desktopbox[\
@@ -11,8 +12,11 @@ $windowbox+$currentwindowsize[\
 (text-style: "bold")[
     (str: ($ach_text's achievement)'s 1)]
 {
-(for: each _achievement, ...(dm-names: $ach_text))[
+<!-- (for: each _achievement, ...(dm-names: $ach_text))[
 (if: ($ach_text's (str: _achievement))'s 2 is true)[
-* (str: ($ach_text's (str: _achievement))'s 1)]]
+* (str: ($ach_text's (str: _achievement))'s 1)]] -->
+(for: each _achievement, ...$done_ach)[
+(if: _achievement is not '0')[
+* (str:  _achievement)]]
 }
 ]]

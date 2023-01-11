@@ -66,7 +66,7 @@
     ))
     (set: $ach_text to (dm:
         "achievement", (a: "This is the Achievements Page. Here you can see your progress and some useful tips on how to progress through the story!", false),
-        "welcome", (a: "Welcome to the Game! Try exploring the [[Desktop->Desktop]]!", true),
+        "welcome", (a: "Welcome to the Game! Try exploring the [[Desktop->Desktop]]!", false),
         "terminal", (a: "The [[Terminal]] is a useful tool to try out different commands and use it on the information you already gathered.", false),
         "email", (a: "The [[Email Inbox->Mail]] is where your game starts. The Emails in it are the introduction and there are some good clues on whats going on in there. But don't be fooled: Clicking on the wrong link might just get you in trouble!", false),
         "browser", (a: "In the [[Browser]] you can switch between websites and look for clues and information, just like in real life. Give it a try!",false),
@@ -75,6 +75,7 @@
         "ssh", (a: "This is the ssh command. SSH is a software package that enables secure system administration and file transfers over insecure networks. This can be useful if you want to access the data of a computer behind an ip address. You need a username and password to get access, though.",false),
         "telnet", (a: "The software Telnet runs on your system and links your Personal Computer to a network server. The fact that it converts all data into plain text is considered vulnerable.",false),
         ))
+    (set: $done_ach to (a: '0'))
     (set: $money to 0.0)
 
     <!-- IMAGES -->
@@ -158,11 +159,14 @@
         }]}]))
     
     (set: $achmacro to (macro:str-type _achname, [{
-        (output: )[
+        (output: )[{
             (if: ($ach_text's (str: _achname))'s 2 is false)[
-            (if: $sound is true)[(str: '<audio autoplay><source src="../sound/WindowsXP-Notify.mp3"></audio>')]
-            (set: ($ach_text's (str: _achname))'s 2 to true)
-            (set: $ach_news to true)]]
+                (if: $sound is true)[(str: '<audio autoplay><source src="../sound/WindowsXP-Notify.mp3"></audio>')]
+                (set: ($ach_text's (str: _achname))'s 2 to true)
+                (set: $ach_news to true)
+                (put: ($ach_text's (str: _achname))'s 1 into $done_ach's ($done_ach's length + 1))
+            ]
+        }]
     }]))
 
     (set: $appswitchblock to (macro: str-type _icon, str-type _passage, str-type _hook, any-type _styling, [
@@ -170,8 +174,12 @@
         <!-- (set: $openwindow's _hook to true) -->
         (if: $openwindow's (str: _passage) is true)[
             (output: )[{
-            (hook: _hook)[$buttonstandardstyling+_styling+$buttonset[(str: "<span class='material-symbols-outlined symbols-lower symbols-lefter'>" + _icon + "</span><span style='vertical-align: top; top: 2px;'>" + _passage + "</span>")
-                                                ]]}]]
+                (hook: _hook)[
+                    <!-- $buttonstandardstyling+_styling+$buttonset[(str: "<span class='material-symbols-outlined symbols-lower symbols-lefter'>" + _icon + "</span><span style='vertical-align: top; top: 2px;'>" + _passage + "</span>") -->
+                    $buttonstandardstyling+_styling+$buttonset[(str: "<img class='symbols-lower symbols-lefter' src=" + _icon + " style='width: 25px'><span style='vertical-align: top; top: 2px;'>" + _passage + "</span>")
+                    ]
+                ]
+            }]]
         (else:)[(output: )[]]
     ]))
 
@@ -220,4 +228,5 @@
     <script src='https://unpkg.com/jsvi@0.1.0/vi.js'></script>
     <script src="https://cdn.jsdelivr.net/gh/alfg/ping.js@0.2.2/dist/ping.min.js"></script>
 }\
+    ($achmacro: 'welcome')
     (t8n-arrive: "instant")(go-to: "Login")

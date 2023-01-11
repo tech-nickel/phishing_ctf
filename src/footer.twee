@@ -9,9 +9,13 @@
     ($appswitchermacro: "browser", "Browser")
     ($appswitchermacro: "email", "Mail")
     ($appswitchermacro: "achievements", "Achievements")
-    (if: $ach_news is true)[
-    (set: $ach_style to (css: 'background-color: orange; border-color:orange'))]
-    (else: )[(set: $ach_style to (css: ''))]
+    (if: $ach_news is not true)[(set: $ach_style to (css: ''))]
+    (else: )[(set: $ach_style to (css: 'background-color: orange; border-color:orange'))]
+    (event: when $ach_news is false)[(set: $ach_style to (css: ''))]
+    (event: when $ach_news is true)[
+        (set: $ach_style to (css: 'background-color: orange; border-color:orange'))
+        (replace: ?achswitchblock)[($appswitchblock: $icwconnimg, 'Achievements', 'achievements', $ach_style)]
+        ]
 }
 (if: $showFooter)[{
 |=
@@ -26,10 +30,10 @@
 (css: "overflow: hidden")+(box: "X", 2)+(bg: $xpbluegradient)[
 |=
 =||||||||||||||||||||||||=
-[($appswitchblock: "terminal", "Terminal", "terminal", (css: ""))]
-[($appswitchblock: "email", "Mail", "email", (css: ""))]
-[($appswitchblock: "language", "Browser", "browser", (css: ""))]
-($appswitchblock: '```help_center```', 'Achievements', 'achievements', $ach_style)
+[($appswitchblock: $cmdimg, "Terminal", "terminal", (css: ""))]
+[($appswitchblock: $explorerimg, "Mail", "email", (css: ""))]
+[($appswitchblock: $iexplorerimg, "Browser", "browser", (css: ""))]
+[($appswitchblock: $icwconnimg, 'Achievements', 'achievements', $ach_style)]<achswitchblock|
 =||||=
 (box: "X", 2)[
     (css: "top: 5px")[\

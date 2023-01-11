@@ -1,5 +1,7 @@
 :: Emailcenter
-{}\
+{
+
+}\
 (bg: $bluegrey2)+(box:"X", $col0_height)[\
   (if: $data's length > 0)[(for: each _i, ...(range: 1, $data's length))[\
     (set: $boxstyling to (hook: (str: _i)))\
@@ -8,7 +10,7 @@
       =><=
       =|||||||=
 
-        {(text-size: 0.7) + (link-repeat: (str: $data's (_i)'s sender))[
+        {(text-size: 0.7) + (link-repeat: (str: $data's (_i)'s sender))[{
         (change: (hooks-named: (str: $clicktracker)), (bg: $bluegrey2))
         (set: $clicktracker to _i)
         (change: (hooks-named: (str: _i)), (bg: white))
@@ -16,14 +18,14 @@
         (hide: ?emailsource)
         (replace: ?emailbody)[(print: $data's ($clicktracker)'s body)]
         (replace: ?emailto)[(print: $data's ($clicktracker)'s receiver)]
-        (replace: ?emailfrom)[(link-repeat: $data's ($clicktracker)'s sender)[
-          (show: ?emailsource)
-          (if: $ach_sendersource is not true)[(set: $ach_news to true)]
-          (set: $ach_sendersource to true)
-          ]]
+        (replace: ?emailfrom)[{
+          (link-repeat: $data's ($clicktracker)'s sender)[($achmacro: "sendersource")(print: $ach_news)
+            (show: ?emailsource)]
+          }]
         (replace: ?emailhead)[(print: $data's ($clicktracker)'s subject)]
-        (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]]}
+        (if: $unread_mails > 0)[(set: $unread_mails to it - 1)]
+        }]}
         (text-size: 0.6)(print: $data's (_i)'s subject)
-        (text-size: 0.6)(print: $data's (_i)'s bodyshort)\
+        (text-size: 0.6)(print: $data's (_i)'s bodyshort)
       =|
     ]]]]

@@ -1,9 +1,7 @@
 :: Emailright
 |emailright)[
 ## [(print: $emaildata's ($clicktracker)'s subject)]<emailhead|
-$moreinfoscolumnheight[\
-    //From// (text-style: "bold")+(color: "grey")[(link-repeat: (str: $emaildata's ($clicktracker)'s sender))[(goto: "Mail")]]<emailfrom| //to// (color: grey)[(str: $emaildata's ($clicktracker)'s receiver)]<emailto|
-    ]\
+    {//From// (text-style: "bold")+(color: "grey")[{(link-repeat: (str: $emaildata's ($clicktracker)'s sender))[(goto: "Mail")]}]<emailfrom| //to// (color: grey)[(str: $emaildata's ($clicktracker)'s receiver)]<emailto|}
 |emailsource)[$source1]\
 <hr>
 [(str: $emaildata's ($clicktracker)'s body)]<emailbody|
