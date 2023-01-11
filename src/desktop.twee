@@ -9,45 +9,6 @@
   (set: $IP2 to "10.152.12.195")
   (set: $IP3 to "outlook.com")
   
-  <!-- Emailcenter -->
-  (display: "Emailtext")
-  (set: $ach_welcome to true)
-
-  <!-- Emaildata --> 
-  (set: $emaildata to (a:))
-  (set: $emailcontent to (dm:))
-  (set: $emailtrash to (a:))
-
-  (for: each _i, ...(range: 1, $maxtexts)) [
-    (set: $success to false)
-    <script>
-      try {
-          eval("$title" + _i);
-          var emailcontent = new Map();
-          emailcontent.set("subject","$title" + _i);
-          emailcontent.set("sender","$sender" + _i);
-          emailcontent.set("receiver","$receiver" + _i);
-          emailcontent.set("body","$text" + _i);
-          emailcontent.set("answer", "$answer" + _i);
-          $emailcontent = emailcontent;
-          $success = true;
-      } catch (e) {
-        $success = false;
-        console.log("rejected " + _i)
-      } 
-    </script>
-    <script>
-    if ($success) {
-        var emailcontent = $emailcontent;
-        emailcontent.set("bodyshort",bodies_short(eval($emailcontent.get("body"))));
-        emailcontent.set("bodyhtml",bodies_html(eval($emailcontent.get("body"))));
-        $emailcontent = emailcontent;
-    }
-    </script>
-    (if: $success is true)[(set: $emaildata's (_i) to $emailcontent)]
-  ]
-
-(set: $data to $emaildata)
 
 }\
 =><=
