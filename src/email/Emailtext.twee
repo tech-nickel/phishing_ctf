@@ -193,11 +193,12 @@
     |attachment)[What are you going to do with the downloaded attachment.]
 
 
-
-    |attachment)[(link-goto:'I really lost track of my latest purchases. I should check that file out immediately!','Microsoft')]
+    |attachment)[[I really lost track of my latest purchases. I should check that file out immediately!]<c1|]
 
     |attachment)[(link-goto:'I have a weird feeling about this. I should check the content with a text editor first.','SourceCode')]
 
+    (set: $link to (joined:'/','C:','Users',$username,'Downloads','YourPaymentAdviceTT-49851687516(1).PDF.html.HtM'))
+    (click: ?c1)[(set: $currentDisplayPage to 'Microsoft') + (set: $currentBrowserPage to $link) + (goto:'Browser')]
     ")
     (set: $answer7 to "Good morning,
     nice scam dickhead! I'm totally broke, I can't buy stuff, even if I wanted to! You're totally exploited!

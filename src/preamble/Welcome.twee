@@ -120,7 +120,6 @@
             $success = true;
         } catch (e) {
             $success = false;
-            console.log("rejected " + _i)
         } 
         </script>
         <script>
