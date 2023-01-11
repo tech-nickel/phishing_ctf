@@ -2,7 +2,9 @@
 image: alpine:latest
 pages:
   script:
+    - pwd
     - cd ./tools/tweego
+    - pwd
     - tweego ../../src -o ../../out/index.html
   artifacts:
     paths:
