@@ -1,17 +1,7 @@
 :: Desktop
 {
   (change: ?passage, (text-size: 0.7))
-
   (set: $showFooter to true)
-
-  <!-- Email source --> 
-  (set: $IP1 to "192.92.97.209")
-  (set: $IP2 to "10.152.12.195")
-  (set: $IP3 to "outlook.com")
-  
-
 }\
 =><=
-$desktopbox[
-<!-- # Welcome, $username --> \
-]
+$desktopbox[]

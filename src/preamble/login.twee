@@ -2,11 +2,12 @@
 {
     <!-- <script>alert('1')</script> -->
 (set:str-type $username to '')
+(enchant: ?warning, (color: white))
 }
 (bg: $xpdarkblue1)+(css: "border-bottom: solid rgb(244, 194, 66); z-index: 2")+(float-box: "X", "Y=======")[]
 (bg: $xpdarkblue1)+(css: "border-top: solid rgb(244, 194, 66)")+(float-box: "X", "=======Y")[
     ==>
-    (color: white)(print: "A username must be longer than 3 characters")
+    [(print: "A username must be longer than 3 characters and may not contain special characters")]<warning|
 ]
 (bg: $xpblue4)+(float-box: "X=", "=YYYYYY=")[
     ==>
@@ -23,11 +24,21 @@
     (corner-radius: 10)+(bg: $xpdarkbluegradient)+(box: "=XXXXXX============", 5)[\
         (bg: $fishimglink)+(box: 'X===', 4)+(css: "position: absolute; top: 10px; left: 10px; width: 80px; height: 80px")+(corner-radius: 6)+(border: 'solid')+(border-colour: $yellow)+(border-size: 2)[]
         (css: "position: absolute; left: 25%; top: 20px")+(color: white)(print: 'Username:')
-        (css: "position: absolute; left: 0; bottom: 2px; background-color: white")+(corner-radius: 6)(input: bind $username, "==XXX===")\
+        (css: (str: "position: absolute; left: 0; bottom: 2px; background-color: white;" + $userinputinvalid))+(corner-radius: 6)(input: bind $username, "==XXX===")\
         (css: "position: absolute; bottom: 4px; right: 29%;")[{
             [(link-repeat: '>', (bg: $xpgreengradient)+(css: 'border: none')+(button: ))[
-                (if: ((length of $username) >= 3))[(set: $continue to 1)]]]
-            (event: when $continue is 1)[(t8n-arrive: "instant")(go-to: 'Loading')]
+                (if: ((length of $username) >= 3) and not ($username contains '<') and not ($username contains '/'))[(set: $continue to 1)]
+                (else: )[(set: $continue to 2)]
+                ]]
+            (event: when $continue is 1)[
+                (t8n-arrive: "instant")(go-to: 'Loading')
+                ]
+            (event: when $continue is 2)[
+                (set: $continue to 0)
+                (enchant: ?warning, (color: red))
+                (set: $userinputinvalid to "border-color: red")
+                (t8n-arrive: "instant")(go-to: 'Login')  
+                ]
         }]
     ]
 ]]
@@ -38,6 +49,8 @@ $(window).on("keypress", function (e) {
         let uname = $username;
         if (uname.length >= 3 & uname.indexOf('<') <= -1 & uname.indexOf('/') <= -1)
             $continue = 1;
+        else
+            $continue = 2;
     }
 });
 </script>

@@ -47,6 +47,11 @@
     (set: $playsoundonceonlogin to true)
     <!-- init usdin for virus page -->
     (set: $usdin to "5")
+    <!-- Email source --> 
+    (set: $IP1 to "192.92.97.209")
+    (set: $IP2 to "10.152.12.195")
+    (set: $IP3 to "outlook.com")
+  
     (set: $closeicon to "<span class='material-symbols-outlined'>close</span>")
     (set: $transid to (a: 'dbdbac0b3072d7677fc94eebaf8eba9e81e5c3b7de6899dae12c98d6799b065a', 
                         '1ed7259a5243a1e9e33e45d8d2510bc0470032df964956e18b9f56fa65c96e89',
@@ -91,7 +96,7 @@
     (set: $terminalwindowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: white)+(bg: black))
     (set: $windowbox to (corner-radius: 8)+(border: 'solid')+(border-color: $xpblue3)+(text-color: black)+(bg: white))
     (set: $closebox to (css: "position: fixed; width: inherit; z-index:1; border-radius: 5px 5px 0 0;")+(bg: $xpbluegradient)+(color: white)+(box: "X", 2))
-
+    (set: $userinputinvalid to "")
 
     <!-- SET EMAILDATA -->
     <!-- Emaildata --> 
