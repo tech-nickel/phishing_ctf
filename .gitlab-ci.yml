@@ -9,6 +9,7 @@ pages:
     paths:
       # The folder that contains the files to be exposed at the Page URL
       - ./out/index.html
+      - public
   only:
   - pipeline
   #rules:
