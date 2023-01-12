@@ -2,6 +2,7 @@
 image: alpine:latest
 pages:
   script:
+    - mkdir public
     - cd ./tools/tweego
     - chmod +x tweego
     - ./tweego ../../src -o ../../public/index.html
