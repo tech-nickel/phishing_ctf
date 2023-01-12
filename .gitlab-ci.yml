@@ -4,11 +4,10 @@ pages:
   script:
     - cd ./tools/tweego
     - chmod +x tweego
-    - ./tweego ../../src -o ../../out/index.html
+    - ./tweego ../../src -o ../../public/index.html
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
-      - ./out/index.html
       - public
   only:
   - pipeline
