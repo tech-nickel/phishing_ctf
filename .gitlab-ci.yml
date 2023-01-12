@@ -3,7 +3,7 @@ image: alpine:latest
 pages:
   script:
     - cd ./tools/tweego
-    - sudo chmod +x tweego
+    - chmod +x tweego
     - ./tweego ../../src -o ../../out/index.html
   artifacts:
     paths:
