@@ -1,11 +1,11 @@
 # The Docker image that will be used to build your app
 image: alpine:latest
-# Functions that should be executed before the build script is run
-before_script:
-  - cd ./tools/tweego
 pages:
   script:
-    - tweego ../../src -o ../../out/index.html
+    - mkdir public
+    - cd ./tools/tweego
+    - chmod +x tweego
+    - ./tweego ../../src -o ../../public/index.html
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
