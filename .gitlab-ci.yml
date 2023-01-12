@@ -2,9 +2,8 @@
 image: alpine:latest
 pages:
   script:
-    - pwd
     - cd ./tools/tweego
-    - pwd
+    - sudo chmod +x tweego
     - ./tweego ../../src -o ../../out/index.html
   artifacts:
     paths:
